@@ -15,6 +15,7 @@ Never confuses "search failed" with "artifact physically unrecoverable"; both
 are reported separately using the truth-side damage metadata.
 """
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -27,9 +28,12 @@ if ROOT not in sys.path:
 from core.carve import carve_png_anchors  # noqa: E402
 from core.config import BUDGET  # noqa: E402
 from core.ingest import ingest_image  # noqa: E402
-from core.pipeline import build_artifact  # noqa: E402
+import numpy as np  # noqa: E402
+
+from core.pipeline import assembly_bytes, build_artifact  # noqa: E402
 from core.rank import make_ranker  # noqa: E402
 from core.search import ReconStatus, reconstruct_png  # noqa: E402
+from generator.generate_case import CORPUS_IDS, build_corpus  # noqa: E402
 
 
 # ---------------------------------------------------------------- helpers
@@ -66,6 +70,20 @@ def _classify_reconstruction(recon_status: ReconStatus,
     if recon_status is ReconStatus.VERIFIED:
         return "EXACT_RECOVERY" if sha_match else "FALSE_VERIFIED"
     return recon_status.value                  # EXHAUSTED_* / REJECTED_ANCHOR
+
+
+def _original_files(truth: Dict[str, Any]) -> Dict[str, bytes]:
+    """Rebuild every original file exactly as the generator made it (same corpus + seed).
+
+    The generator builds the corpus first from default_rng([corpus_id, seed]), so
+    this is byte-exact. Each rebuilt file is checked against the truth SHA-256.
+    """
+    rng = np.random.default_rng([CORPUS_IDS[truth["corpus"]], truth["seed"]])
+    originals = {f["name"]: f["data"] for f in build_corpus(rng, truth["corpus"])}
+    for entry in truth["files"]:
+        if hashlib.sha256(originals[entry["name"]]).hexdigest() != entry["sha256"]:
+            raise RuntimeError(f"rebuilt {entry['name']} does not match its truth SHA-256")
+    return originals
 
 
 def _step_ranks(image, events, true_blocks: List[int]) -> List[Optional[int]]:
@@ -110,6 +128,7 @@ def evaluate_case(image_path: str, truth_path: str,
 
     image = ingest_image(image_path, block_size=block_size)
     found_anchors = carve_png_anchors(image)
+    originals = _original_files(truth)
     ranker = make_ranker(image, ranker_name)
 
     truth_pngs = [entry for entry in truth["files"] if entry["type"] == "png"]
@@ -161,6 +180,11 @@ def evaluate_case(image_path: str, truth_path: str,
         if truth_entry and not truth_entry["overwritten_blocks"]:
             ranks = _step_ranks(image, result.events, truth_entry["blocks"])
         all_ranks.extend(ranks)
+        prefix_match: Optional[bool] = None       # only judged for PARTIAL artifacts
+        if artifact["state"] == "PARTIAL":
+            verified = assembly_bytes(image, artifact["assembly"])[:artifact["verified_bytes"]]
+            original = originals.get(truth_entry["name"], b"") if truth_entry else b""
+            prefix_match = verified == original[:len(verified)]
 
         sha_match: Optional[bool]
         if truth_entry and result.status is ReconStatus.VERIFIED and result.reconstructed_sha256:
@@ -208,6 +232,7 @@ def evaluate_case(image_path: str, truth_path: str,
             "state": artifact["state"],
             "verified_bytes": artifact["verified_bytes"],
             "step_ranks": ranks,
+            "partial_prefix_matches_original": prefix_match,
             "sha_match": sha_match,
             "classification": classification,
             "exact_recovery": bool(sha_match) if sha_match is not None else False,
@@ -239,6 +264,9 @@ def evaluate_case(image_path: str, truth_path: str,
         "state_counts": {state: sum(1 for r in artifact_results if r["state"] == state)
                          for state in ("PROVEN", "PLAUSIBLE", "PARTIAL", "REJECTED")},
         "attempts_per_artifact": _round(total_valcalls / denom) if denom else None,
+        "partial_prefix_match": _ratio(
+            sum(1 for r in artifact_results if r["partial_prefix_matches_original"] is True),
+            sum(1 for r in artifact_results if r["state"] == "PARTIAL")),
         "top1": _ratio(sum(1 for r in all_ranks if r == 1), len(all_ranks)),
         "top5": _ratio(sum(1 for r in all_ranks if r is not None and r <= 5), len(all_ranks)),
         "png_artifacts_in_truth": len(truth_pngs),
@@ -392,6 +420,7 @@ def _totals(reports: List[Dict[str, Any]]) -> Dict[str, Any]:
         "known_intact_recovered": _ratio(intact_num, intact_den),
         "total_attempts": attempts,
         "attempts_per_artifact": _round(attempts / artifacts) if artifacts else None,
+        "partial_prefix_match": total("partial_prefix_match"),
         "top1": total("top1"),
         "top5": total("top5"),
     }

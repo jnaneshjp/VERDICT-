@@ -79,6 +79,7 @@ export type RankerTotals = {
   known_intact_recovered: Ratio;
   total_attempts: number;
   attempts_per_artifact: number | null;
+  partial_prefix_match: Ratio;
   top1: Ratio;
   top5: Ratio;
 };

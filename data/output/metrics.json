@@ -30,6 +30,11 @@
         },
         "total_attempts": 320,
         "attempts_per_artifact": 13.913,
+        "partial_prefix_match": {
+          "numerator": 16,
+          "denominator": 16,
+          "ratio": 1.0
+        },
         "top1": {
           "numerator": 54,
           "denominator": 75,
@@ -191,6 +196,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -242,6 +248,7 @@
               "state": "PARTIAL",
               "verified_bytes": 6213,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -314,6 +321,7 @@
                 1,
                 null
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -383,6 +391,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -438,6 +447,7 @@
                 2,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -502,6 +512,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -515,6 +526,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.3333,
+            "partial_prefix_match": {
+              "numerator": 4,
+              "denominator": 4,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 19,
               "denominator": 26,
@@ -679,6 +695,7 @@
               "step_ranks": [
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -752,6 +769,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -808,6 +826,7 @@
                 2,
                 null
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -869,6 +888,7 @@
               "state": "PARTIAL",
               "verified_bytes": 14453,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -882,6 +902,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.75,
+            "partial_prefix_match": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 7,
               "denominator": 10,
@@ -1061,6 +1086,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1122,6 +1148,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1176,6 +1203,7 @@
                 2,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1253,6 +1281,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1266,6 +1295,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.5,
+            "partial_prefix_match": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 15,
               "denominator": 19,
@@ -1432,6 +1466,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1481,6 +1516,7 @@
               "step_ranks": [
                 null
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1538,6 +1574,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1594,6 +1631,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1607,6 +1645,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.5,
+            "partial_prefix_match": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 6,
               "denominator": 9,
@@ -1785,6 +1828,7 @@
               "state": "PARTIAL",
               "verified_bytes": 10333,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1849,6 +1893,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1899,6 +1944,7 @@
               "step_ranks": [
                 2
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1949,6 +1995,7 @@
               "step_ranks": [
                 null
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2010,6 +2057,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2023,6 +2071,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.6,
+            "partial_prefix_match": {
+              "numerator": 4,
+              "denominator": 4,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 7,
               "denominator": 11,
@@ -2097,6 +2150,11 @@
         },
         "total_attempts": 286,
         "attempts_per_artifact": 12.4348,
+        "partial_prefix_match": {
+          "numerator": 13,
+          "denominator": 13,
+          "ratio": 1.0
+        },
         "top1": {
           "numerator": 81,
           "denominator": 84,
@@ -2258,6 +2316,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2309,6 +2368,7 @@
               "state": "PARTIAL",
               "verified_bytes": 6213,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2390,6 +2450,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2459,6 +2520,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2514,6 +2576,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2578,6 +2641,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2591,6 +2655,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.1667,
+            "partial_prefix_match": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 27,
               "denominator": 28,
@@ -2755,6 +2824,7 @@
               "step_ranks": [
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2828,6 +2898,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2884,6 +2955,7 @@
                 1,
                 3
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2945,6 +3017,7 @@
               "state": "PARTIAL",
               "verified_bytes": 14453,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2958,6 +3031,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.25,
+            "partial_prefix_match": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 9,
               "denominator": 10,
@@ -3137,6 +3215,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3198,6 +3277,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3252,6 +3332,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3329,6 +3410,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3342,6 +3424,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.75,
+            "partial_prefix_match": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 19,
               "denominator": 19,
@@ -3508,6 +3595,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3569,6 +3657,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3626,6 +3715,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3682,6 +3772,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3695,6 +3786,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.0,
+            "partial_prefix_match": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 12,
               "denominator": 12,
@@ -3873,6 +3969,7 @@
               "state": "PARTIAL",
               "verified_bytes": 10333,
               "step_ranks": [],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3937,6 +4034,7 @@
                 2,
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3987,6 +4085,7 @@
               "step_ranks": [
                 1
               ],
+              "partial_prefix_matches_original": true,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4052,6 +4151,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4113,6 +4213,7 @@
                 1,
                 1
               ],
+              "partial_prefix_matches_original": null,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4126,6 +4227,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "partial_prefix_match": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "top1": {
               "numerator": 14,
               "denominator": 15,
