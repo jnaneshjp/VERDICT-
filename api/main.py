@@ -22,7 +22,7 @@ CASE_ID = re.compile(r"^[A-Za-z0-9_-]+$")    # keeps case ids from reaching outs
 app = FastAPI(title="VERDICT")
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000"],
                    allow_methods=["GET", "POST"], allow_headers=["*"],
-                   expose_headers=["X-Verdict-Preview"])
+                   expose_headers=["X-Verdict-Preview", "X-Verdict-Rows", "X-Verdict-Height"])
 
 
 class AnalyzeRequest(BaseModel):
@@ -79,8 +79,12 @@ def preview(case_id: str, artifact_id: str, ranker: str = Query("baseline")) -> 
     rendered = preview_png(artifact["state"], data)
     if rendered is None:
         raise HTTPException(404, f"no preview for a {artifact['state']} artifact")
-    png, note = rendered
-    return Response(png, media_type="image/png", headers={"X-Verdict-Preview": note})
+    png, info = rendered
+    return Response(png, media_type="image/png", headers={
+        "X-Verdict-Preview": info["note"],
+        "X-Verdict-Rows": str(info["rows"]),
+        "X-Verdict-Height": str(info["height"]),
+    })
 
 
 @app.get("/metrics")

@@ -3,8 +3,8 @@
 PROVEN  -> the recovered PNG bytes themselves, unchanged.
 PARTIAL -> a picture of ONLY the verified rows: the verified IDAT data is
            inflated, every row that decoded completely is drawn, and every row
-           after it is flat grey. Grey is a placeholder, not recovered data —
-           no missing bytes are guessed or filled.
+           after it is a diagonal hatch. The hatch is a placeholder that cannot
+           be mistaken for image content — no missing bytes are guessed or filled.
 REJECTED -> no preview.
 """
 import io
@@ -16,9 +16,21 @@ from PIL import Image as PILImage
 
 from core.validate_png import _row_bytes, validate_png
 
-GREY = 128
+HATCH_DARK, HATCH_LIGHT = 40, 200     # stripe colours for rows that were not recovered
+HATCH_PERIOD, HATCH_WIDTH = 10, 3     # a light stripe 3 px wide every 10 px
 CHANNELS = {0: 1, 2: 3, 6: 4}              # greyscale, RGB, RGBA (8-bit only)
 PIL_MODE = {0: "L", 2: "RGB", 6: "RGBA"}
+
+
+def _hatch(height: int, width: int, channels: int) -> np.ndarray:
+    """Diagonal stripes, used only as a background for rows that were not recovered."""
+    y, x = np.indices((height, width))
+    stripe = (x + y) % HATCH_PERIOD < HATCH_WIDTH
+    plane = np.where(stripe, HATCH_LIGHT, HATCH_DARK).astype(np.uint8)
+    pixels = np.repeat(plane[:, :, None], channels, axis=2)
+    if channels == 4:
+        pixels[:, :, 3] = 255                          # opaque, so the hatch stays visible
+    return pixels.reshape(height, width * channels)
 
 
 def _paeth(a: int, b: int, c: int) -> int:
@@ -66,7 +78,7 @@ def partial_rows(png_prefix: bytes) -> Optional[Tuple[PILImage.Image, int, int]]
         return None
 
     stride = _row_bytes(width, result.color_type, 8)
-    pixels = np.full((height, width * channels), GREY, dtype=np.uint8)
+    pixels = _hatch(height, width, channels)
     prev = bytearray(width * channels)
     rows = 0
     for y in range(min(len(inflated) // stride, height)):
@@ -81,10 +93,13 @@ def partial_rows(png_prefix: bytes) -> Optional[Tuple[PILImage.Image, int, int]]
     return PILImage.fromarray(pixels.reshape(shape), PIL_MODE[result.color_type]), rows, height
 
 
-def preview_png(state: str, artifact_bytes: bytes) -> Optional[Tuple[bytes, str]]:
-    """PNG bytes to show for an artifact, plus a short note. None = no preview."""
+def preview_png(state: str, artifact_bytes: bytes) -> Optional[Tuple[bytes, dict]]:
+    """PNG bytes to show for an artifact, plus facts about it. None = no preview."""
     if state == "PROVEN":
-        return artifact_bytes, "recovered file, unchanged"
+        with PILImage.open(io.BytesIO(artifact_bytes)) as im:
+            height = im.height
+        return artifact_bytes, {"rows": height, "height": height,
+                                "note": "recovered file, unchanged"}
     if state != "PARTIAL":
         return None
     rendered = partial_rows(artifact_bytes)
@@ -93,4 +108,5 @@ def preview_png(state: str, artifact_bytes: bytes) -> Optional[Tuple[bytes, str]
     image, rows, height = rendered
     buffer = io.BytesIO()
     image.save(buffer, format="PNG")
-    return buffer.getvalue(), f"{rows} of {height} rows verified; grey rows are not recovered"
+    return buffer.getvalue(), {"rows": rows, "height": height,
+                               "note": f"{rows} of {height} rows verified; hatched area not recovered"}
