@@ -51,12 +51,23 @@ table {
   border-radius: 6px;
 }
 
-/* Brief highlight on rows whose state differs when the ranker toggle flips (< 1 s). */
+/* Brief highlight on rows whose state differs when the ranker toggle flips (< 1 s).
+   Drawn as a translucent layer ON TOP of every cell, so it spans the whole row edge
+   to edge — thumbnail included — instead of hiding behind opaque cell content. */
 @keyframes row-flash {
-  0% { background-color: rgb(61 214 140 / 0.22); }
-  100% { background-color: transparent; }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
-.row-flash {
+.row-flash > td {
+  position: relative;
+}
+.row-flash > td::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(61 214 140 / 0.24);
+  pointer-events: none;
+  opacity: 0;
   animation: row-flash 900ms ease-out;
 }
 
