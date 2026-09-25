@@ -27,8 +27,8 @@ from evaluation.evaluate import evaluate_case  # noqa: E402
 CASE = "demo01"
 IMAGE_PATH = os.path.join(ROOT, "data", "cases", f"{CASE}.img")
 TRUTH_PATH = os.path.join(ROOT, "data", "truth", f"{CASE}.json")
-OUT_DIR = os.path.join(ROOT, "data", "evaluation")
-OUT_JSON = os.path.join(OUT_DIR, f"{CASE}.json")
+OUT_DIR = os.path.join(ROOT, "data", "output")
+OUT_JSON = os.path.join(OUT_DIR, "metrics.json")
 
 
 def _write_report(report):

@@ -8,7 +8,7 @@ and never leave a deleted file intact): phase-1 files are separated by 0-3 free
 blocks left by earlier use, and 2 more live files are deleted after phase 2.
 Writes data/cases/<case>.img and data/truth/<case>.json.
 
-Usage: python generator/generate_case.py --case demo01 --corpus demo --seed 42
+Usage: python generator/generate_case.py --case demo01 --corpus demo --seed 37
 """
 import argparse
 import datetime

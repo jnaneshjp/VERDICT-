@@ -1,0 +1,457 @@
+{
+  "case_id": "demo01",
+  "image_sha256": "16c2c2000970b9d1b0f219728a0b1e22e17b342628cd0f652793af88520a8743",
+  "block_size": 4096,
+  "block_count": 2000,
+  "search_config": {
+    "budget": 60,
+    "ranker": "BaselineRanker (physical locality)"
+  },
+  "anchor_metrics": {
+    "expected": [
+      {
+        "byte_offset": 0,
+        "block": 0,
+        "artifact": "img_04_spiral.png"
+      },
+      {
+        "byte_offset": 8192,
+        "block": 2,
+        "artifact": "img_03_terrain.png"
+      },
+      {
+        "byte_offset": 45056,
+        "block": 11,
+        "artifact": "img_05_plasma.png"
+      },
+      {
+        "byte_offset": 86016,
+        "block": 21,
+        "artifact": "img_01_spiral.png"
+      },
+      {
+        "byte_offset": 126976,
+        "block": 31,
+        "artifact": "img_02_terrain.png"
+      },
+      {
+        "byte_offset": 151552,
+        "block": 37,
+        "artifact": "img_06_spiral.png"
+      }
+    ],
+    "found": [
+      {
+        "byte_offset": 0,
+        "block": 0
+      },
+      {
+        "byte_offset": 8192,
+        "block": 2
+      },
+      {
+        "byte_offset": 45056,
+        "block": 11
+      },
+      {
+        "byte_offset": 86016,
+        "block": 21
+      },
+      {
+        "byte_offset": 126976,
+        "block": 31
+      },
+      {
+        "byte_offset": 151552,
+        "block": 37
+      }
+    ],
+    "true_positive_count": 6,
+    "missed": [],
+    "false_positive_count": 0,
+    "false_positives": [],
+    "precision": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": 1.0
+    },
+    "recall": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": 1.0
+    }
+  },
+  "artifact_results": [
+    {
+      "anchor": {
+        "byte_offset": 0,
+        "block": 0
+      },
+      "artifact": "img_04_spiral.png",
+      "truth": {
+        "size": 27553,
+        "sha256": "25d42ec060e0207eb500f9fabac596eb6145a4375ba79e99c20b07b86717e417",
+        "blocks": [
+          0,
+          1,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "status": "live",
+        "corrupted_blocks": [],
+        "overwritten_blocks": [],
+        "damage_class": "intact",
+        "bytes_still_present": true
+      },
+      "reconstruction": {
+        "status": "VERIFIED",
+        "reason": "validator returned VALID",
+        "reconstructed_length": 27553,
+        "reconstructed_sha256": "25d42ec060e0207eb500f9fabac596eb6145a4375ba79e99c20b07b86717e417",
+        "path": [
+          0,
+          1,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "search_path": [
+          0,
+          1,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "verified_upto": 7,
+        "validation_count": 12,
+        "backtrack_count": 5,
+        "branches_tried": 12,
+        "max_depth": 7,
+        "final_validator_status": "VALID",
+        "final_validator_reason": "valid"
+      },
+      "sha_match": true,
+      "classification": "EXACT_RECOVERY",
+      "exact_recovery": true
+    },
+    {
+      "anchor": {
+        "byte_offset": 8192,
+        "block": 2
+      },
+      "artifact": "img_03_terrain.png",
+      "truth": {
+        "size": 12375,
+        "sha256": "1e4cf00fa57358ec21f7bb48fbaa6f4a113b8579f7c70e7527000b09cba4147c",
+        "blocks": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "status": "partially_overwritten",
+        "corrupted_blocks": [],
+        "overwritten_blocks": [
+          4,
+          5
+        ],
+        "damage_class": "partially_overwritten",
+        "bytes_still_present": false
+      },
+      "reconstruction": {
+        "status": "EXHAUSTED_CANDIDATES",
+        "reason": "all backtracking alternatives exhausted",
+        "reconstructed_length": 0,
+        "reconstructed_sha256": null,
+        "path": [
+          2
+        ],
+        "search_path": [
+          2,
+          8
+        ],
+        "verified_upto": 1,
+        "validation_count": 17,
+        "backtrack_count": 14,
+        "branches_tried": 17,
+        "max_depth": 3,
+        "final_validator_status": "INVALID",
+        "final_validator_reason": "chunk_crc_mismatch"
+      },
+      "sha_match": null,
+      "classification": "EXHAUSTED_CANDIDATES",
+      "exact_recovery": false
+    },
+    {
+      "anchor": {
+        "byte_offset": 45056,
+        "block": 11
+      },
+      "artifact": "img_05_plasma.png",
+      "truth": {
+        "size": 36923,
+        "sha256": "212609facb063fc3270a37193c4d2e8c3f8d34d0d88819d4c4367d8ad73997fa",
+        "blocks": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          28,
+          29,
+          30
+        ],
+        "status": "deleted",
+        "corrupted_blocks": [],
+        "overwritten_blocks": [],
+        "damage_class": "deleted_intact_bytes",
+        "bytes_still_present": true
+      },
+      "reconstruction": {
+        "status": "EXHAUSTED_CANDIDATES",
+        "reason": "all backtracking alternatives exhausted",
+        "reconstructed_length": 0,
+        "reconstructed_sha256": null,
+        "path": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "search_path": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          9
+        ],
+        "verified_upto": 6,
+        "validation_count": 23,
+        "backtrack_count": 15,
+        "branches_tried": 23,
+        "max_depth": 8,
+        "final_validator_status": "INVALID",
+        "final_validator_reason": "chunk_crc_mismatch"
+      },
+      "sha_match": null,
+      "classification": "EXHAUSTED_CANDIDATES",
+      "exact_recovery": false
+    },
+    {
+      "anchor": {
+        "byte_offset": 86016,
+        "block": 21
+      },
+      "artifact": "img_01_spiral.png",
+      "truth": {
+        "size": 28229,
+        "sha256": "739b4121e35a0c7eaec9a146eb961fa0e029d80865a5301e3564b47cc5c95c8e",
+        "blocks": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "status": "live",
+        "corrupted_blocks": [],
+        "overwritten_blocks": [],
+        "damage_class": "intact",
+        "bytes_still_present": true
+      },
+      "reconstruction": {
+        "status": "VERIFIED",
+        "reason": "validator returned VALID",
+        "reconstructed_length": 28229,
+        "reconstructed_sha256": "739b4121e35a0c7eaec9a146eb961fa0e029d80865a5301e3564b47cc5c95c8e",
+        "path": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "search_path": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "verified_upto": 7,
+        "validation_count": 8,
+        "backtrack_count": 1,
+        "branches_tried": 8,
+        "max_depth": 7,
+        "final_validator_status": "VALID",
+        "final_validator_reason": "valid"
+      },
+      "sha_match": true,
+      "classification": "EXACT_RECOVERY",
+      "exact_recovery": true
+    },
+    {
+      "anchor": {
+        "byte_offset": 126976,
+        "block": 31
+      },
+      "artifact": "img_02_terrain.png",
+      "truth": {
+        "size": 21356,
+        "sha256": "f0f40cc616d5e2f6f612edb2b3dc9a3ae27cfe40bd799f30e43a1981fe60f07f",
+        "blocks": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "status": "live",
+        "corrupted_blocks": [
+          32
+        ],
+        "overwritten_blocks": [],
+        "damage_class": "byte_flip_corruption",
+        "bytes_still_present": false
+      },
+      "reconstruction": {
+        "status": "EXHAUSTED_CANDIDATES",
+        "reason": "all backtracking alternatives exhausted",
+        "reconstructed_length": 0,
+        "reconstructed_sha256": null,
+        "path": [
+          31
+        ],
+        "search_path": [
+          31,
+          35
+        ],
+        "verified_upto": 1,
+        "validation_count": 17,
+        "backtrack_count": 14,
+        "branches_tried": 17,
+        "max_depth": 3,
+        "final_validator_status": "INVALID",
+        "final_validator_reason": "chunk_crc_mismatch"
+      },
+      "sha_match": null,
+      "classification": "EXHAUSTED_CANDIDATES",
+      "exact_recovery": false
+    },
+    {
+      "anchor": {
+        "byte_offset": 151552,
+        "block": 37
+      },
+      "artifact": "img_06_spiral.png",
+      "truth": {
+        "size": 20675,
+        "sha256": "7831925d5ca72746c88f4bed85f65b31e4b52e9be201c105616523a3a2f321d8",
+        "blocks": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42
+        ],
+        "status": "live",
+        "corrupted_blocks": [
+          42
+        ],
+        "overwritten_blocks": [],
+        "damage_class": "byte_flip_corruption",
+        "bytes_still_present": false
+      },
+      "reconstruction": {
+        "status": "EXHAUSTED_CANDIDATES",
+        "reason": "all backtracking alternatives exhausted",
+        "reconstructed_length": 0,
+        "reconstructed_sha256": null,
+        "path": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "search_path": [
+          37,
+          38,
+          39,
+          40,
+          34
+        ],
+        "verified_upto": 4,
+        "validation_count": 21,
+        "backtrack_count": 15,
+        "branches_tried": 21,
+        "max_depth": 6,
+        "final_validator_status": "INVALID",
+        "final_validator_reason": "chunk_crc_mismatch"
+      },
+      "sha_match": null,
+      "classification": "EXHAUSTED_CANDIDATES",
+      "exact_recovery": false
+    }
+  ],
+  "aggregate_metrics": {
+    "png_artifacts_in_truth": 6,
+    "png_anchors_expected": 6,
+    "png_anchors_found": 6,
+    "reconstructions_attempted": 6,
+    "verified_count": 2,
+    "exact_recovery": {
+      "numerator": 2,
+      "denominator": 6,
+      "ratio": 0.3333
+    },
+    "false_verified_count": 0,
+    "exhausted_candidates_count": 4,
+    "exhausted_budget_count": 0,
+    "rejected_anchor_count": 0,
+    "total_validator_calls": 98,
+    "avg_validator_calls_per_anchor": 16.3333,
+    "avg_backtracks_per_anchor": 10.6667,
+    "max_backtracks": 15,
+    "avg_search_depth": 5.6667,
+    "max_search_depth": 8,
+    "known_intact_bytes": {
+      "denominator": 3,
+      "artifacts": [
+        "img_01_spiral.png",
+        "img_04_spiral.png",
+        "img_05_plasma.png"
+      ],
+      "baseline_recovered": {
+        "numerator": 2,
+        "denominator": 3,
+        "ratio": 0.6667
+      }
+    }
+  },
+  "limitations": [
+    "Baseline reconstruction uses a fixed physical-locality ranker with top_k=8 and validation budget=60; known-intact artifacts whose correct successor block sits outside that window (e.g. a large physical gap in a fragmented PNG) are not recovered by the current search strategy and are NOT evidence that the artifact is physically unrecoverable.",
+    "P0 evaluates PNG artifacts only; logs/CSVs from the truth are listed but not scored for reconstruction.",
+    "'Byte-flip corruption' failures are physical-damage cases: the validator's CRC check correctly rejects them and no search strategy over intact blocks can recover altered bytes."
+  ]
+}

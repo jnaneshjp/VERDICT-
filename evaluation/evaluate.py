@@ -334,8 +334,9 @@ def main() -> None:
     parser.add_argument("--case", default="demo01")
     parser.add_argument("--image-path", default=None)
     parser.add_argument("--truth-path", default=None)
-    parser.add_argument("--output-dir",
-                        default=os.path.join(ROOT, "data", "evaluation"))
+    parser.add_argument("--output",
+                        default=os.path.join(ROOT, "data", "output", "metrics.json"),
+                        help="Where to write the metrics JSON (served verbatim by the API).")
     parser.add_argument("--no-write", action="store_true",
                         help="Do not write the JSON report to disk.")
     parser.add_argument("--quiet", action="store_true",
@@ -351,8 +352,8 @@ def main() -> None:
         _print_report(report)
 
     if not args.no_write:
-        os.makedirs(args.output_dir, exist_ok=True)
-        out_path = os.path.join(args.output_dir, f"{args.case}.json")
+        out_path = args.output
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as handle:
             json.dump(report, handle, indent=2)
         print(f"\nreport written to {os.path.relpath(out_path, ROOT)}")

@@ -40,3 +40,12 @@ def find_png_anchors(raw: bytes, block_size: int = BLOCK_SIZE) -> List[Anchor]:
 def carve_png_anchors(image: Image) -> List[Anchor]:
     """Carve the PNG anchors of an already-ingested Image."""
     return find_png_anchors(image.raw, block_size=image.block_size)
+
+
+# Deterministic classification (CLAUDE.md §9): signature -> type -> category. No ML.
+CATEGORY_BY_TYPE = {"png": "image"}
+
+
+def classify(signature: str) -> dict:
+    """Map a carved signature to its file type and investigative category."""
+    return {"type": signature, "category": CATEGORY_BY_TYPE[signature]}
