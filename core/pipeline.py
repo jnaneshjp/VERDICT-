@@ -329,11 +329,15 @@ def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") 
     }
 
 
+def output_path(case_id: str, ranker_name: str) -> str:
+    return os.path.join(OUTPUT_DIR, f"{case_id}_{ranker_name}.json")
+
+
 def run_case(case_id: str, ranker_name: str = "baseline") -> str:
-    """Analyse data/cases/<case>.img and write data/output/<case>.json. Returns the path."""
+    """Analyse data/cases/<case>.img and write data/output/<case>_<ranker>.json. Returns the path."""
     report = analyze_image(os.path.join(CASES_DIR, f"{case_id}.img"), case_id, ranker_name)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    out_path = os.path.join(OUTPUT_DIR, f"{case_id}.json")
+    out_path = output_path(case_id, ranker_name)
     with open(out_path, "w", encoding="utf-8") as handle:
         json.dump(report, handle, indent=2, ensure_ascii=False)
     return out_path
