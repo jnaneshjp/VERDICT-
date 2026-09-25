@@ -19,6 +19,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 0,
+      "width": 180,
+      "height": 260,
       "assembly": [
         0,
         1,
@@ -373,6 +375,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 2,
+      "width": 176,
+      "height": 164,
       "assembly": [
         2
       ],
@@ -752,6 +756,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 11,
+      "width": 275,
+      "height": 292,
       "assembly": [
         11,
         12,
@@ -1218,6 +1224,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 21,
+      "width": 190,
+      "height": 279,
       "assembly": [
         21,
         22,
@@ -1572,6 +1580,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 31,
+      "width": 189,
+      "height": 241,
       "assembly": [
         31
       ],
@@ -1951,6 +1961,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 37,
+      "width": 212,
+      "height": 176,
       "assembly": [
         37,
         38,

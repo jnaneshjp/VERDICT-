@@ -270,6 +270,8 @@ def build_artifact(image: Image, recon: ReconstructionResult, art_id: str,
         "type": kind["type"],
         "category": kind["category"],
         "anchor_block": recon.anchor_block,
+        "width": result.width,                  # from the verified IHDR (None if IHDR not verified)
+        "height": result.height,
         "assembly": assembly,
         "state": state,
         "verified_bytes": verified,

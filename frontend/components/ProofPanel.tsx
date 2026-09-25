@@ -63,7 +63,8 @@ function Mark({ ok }: { ok: boolean | null }) {
 export function ChecksTable({ checks }: { checks: Check[] }) {
   if (checks.length === 0) return <p className="text-sm text-zinc-500">No checks recorded.</p>;
   return (
-    <table className="w-full text-left text-sm">
+    <div className="overflow-x-auto">
+    <table className="w-full min-w-[420px] text-left text-sm">
       <thead className="text-xs uppercase text-zinc-500">
         <tr>
           <th className="py-1 pr-3">Check</th>
@@ -83,5 +84,6 @@ export function ChecksTable({ checks }: { checks: Check[] }) {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }

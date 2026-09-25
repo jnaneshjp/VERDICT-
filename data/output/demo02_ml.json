@@ -19,6 +19,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 0,
+      "width": 229,
+      "height": 237,
       "assembly": [
         0
       ],
@@ -258,6 +260,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 9,
+      "width": 206,
+      "height": 297,
       "assembly": [
         9,
         10,
@@ -651,6 +655,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 22,
+      "width": 271,
+      "height": 194,
       "assembly": [
         22
       ],
@@ -1035,6 +1041,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 24,
+      "width": 282,
+      "height": 220,
       "assembly": [
         24,
         25,

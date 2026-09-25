@@ -31,7 +31,8 @@ export function MetricsPanel({ metrics }: { metrics: Remote<Metrics> }) {
 
   return (
     <Card title={title} right={<span className="text-xs text-zinc-500">cases: {metrics.data.cases.join(", ")}</span>}>
-      <table className="w-full text-left text-sm">
+      <div className="overflow-x-auto">
+      <table className="w-full min-w-[480px] text-left text-sm">
         <thead className="text-xs uppercase text-zinc-500">
           <tr>
             <th className="py-1 pr-3">Metric</th>
@@ -49,6 +50,7 @@ export function MetricsPanel({ metrics }: { metrics: Remote<Metrics> }) {
           ))}
         </tbody>
       </table>
+      </div>
       <p className="mt-2 text-xs text-zinc-500">
         Top-1/top-5 count only steps where the path so far was correct, so their denominators differ between rankers.
       </p>

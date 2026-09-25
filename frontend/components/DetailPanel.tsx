@@ -92,13 +92,13 @@ export function DetailPanel({ caseId, ranker, report, anchor }: Props) {
   return (
     <div className="space-y-4">
       <Card title={title} right={<StateBadge state={artifact.state} />}>
-        <div className="grid gap-4 md:grid-cols-[auto_1fr]">
+        <div className="grid gap-4 md:grid-cols-[minmax(0,auto)_minmax(0,1fr)]">
           <PreviewImage caseId={caseId} artifact={artifact} ranker={ranker} />
           <div className="space-y-2 text-sm">
             <p className="leading-relaxed text-zinc-200">{artifact.explanation}</p>
             <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 font-mono text-xs text-zinc-400">
               <dt>id</dt><dd>{artifact.id}</dd>
-              <dt>assembly</dt><dd>[{artifact.assembly.join(", ")}]</dd>
+              <dt>assembly</dt><dd className="break-words">[{artifact.assembly.join(", ")}]</dd>
               <dt>verified bytes</dt>
               <dd>{artifact.verified_bytes}{artifact.expected_bytes !== null && ` / ${artifact.expected_bytes}`}</dd>
               <dt>sha256</dt><dd className="break-all">{artifact.sha256 ?? "—"}</dd>
@@ -106,9 +106,9 @@ export function DetailPanel({ caseId, ranker, report, anchor }: Props) {
           </div>
         </div>
       </Card>
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <Card title="Proof panel — search trail"><Timeline trail={artifact.trail} /></Card>
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <Card title="Format checks"><ChecksTable checks={artifact.checks} /></Card>
           <Card title="Triage"><TriageBox artifact={artifact} /></Card>
         </div>

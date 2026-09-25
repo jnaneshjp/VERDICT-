@@ -37,6 +37,8 @@ export type Artifact = {
   type: string;
   category: string;
   anchor_block: number;
+  width: number | null; // from the verified IHDR
+  height: number | null;
   assembly: number[];
   state: EvidenceState;
   verified_bytes: number;
@@ -105,11 +107,19 @@ export function fetchMetrics(): Promise<Metrics> {
   return getJson<Metrics>("/metrics");
 }
 
+export function previewUrl(caseId: string, artifactId: string, ranker: RankerName): string {
+  return `${API_URL}/artifact/${caseId}/${artifactId}/preview?ranker=${ranker}`;
+}
+
+// "PNG image · 183×259" — type and category from classification, size from IHDR.
+export function typeLabel(a: Artifact): string {
+  const size = a.width && a.height ? ` · ${a.width}×${a.height}` : "";
+  return `${a.type.toUpperCase()} ${a.category}${size}`;
+}
+
 // The preview is fetched as a blob so we can also read the verified-row headers.
 export async function fetchPreview(caseId: string, artifactId: string, ranker: RankerName): Promise<Preview> {
-  const response = await fetch(`${API_URL}/artifact/${caseId}/${artifactId}/preview?ranker=${ranker}`, {
-    cache: "no-store",
-  });
+  const response = await fetch(previewUrl(caseId, artifactId, ranker), { cache: "no-store" });
   if (!response.ok) {
     const body = await response.json().catch(() => null);
     throw new Error(body?.detail ?? `${response.status} ${response.statusText}`);

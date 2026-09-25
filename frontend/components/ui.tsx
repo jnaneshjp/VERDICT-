@@ -20,8 +20,8 @@ export function StateBadge({ state }: { state: EvidenceState | undefined }) {
 
 export function Card({ title, children, right }: { title: string; children: ReactNode; right?: ReactNode }) {
   return (
-    <section className="rounded-lg border border-zinc-800 bg-zinc-900/60 p-4">
-      <div className="mb-3 flex items-center justify-between gap-2">
+    <section className="min-w-0 rounded-lg border border-zinc-800 bg-zinc-900/60 p-4">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-400">{title}</h2>
         {right}
       </div>

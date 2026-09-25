@@ -3,11 +3,20 @@
 // so the table can compare them; the toggle picks which one the cards and
 // detail panel show.
 import { useEffect, useState } from "react";
-import { ArtifactTable } from "@/components/ArtifactTable";
+import { ArtifactTable, type RowOrder } from "@/components/ArtifactTable";
 import { DetailPanel } from "@/components/DetailPanel";
 import { MetricsPanel } from "@/components/MetricsPanel";
 import { Card, ErrorBox, Loading, type Remote } from "@/components/ui";
-import { CASES, fetchCase, fetchMetrics, type CaseReport, type Metrics, type RankerName } from "@/lib/api";
+import {
+  CASES,
+  fetchCase,
+  fetchMetrics,
+  type Artifact,
+  type CaseReport,
+  type EvidenceState,
+  type Metrics,
+  type RankerName,
+} from "@/lib/api";
 
 function useRemote<T>(load: () => Promise<T>, deps: unknown[]): Remote<T> {
   const [state, setState] = useState<Remote<T>>({ status: "loading" });
@@ -25,6 +34,37 @@ function useRemote<T>(load: () => Promise<T>, deps: unknown[]): Remote<T> {
   return state;
 }
 
+function anchorList(anchors: number[]): string {
+  return `${anchors.length === 1 ? "anchor" : "anchors"} ${anchors.join(", ")}`;
+}
+
+// One sentence built only from the case data: states, anchors and triage scores.
+function caseSentence(artifacts: Artifact[]): string {
+  if (artifacts.length === 0) return "No PNG anchors were carved from this image.";
+  const anchorsIn = (state: EvidenceState) => artifacts.filter((a) => a.state === state).map((a) => a.anchor_block);
+  const proven = anchorsIn("PROVEN");
+  const partial = anchorsIn("PARTIAL");
+  const rejected = anchorsIn("REJECTED");
+  const parts: string[] = [];
+  if (proven.length) {
+    parts.push(`${proven.length} PROVEN: every CRC and length check passed (${anchorList(proven)}).`);
+  }
+  if (partial.length) {
+    parts.push(
+      `${partial.length} PARTIAL (${anchorList(partial)}): a verified prefix was recovered; ` +
+        "the rest could not be verified (missing, corrupted, or not found by the search).",
+    );
+  }
+  if (rejected.length) {
+    parts.push(`${rejected.length} REJECTED (${anchorList(rejected)}): no image data could be verified.`);
+  }
+  const best = Math.max(...artifacts.map((a) => a.triage.score));
+  const top = artifacts.filter((a) => a.triage.score === best).map((a) => a.anchor_block);
+  const ties = top.length > 1 ? `, tied with ${anchorList(top.slice(1))}` : "";
+  parts.push(`Start with anchor ${top[0]} (highest triage score, ${best.toFixed(2)}${ties}).`);
+  return parts.join(" ");
+}
+
 function SummaryCards({ report, ranker }: { report: Remote<CaseReport>; ranker: RankerName }) {
   const title = `Case summary (${ranker === "ml" ? "ML" : "baseline"} ranker)`;
   if (report.status === "loading") return <Card title={title}><Loading what="summary" /></Card>;
@@ -37,6 +77,7 @@ function SummaryCards({ report, ranker }: { report: Remote<CaseReport>; ranker: 
   ];
   return (
     <Card title={title}>
+      <p className="mb-3 text-sm leading-relaxed text-zinc-200">{caseSentence(report.data.artifacts)}</p>
       <div className="grid grid-cols-3 gap-3">
         {tiles.map(([label, count, tone]) => (
           <div key={label} className={`rounded-lg border bg-zinc-950 p-3 ${tone}`}>
@@ -57,6 +98,7 @@ export default function Home() {
   const [caseId, setCaseId] = useState(CASES[0]);
   const [ranker, setRanker] = useState<RankerName>("ml");
   const [anchor, setAnchor] = useState<number | null>(null);
+  const [order, setOrder] = useState<RowOrder>("disk");
 
   const baseline = useRemote(() => fetchCase(caseId, "baseline"), [caseId]);
   const ml = useRemote(() => fetchCase(caseId, "ml"), [caseId]);
@@ -101,7 +143,16 @@ export default function Home() {
       </header>
 
       <SummaryCards report={active} ranker={ranker} />
-      <ArtifactTable baseline={baseline} ml={ml} active={ranker} selectedAnchor={anchor} onSelect={setAnchor} />
+      <ArtifactTable
+        caseId={caseId}
+        baseline={baseline}
+        ml={ml}
+        active={ranker}
+        order={order}
+        onOrderChange={setOrder}
+        selectedAnchor={anchor}
+        onSelect={setAnchor}
+      />
       <DetailPanel caseId={caseId} ranker={ranker} report={active} anchor={anchor} />
       <MetricsPanel metrics={metrics} />
     </main>

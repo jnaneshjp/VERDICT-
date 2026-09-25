@@ -19,6 +19,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 0,
+      "width": 221,
+      "height": 284,
       "assembly": [
         0,
         1
@@ -437,6 +439,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 7,
+      "width": 175,
+      "height": 254,
       "assembly": [
         7,
         8,
@@ -955,6 +959,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 16,
+      "width": 200,
+      "height": 203,
       "assembly": [
         16
       ],
@@ -1194,6 +1200,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 22,
+      "width": 273,
+      "height": 255,
       "assembly": [
         22
       ],
@@ -1428,6 +1436,8 @@
       "type": "png",
       "category": "image",
       "anchor_block": 23,
+      "width": 290,
+      "height": 190,
       "assembly": [
         23,
         24,
