@@ -124,7 +124,10 @@ def run_demo(case: str) -> None:
         print(f"\nanchor byte_offset={anchor.byte_offset}  block={anchor.block_index}")
         print(f"  status:           {result.status.value}")
         print(f"  reason:           {result.reason}")
-        print(f"  path:             {result.path}")
+        print(f"  path (verified):  {result.path}")
+        if result.search_path != result.path:
+            print(f"  search_path:      {result.search_path}")
+        print(f"  verified_upto:    {result.verified_upto}")
         print(f"  validations:      {result.validation_count} / {BUDGET}")
         print(f"  max_depth:        {result.max_depth}")
         print(f"  backtracks:       {result.backtrack_count}")

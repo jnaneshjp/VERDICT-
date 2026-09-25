@@ -4,18 +4,22 @@ Assemble a physical block path from a carved PNG anchor by consulting the PNG
 validator after each extension:
 
     VALID      -> stop this branch, return success
-    INCOMPLETE -> extend with the next ranked candidate block
-    INVALID    -> backtrack to the deepest untried decision point that lies
-                  at or after the last verified-chunk boundary
+    INCOMPLETE -> extend with the next ranked candidate block; advance the
+                  frozen-prefix mark based on chunks whose CRCs verified
+    INVALID    -> backtrack to the deepest untried decision point at or after
+                  the frozen prefix; DO NOT advance the frozen prefix from a
+                  failed attempt (a failing attempt may include a CRC-ok
+                  ChunkCheck for the very chunk whose semantic check just
+                  failed — trusting it would freeze the whole path)
 
 Baseline ranker uses physical locality only. No ML. No ground-source data.
-The ranker is pluggable so a later ML ranker can replace it without touching
-the search algorithm.
+The Ranker interface follows CLAUDE.md §10 so a later ML ranker can drop in
+without touching this file.
 """
 import hashlib
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Callable, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 from core.carve import Anchor
 from core.config import BLOCK_SIZE, BUDGET, TOP_K, WINDOW
@@ -54,12 +58,20 @@ class SearchEvent:
 
 @dataclass
 class ReconstructionResult:
-    """Structured outcome of one reconstruct_png() call."""
+    """Structured outcome of one reconstruct_png() call.
+
+    `path` follows CLAUDE.md §5: for VERIFIED the full assembled path, and for
+    any other outcome only the frozen-prefix positions (`path[:verified_upto]`)
+    so consumers never treat unverified blocks as evidence. The full attempted
+    path at termination is kept in `search_path` for diagnostics/UI.
+    """
     status: ReconStatus
     reason: str
     anchor_byte_offset: int
     anchor_block: int
     path: List[int]
+    search_path: List[int] = field(default_factory=list)
+    verified_upto: int = 0
     reconstructed_bytes: Optional[bytes] = None
     reconstructed_length: int = 0
     reconstructed_sha256: Optional[str] = None
@@ -71,55 +83,70 @@ class ReconstructionResult:
     events: List[SearchEvent] = field(default_factory=list)
 
 
-# ---------------------------------------------------- baseline candidate ranker
+# ---------------------------------------------------------------- rankers
 
-def rank_by_locality(image: Image, path: List[int], candidates: List[int]) -> List[int]:
-    """Physical-locality baseline: nearest to path[-1] first, block index as tiebreak.
+class Ranker:
+    """Candidate-order contract (CLAUDE.md §10). MLRanker will subclass this."""
 
-    Deterministic and transparent — this is the 'locality baseline', not a
-    probability. Signature intentionally accepts (image, path, candidates) so a
-    later MLRanker can compute features from the path tail without changing
-    search.py.
+    def order(self, path: List[int], candidates: List[int]) -> List[int]:
+        raise NotImplementedError
+
+
+class BaselineRanker(Ranker):
+    """Deterministic physical-locality baseline (Task 4).
+
+    Not a probability. Sorts by (absolute distance from path tail, block index)
+    so ties break on the lower block number.
     """
-    current = path[-1]
-    return sorted(candidates, key=lambda b: (abs(b - current), b))
+
+    def __init__(self, image: Image):
+        self.image = image
+
+    def order(self, path: List[int], candidates: List[int]) -> List[int]:
+        current = path[-1]
+        return sorted(candidates, key=lambda b: (abs(b - current), b))
 
 
-# --------------------------------------------------------- byte-level helpers
+# ------------------------------------------------------------ byte helpers
 
 def _bytes_of_path(image: Image, path: List[int], anchor_offset: int) -> bytes:
-    """Anchor prefix (from anchor_offset to end of block) then full subsequent blocks."""
+    """Anchor prefix (from anchor_offset to end of anchor block) + full subsequent blocks."""
     bs = image.block_size
     anchor_block = path[0]
-    parts = [image.raw[anchor_offset:(anchor_block + 1) * bs]]
+    anchor_end = anchor_block * bs + image.blocks[anchor_block].length
+    parts = [image.raw[anchor_offset:anchor_end]]
     for block in path[1:]:
-        parts.append(image.raw[block * bs:block * bs + image.blocks[block].length])
+        start = block * bs
+        parts.append(image.raw[start:start + image.blocks[block].length])
     return b"".join(parts)
 
 
 def _cumulative_lengths(image: Image, path: List[int], anchor_offset: int) -> List[int]:
     """Byte total contributed after each path position (inclusive)."""
     bs = image.block_size
-    lens = [(path[0] + 1) * bs - anchor_offset]
+    anchor_block = path[0]
+    anchor_len = image.blocks[anchor_block].length
+    offset_within = anchor_offset - anchor_block * bs
+    lens = [anchor_len - offset_within]
     for block in path[1:]:
         lens.append(lens[-1] + image.blocks[block].length)
     return lens
 
 
 def _verified_prefix_bytes(result: PNGValidationResult) -> int:
-    """Byte offset up to which the current attempt has cleared PNG format checks."""
+    """Byte offset up to which the attempt has cleared PNG format checks."""
     if result.status is Status.INVALID and result.reason_code in (
             "signature_mismatch", "signature_incomplete"):
         return 0
-    verified = len(PNG_SIGNATURE)             # signature is fixed and matched
+    verified = len(PNG_SIGNATURE)
     for check in result.chunk_checks:
         if check.ok:
-            verified = check.offset + 8 + check.length + 4   # end of this chunk's CRC
+            verified = check.offset + 8 + check.length + 4
     return verified
 
 
 def _verified_positions(cum_lens: List[int], verified_bytes: int) -> int:
-    """How many leading path positions are ENTIRELY inside the verified byte range."""
+    """Number of leading path positions entirely inside the verified byte range."""
     covered = 0
     for i, cumulative in enumerate(cum_lens):
         if cumulative <= verified_bytes:
@@ -152,8 +179,6 @@ def _dedup_by_sha(image: Image, blocks: List[int]) -> List[int]:
     return kept
 
 
-# ------------------------------------------------------------- backtracking
-
 def _pop_alternative(stack: List[Tuple[int, List[int]]],
                      path: List[int],
                      used: set,
@@ -176,7 +201,7 @@ def _pop_alternative(stack: List[Tuple[int, List[int]]],
     return None
 
 
-# ------------------------------------------------------------- main search
+# ---------------------------------------------------------------- search
 
 def reconstruct_png(image: Image,
                     anchor: Anchor,
@@ -184,149 +209,190 @@ def reconstruct_png(image: Image,
                     budget: int = BUDGET,
                     top_k: int = TOP_K,
                     window: int = WINDOW,
-                    ranker: Callable[[Image, List[int], List[int]], List[int]] = rank_by_locality
-                    ) -> ReconstructionResult:
+                    ranker: Optional[Ranker] = None) -> ReconstructionResult:
     """Deterministic validator-guided reconstruction from a PNG anchor."""
-    anchor_block = anchor.block_index
-    anchor_offset = anchor.byte_offset
+    if ranker is None:
+        ranker = BaselineRanker(image)
+    return _Search(image, anchor, budget, top_k, window, ranker).run()
 
-    path: List[int] = [anchor_block]
-    used: set = {anchor_block}
-    stack: List[Tuple[int, List[int]]] = []
-    verified_upto = 0
-    validation_count = 0
-    backtrack_count = 0
-    branches_tried = 1
-    max_depth = 1
-    events: List[SearchEvent] = []
-    step = 0
 
-    events.append(SearchEvent(step=step, event="SEARCH_START",
-                              depth=1, block=anchor_block, path=list(path)))
+class _Search:
+    """Mutable search state for one reconstruct_png() call.
 
-    def finish(status: ReconStatus, reason: str,
-               final_val: Optional[PNGValidationResult] = None) -> ReconstructionResult:
+    Split into small named steps (see run()); this makes the state machine
+    walkable by a human reader and matches CLAUDE.md §21's readability goal.
+    """
+
+    def __init__(self, image: Image, anchor: Anchor,
+                 budget: int, top_k: int, window: int, ranker: Ranker):
+        self.image = image
+        self.anchor = anchor
+        self.budget = budget
+        self.top_k = top_k
+        self.window = window
+        self.ranker = ranker
+
+        self.anchor_block = anchor.block_index
+        self.anchor_offset = anchor.byte_offset
+        self.path: List[int] = [self.anchor_block]
+        self.used: set = {self.anchor_block}
+        self.stack: List[Tuple[int, List[int]]] = []
+        self.verified_upto = 0
+        self.validation_count = 0
+        self.backtrack_count = 0
+        self.branches_tried = 1
+        self.max_depth = 1
+        self.events: List[SearchEvent] = []
+        self.step = 0
+        self._log("SEARCH_START", block=self.anchor_block)
+
+    # ---- main loop --------------------------------------------------------
+
+    def run(self) -> ReconstructionResult:
+        while True:
+            self.step += 1
+            if self.validation_count >= self.budget:
+                self._log("SEARCH_EXHAUSTED", reason="budget_exhausted")
+                return self._finish(ReconStatus.EXHAUSTED_BUDGET,
+                                    f"validation budget of {self.budget} exhausted")
+
+            result = self._validate_current()
+            self._log("VALIDATION_RESULT",
+                      status=result.status.value,
+                      reason=result.reason_code,
+                      verified_prefix=_verified_prefix_bytes(result))
+
+            if result.status is Status.VALID:
+                # Whole reconstruction is verified evidence; the final block's
+                # post-IEND bytes are slack (trimmed by consumed_length) but the
+                # block itself is part of the recovered artifact.
+                self.verified_upto = len(self.path)
+                self._log("SEARCH_SUCCESS")
+                return self._finish(ReconStatus.VERIFIED,
+                                    "validator returned VALID",
+                                    final_val=result)
+
+            if result.status is Status.INVALID:
+                if self._try_backtrack():
+                    continue
+                if len(self.path) == 1:
+                    self._log("SEARCH_EXHAUSTED", reason=result.reason_code)
+                    return self._finish(ReconStatus.REJECTED_ANCHOR,
+                                        f"anchor prefix invalid: {result.reason_code}",
+                                        final_val=result)
+                self._log("SEARCH_EXHAUSTED", reason=result.reason_code)
+                return self._finish(ReconStatus.EXHAUSTED_CANDIDATES,
+                                    "all backtracking alternatives exhausted",
+                                    final_val=result)
+
+            # INCOMPLETE
+            self._advance_frozen_prefix(result)
+            if self._extend():
+                continue
+            if self._try_backtrack():
+                continue
+            self._log("SEARCH_EXHAUSTED", reason="no_candidates")
+            return self._finish(ReconStatus.EXHAUSTED_CANDIDATES,
+                                "no candidates available and no backtracking possible",
+                                final_val=result)
+
+    # ---- named steps ------------------------------------------------------
+
+    def _validate_current(self) -> PNGValidationResult:
+        candidate_bytes = _bytes_of_path(self.image, self.path, self.anchor_offset)
+        result = validate_png(candidate_bytes)
+        self.validation_count += 1
+        return result
+
+    def _advance_frozen_prefix(self, result: PNGValidationResult) -> None:
+        """Freeze positions whose bytes lie inside a successful CRC chunk.
+
+        Only called on INCOMPLETE outcomes: on INVALID the failing attempt may
+        include a CRC-ok ChunkCheck for the chunk whose semantic check just
+        failed (e.g. IEND with valid CRC but zlib inflate error), which would
+        wrongly freeze the whole path and defeat backtracking.
+        """
+        verified_bytes = _verified_prefix_bytes(result)
+        cum = _cumulative_lengths(self.image, self.path, self.anchor_offset)
+        positions = _verified_positions(cum, verified_bytes)
+        if positions > self.verified_upto:
+            self.verified_upto = positions
+            self.stack = [(p, r) for (p, r) in self.stack if p >= self.verified_upto]
+
+    def _extend(self) -> bool:
+        cands = _candidates(self.image, self.used, self.path[-1], self.window)
+        ranked_full = self.ranker.order(self.path, cands)
+        ranked = _dedup_by_sha(self.image, ranked_full)[:self.top_k]
+        if not ranked:
+            return False
+        chosen = ranked[0]
+        remaining = list(ranked[1:])
+        if remaining:
+            self.stack.append((len(self.path), remaining))
+        self.path.append(chosen)
+        self.used.add(chosen)
+        self.branches_tried += 1
+        self.max_depth = max(self.max_depth, len(self.path))
+        self._log("CANDIDATE_TRIED", block=chosen, ranked=list(ranked),
+                  remaining_candidates=len(remaining))
+        return True
+
+    def _try_backtrack(self) -> bool:
+        picked = _pop_alternative(self.stack, self.path, self.used, self.verified_upto)
+        if picked is None:
+            return False
+        self.backtrack_count += 1
+        self.branches_tried += 1
+        self.max_depth = max(self.max_depth, len(self.path))
+        self._log("BACKTRACK", block=picked)
+        return True
+
+    # ---- housekeeping -----------------------------------------------------
+
+    def _log(self, event: str, **kw) -> None:
+        self.events.append(SearchEvent(
+            step=self.step,
+            event=event,
+            depth=len(self.path),
+            path=list(self.path),
+            validation_count=self.validation_count,
+            block=kw.get("block"),
+            validator_status=kw.get("status"),
+            validator_reason=kw.get("reason"),
+            verified_prefix=kw.get("verified_prefix"),
+            verified_positions=self.verified_upto,
+            ranked=kw.get("ranked", []),
+            remaining_candidates=kw.get("remaining_candidates", 0),
+        ))
+
+    def _finish(self, status: ReconStatus, reason: str,
+                final_val: Optional[PNGValidationResult] = None) -> ReconstructionResult:
         recon_bytes = None
         recon_len = 0
         recon_sha = None
         if status is ReconStatus.VERIFIED and final_val is not None:
-            full = _bytes_of_path(image, path, anchor_offset)
-            recon_bytes = full[:final_val.consumed_length]     # ignore post-IEND slack
+            full = _bytes_of_path(self.image, self.path, self.anchor_offset)
+            recon_bytes = full[:final_val.consumed_length]
             recon_len = len(recon_bytes)
             recon_sha = hashlib.sha256(recon_bytes).hexdigest()
+            reported_path = list(self.path)
+        else:
+            reported_path = list(self.path[:self.verified_upto])
         return ReconstructionResult(
-            status=status, reason=reason,
-            anchor_byte_offset=anchor_offset, anchor_block=anchor_block,
-            path=list(path),
+            status=status,
+            reason=reason,
+            anchor_byte_offset=self.anchor_offset,
+            anchor_block=self.anchor_block,
+            path=reported_path,
+            search_path=list(self.path),
+            verified_upto=self.verified_upto,
             reconstructed_bytes=recon_bytes,
             reconstructed_length=recon_len,
             reconstructed_sha256=recon_sha,
-            validation_count=validation_count,
-            max_depth=max_depth,
-            backtrack_count=backtrack_count,
-            branches_tried=branches_tried,
+            validation_count=self.validation_count,
+            max_depth=self.max_depth,
+            backtrack_count=self.backtrack_count,
+            branches_tried=self.branches_tried,
             final_validator=final_val,
-            events=events,
+            events=self.events,
         )
-
-    while True:
-        step += 1
-        if validation_count >= budget:
-            events.append(SearchEvent(step=step, event="SEARCH_EXHAUSTED",
-                                      depth=len(path), path=list(path),
-                                      validation_count=validation_count,
-                                      validator_reason="budget_exhausted"))
-            return finish(ReconStatus.EXHAUSTED_BUDGET,
-                          f"validation budget of {budget} exhausted")
-
-        candidate_bytes = _bytes_of_path(image, path, anchor_offset)
-        result = validate_png(candidate_bytes)
-        validation_count += 1
-
-        verified_bytes = _verified_prefix_bytes(result)
-        cum_lens = _cumulative_lengths(image, path, anchor_offset)
-        cur_verified_positions = _verified_positions(cum_lens, verified_bytes)
-
-        events.append(SearchEvent(step=step, event="VALIDATION_RESULT",
-                                  depth=len(path), path=list(path),
-                                  validation_count=validation_count,
-                                  validator_status=result.status.value,
-                                  validator_reason=result.reason_code,
-                                  verified_prefix=verified_bytes,
-                                  verified_positions=cur_verified_positions))
-
-        # A path position is frozen once all of its contribution has been CRC-verified.
-        if cur_verified_positions > verified_upto:
-            verified_upto = cur_verified_positions
-            stack = [(p, r) for (p, r) in stack if p >= verified_upto]
-
-        if result.status is Status.VALID:
-            events.append(SearchEvent(step=step, event="SEARCH_SUCCESS",
-                                      depth=len(path), path=list(path),
-                                      validation_count=validation_count))
-            return finish(ReconStatus.VERIFIED, "validator returned VALID",
-                          final_val=result)
-
-        if result.status is Status.INVALID:
-            picked = _pop_alternative(stack, path, used, verified_upto)
-            if picked is None:
-                if len(path) == 1:
-                    events.append(SearchEvent(step=step, event="SEARCH_EXHAUSTED",
-                                              depth=1, path=list(path),
-                                              validation_count=validation_count,
-                                              validator_reason=result.reason_code))
-                    return finish(ReconStatus.REJECTED_ANCHOR,
-                                  f"anchor prefix invalid: {result.reason_code}",
-                                  final_val=result)
-                events.append(SearchEvent(step=step, event="SEARCH_EXHAUSTED",
-                                          depth=len(path), path=list(path),
-                                          validation_count=validation_count,
-                                          validator_reason=result.reason_code))
-                return finish(ReconStatus.EXHAUSTED_CANDIDATES,
-                              "all backtracking alternatives exhausted",
-                              final_val=result)
-            backtrack_count += 1
-            branches_tried += 1
-            max_depth = max(max_depth, len(path))
-            events.append(SearchEvent(step=step, event="BACKTRACK",
-                                      depth=len(path), block=picked, path=list(path),
-                                      validation_count=validation_count,
-                                      verified_prefix=verified_bytes))
-            continue
-
-        # INCOMPLETE: pick the next candidate and extend the path
-        cands = _candidates(image, used, path[-1], window)
-        ranked_full = ranker(image, path, cands)
-        ranked = _dedup_by_sha(image, ranked_full)[:top_k]
-
-        if not ranked:
-            picked = _pop_alternative(stack, path, used, verified_upto)
-            if picked is None:
-                events.append(SearchEvent(step=step, event="SEARCH_EXHAUSTED",
-                                          depth=len(path), path=list(path),
-                                          validation_count=validation_count,
-                                          validator_reason="no_candidates"))
-                return finish(ReconStatus.EXHAUSTED_CANDIDATES,
-                              "no candidates available and no backtracking possible",
-                              final_val=result)
-            backtrack_count += 1
-            branches_tried += 1
-            max_depth = max(max_depth, len(path))
-            events.append(SearchEvent(step=step, event="BACKTRACK",
-                                      depth=len(path), block=picked, path=list(path),
-                                      validation_count=validation_count))
-            continue
-
-        chosen = ranked[0]
-        remaining = list(ranked[1:])
-        if remaining:
-            stack.append((len(path), remaining))
-        path.append(chosen)
-        used.add(chosen)
-        branches_tried += 1
-        max_depth = max(max_depth, len(path))
-        events.append(SearchEvent(step=step, event="CANDIDATE_TRIED",
-                                  depth=len(path), block=chosen, path=list(path),
-                                  validation_count=validation_count,
-                                  ranked=list(ranked),
-                                  remaining_candidates=len(remaining)))
