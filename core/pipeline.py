@@ -19,7 +19,7 @@ import json
 import os
 import zlib
 from collections import Counter
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from core.carve import carve_png_anchors, classify
 from core.ingest import Image, ingest_image
@@ -94,6 +94,46 @@ def _inflated_fraction(data: bytes, result: PNGValidationResult) -> float:
         return 0.0
     expected = result.height * _row_bytes(result.width, result.color_type, result.bit_depth)
     return min(len(inflated) / expected, 1.0)
+
+
+# ---------------------------------------------------------------- verified prefix
+
+# Failures that happen AFTER the leading chunks were read. In these attempts
+# every leading CRC-ok chunk is genuinely verified. (A semantic failure such
+# as zlib_error at IEND is excluded: its chunks passed CRC but the whole
+# attempt failed a later check, so none of it is trusted here.)
+LATER_CHUNK_FAILURES = {"chunk_crc_mismatch", "chunk_type_invalid", "chunk_length_too_large"}
+
+
+def _attempted_paths(recon: ReconstructionResult) -> List[List[int]]:
+    """The frozen path plus every attempt whose leading chunks can be trusted."""
+    paths = [list(recon.path) or [recon.anchor_block]]
+    for e in recon.events:
+        if e.event != "VALIDATION_RESULT":
+            continue
+        if e.validator_status == "INCOMPLETE" or e.validator_reason in LATER_CHUNK_FAILURES:
+            paths.append(list(e.path))
+    return paths
+
+
+def verified_prefix(image: Image, recon: ReconstructionResult) -> Tuple[List[int], bytes]:
+    """Longest run of CRC-verified chunks any attempt reached, cut at that chunk boundary.
+
+    The boundary may fall inside a block (a chunk can end mid-block); bytes after
+    it are dropped. Returns the blocks that hold verified bytes and the bytes.
+    """
+    best_path, best_bytes = None, -1
+    for path in _attempted_paths(recon):
+        count = _verified_byte_count(validate_png(assembly_bytes(image, path)))
+        if count > best_bytes:                      # first attempt wins a tie
+            best_path, best_bytes = path, count
+    blocks, covered = [], 0
+    for block in best_path:
+        if blocks and covered >= best_bytes:
+            break
+        blocks.append(block)
+        covered += image.blocks[block].length
+    return blocks, assembly_bytes(image, blocks)[:best_bytes]
 
 
 # ---------------------------------------------------------------- checks list
@@ -221,14 +261,17 @@ def _explain_incomplete(image: Image, recon: ReconstructionResult, assembly: Lis
                 f"Nothing beyond the signature can be trusted.")
     chunks = _verified_chunks(result)
     idats = sum(1 for c in chunks if c.type == "IDAT")
-    last = assembly[-1]
-    tried = _blocks_tried_at(recon, len(assembly))
+    frozen = list(recon.path) or [recon.anchor_block]     # blocks the search kept whole
+    tried = _blocks_tried_at(recon, len(frozen))
     head = (f"Verified up to byte {verified}: IHDR + {idats} IDAT chunk(s), "
-            f"{fraction:.0%} of the image data. ")
+            f"{fraction:.0%} of the image data")
+    if len(assembly) > len(frozen):
+        head += f"; the last verified chunk ends inside block {assembly[-1]}"
+    head += ". "
     if not idats:
         head = f"Only {'the signature and IHDR' if chunks else 'the signature'} verified. "
-    body = (f"No candidate after block {last} led to a valid continuation "
-            f"({len(tried)} tried: {tried}). ")
+    body = (f"No complete continuation was found after block {frozen[-1]} "
+            f"({len(tried)} candidates tried: {tried}). ")
     deepest = _deepest_failure(image, recon)
     if deepest:
         body += f"Deepest attempt: {deepest}. "
@@ -252,17 +295,15 @@ def build_artifact(image: Image, recon: ReconstructionResult, art_id: str,
         completeness = 1.0
         explanation = _explain_proven(recon, result)
     else:
-        assembly = list(recon.path) or [recon.anchor_block]   # frozen blocks only
-        data = assembly_bytes(image, assembly)
+        assembly, data = verified_prefix(image, recon)       # cut at the last CRC-ok chunk
         result = validate_png(data)
-        verified = _verified_byte_count(result)
+        verified = len(data)
         expected = None                                       # unknown without the original
         chunk_types = [c.type for c in _verified_chunks(result)]
         has_prefix = chunk_types[:1] == ["IHDR"] and "IDAT" in chunk_types
         state = "PARTIAL" if has_prefix else "REJECTED"
         completeness = _inflated_fraction(data, result) if has_prefix else 0.0
         explanation = _explain_incomplete(image, recon, assembly, result, verified, completeness)
-        data = data[:verified]
 
     kind = classify(signature)
     return {

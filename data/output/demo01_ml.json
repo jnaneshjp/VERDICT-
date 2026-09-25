@@ -10,7 +10,7 @@
     "PLAUSIBLE": 0,
     "PARTIAL": 3,
     "REJECTED": 0,
-    "unattributed_blocks": 1970,
+    "unattributed_blocks": 1967,
     "duplicate_blocks": 22
   },
   "artifacts": [
@@ -378,16 +378,17 @@
       "width": 176,
       "height": 164,
       "assembly": [
-        2
+        2,
+        3
       ],
       "state": "PARTIAL",
-      "verified_bytes": 2093,
+      "verified_bytes": 6213,
       "expected_bytes": null,
-      "unverifiable_from": 2093,
-      "sha256": "e957aeb8c38871eec2099a42e696a0d11dbf4fb1cd65edb454c159ff7485f4fc",
+      "unverifiable_from": 6213,
+      "sha256": "62d08c92d16dab30de16d7c8002c7f83cbe11e0884922a908d2ae1a392e343cc",
       "attempts": 17,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 17% of the image data. No candidate after block 2 led to a valid continuation (8 tried: [3, 12, 22, 38, 32, 19, 46, 67]). Deepest attempt: block 3 followed by block 6 broke IDAT_4 (CRC mismatch). The data needed after byte 2093 is missing, corrupted, or not found by the search; the system cannot tell which.",
+      "explanation": "Verified up to byte 6213: IHDR + 3 IDAT chunk(s), 51% of the image data; the last verified chunk ends inside block 3. No complete continuation was found after block 2 (8 candidates tried: [3, 12, 22, 38, 32, 19, 46, 67]). Deepest attempt: block 3 followed by block 6 broke IDAT_4 (CRC mismatch). The data needed after byte 6213 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
@@ -403,6 +404,18 @@
           "check": "IDAT_1_crc",
           "stored": "0xCA7A667F",
           "computed": "0xCA7A667F",
+          "ok": true
+        },
+        {
+          "check": "IDAT_2_crc",
+          "stored": "0x421EABCE",
+          "computed": "0x421EABCE",
+          "ok": true
+        },
+        {
+          "check": "IDAT_3_crc",
+          "stored": "0xD3222C56",
+          "computed": "0xD3222C56",
           "ok": true
         },
         {
@@ -737,10 +750,10 @@
         }
       ],
       "triage": {
-        "score": 0.3502,
+        "score": 0.4538,
         "components": {
           "state": 0.4,
-          "completeness": 0.1674,
+          "completeness": 0.5126,
           "category": 0.5
         },
         "weights": {
@@ -1583,16 +1596,17 @@
       "width": 189,
       "height": 241,
       "assembly": [
-        31
+        31,
+        32
       ],
       "state": "PARTIAL",
-      "verified_bytes": 2093,
+      "verified_bytes": 6213,
       "expected_bytes": null,
-      "unverifiable_from": 2093,
-      "sha256": "3988a37fed741da83c0ae9b5c03a23a5d32dd64b6bb0fa6b3a7ff9e86a31f4a6",
+      "unverifiable_from": 6213,
+      "sha256": "cb0e6234565a293dc7d0d8ab9f98818c1451e21f7d4788610995ed3ca7a107a2",
       "attempts": 17,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 8% of the image data. No candidate after block 31 led to a valid continuation (8 tried: [32, 38, 35, 22, 37, 46, 67, 112]). Deepest attempt: block 32 followed by block 33 broke IDAT_4 (CRC mismatch). The data needed after byte 2093 is missing, corrupted, or not found by the search; the system cannot tell which.",
+      "explanation": "Verified up to byte 6213: IHDR + 3 IDAT chunk(s), 27% of the image data; the last verified chunk ends inside block 32. No complete continuation was found after block 31 (8 candidates tried: [32, 38, 35, 22, 37, 46, 67, 112]). Deepest attempt: block 32 followed by block 33 broke IDAT_4 (CRC mismatch). The data needed after byte 6213 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
@@ -1608,6 +1622,18 @@
           "check": "IDAT_1_crc",
           "stored": "0x2B53A98B",
           "computed": "0x2B53A98B",
+          "ok": true
+        },
+        {
+          "check": "IDAT_2_crc",
+          "stored": "0xEDD0648B",
+          "computed": "0xEDD0648B",
+          "ok": true
+        },
+        {
+          "check": "IDAT_3_crc",
+          "stored": "0x84BE6C7E",
+          "computed": "0x84BE6C7E",
           "ok": true
         },
         {
@@ -1942,10 +1968,10 @@
         }
       ],
       "triage": {
-        "score": 0.3236,
+        "score": 0.3805,
         "components": {
           "state": 0.4,
-          "completeness": 0.0788,
+          "completeness": 0.2684,
           "category": 0.5
         },
         "weights": {
@@ -1967,16 +1993,17 @@
         37,
         38,
         39,
-        40
+        40,
+        41
       ],
       "state": "PARTIAL",
-      "verified_bytes": 14453,
+      "verified_bytes": 18573,
       "expected_bytes": null,
-      "unverifiable_from": 14453,
-      "sha256": "007a46b8c500a108c2b63afb4238575a9372b288af1fd62562099b876a407415",
+      "unverifiable_from": 18573,
+      "sha256": "e3ba61ec7f6fcf8fabe9a5ce214303527870c9ae9c1381df7e0c19ffd47309c0",
       "attempts": 20,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 14453: IHDR + 7 IDAT chunk(s), 67% of the image data. No candidate after block 40 led to a valid continuation (8 tried: [41, 35, 67, 75, 99, 112, 132, 179]). Deepest attempt: block 41 followed by block 42 broke IDAT_10 (CRC mismatch). The data needed after byte 14453 is missing, corrupted, or not found by the search; the system cannot tell which.",
+      "explanation": "Verified up to byte 18573: IHDR + 9 IDAT chunk(s), 89% of the image data; the last verified chunk ends inside block 41. No complete continuation was found after block 40 (8 candidates tried: [41, 35, 67, 75, 99, 112, 132, 179]). Deepest attempt: block 41 followed by block 42 broke IDAT_10 (CRC mismatch). The data needed after byte 18573 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
@@ -2028,6 +2055,18 @@
           "check": "IDAT_7_crc",
           "stored": "0x05EDEE70",
           "computed": "0x05EDEE70",
+          "ok": true
+        },
+        {
+          "check": "IDAT_8_crc",
+          "stored": "0x2BD689C6",
+          "computed": "0x2BD689C6",
+          "ok": true
+        },
+        {
+          "check": "IDAT_9_crc",
+          "stored": "0x96B26F56",
+          "computed": "0x96B26F56",
           "ok": true
         },
         {
@@ -2440,10 +2479,10 @@
         }
       ],
       "triage": {
-        "score": 0.502,
+        "score": 0.5663,
         "components": {
           "state": 0.4,
-          "completeness": 0.6733,
+          "completeness": 0.8878,
           "category": 0.5
         },
         "weights": {
@@ -2536,11 +2575,6 @@
   ],
   "unattributed": [
     {
-      "block": 3,
-      "entropy": 7.921,
-      "printable": 0.382
-    },
-    {
       "block": 4,
       "entropy": 7.938,
       "printable": 0.393
@@ -2566,11 +2600,6 @@
       "printable": 0.805
     },
     {
-      "block": 32,
-      "entropy": 7.942,
-      "printable": 0.384
-    },
-    {
       "block": 33,
       "entropy": 7.931,
       "printable": 0.391
@@ -2589,11 +2618,6 @@
       "block": 36,
       "entropy": 7.942,
       "printable": 0.368
-    },
-    {
-      "block": 41,
-      "entropy": 7.944,
-      "printable": 0.386
     },
     {
       "block": 42,
