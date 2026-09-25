@@ -1,4 +1,6 @@
 // Proof Panel: the search trail as a vertical timeline, plus the format checks.
+// Every colour is paired with a word, so meaning never depends on colour alone.
+import type { ReactNode } from "react";
 import type { Check, TrailEvent } from "@/lib/api";
 
 const REASON: Record<string, string> = {
@@ -11,43 +13,49 @@ const REASON: Record<string, string> = {
 };
 
 const TONE = {
-  neutral: { text: "text-zinc-300", dot: "bg-zinc-500" },
-  place: { text: "text-zinc-200", dot: "bg-sky-500" },
-  ok: { text: "text-emerald-300", dot: "bg-emerald-500" },
-  fail: { text: "text-red-300", dot: "bg-red-500" },
-  backtrack: { text: "text-amber-300", dot: "bg-amber-500" },
+  neutral: { word: "text-ink-2", dot: "bg-muted" },
+  place: { word: "text-plausible", dot: "bg-plausible" },
+  ok: { word: "text-proven", dot: "bg-proven" },
+  fail: { word: "text-rejected", dot: "bg-rejected" },
+  backtrack: { word: "text-partial", dot: "bg-partial" },
 };
 
-function describe(e: TrailEvent): { text: string; tone: keyof typeof TONE } {
+const Mono = ({ children }: { children: ReactNode }) => <span className="font-mono text-ink">{children}</span>;
+
+function describe(e: TrailEvent): { word: string; detail: ReactNode; tone: keyof typeof TONE } {
   switch (e.event) {
     case "START":
-      return { text: `start at anchor block ${e.block}`, tone: "neutral" };
+      return { word: "START", detail: <>anchor block <Mono>{e.block}</Mono></>, tone: "neutral" };
     case "PLACE":
-      return { text: `tried block ${e.block} (rank #${e.rank ?? "?"})`, tone: "place" };
+      return { word: "PLACE", detail: <>tried block <Mono>{e.block}</Mono> (rank <Mono>#{e.rank ?? "?"}</Mono>)</>, tone: "place" };
     case "VERIFY_OK":
       return e.chunk === "final_checks"
-        ? { text: "image data inflated and matched IHDR size", tone: "ok" }
-        : { text: `${e.chunk}: CRC matched`, tone: "ok" };
+        ? { word: "VERIFY OK", detail: "image data inflated and matched IHDR size", tone: "ok" }
+        : { word: "VERIFY OK", detail: <><Mono>{e.chunk}</Mono>: CRC matched</>, tone: "ok" };
     case "VERIFY_FAIL":
-      return { text: `${e.chunk}: ${REASON[e.reason ?? ""] ?? e.reason}`, tone: "fail" };
+      return { word: "VERIFY FAIL", detail: <><Mono>{e.chunk}</Mono>: {REASON[e.reason ?? ""] ?? e.reason}</>, tone: "fail" };
     case "BACKTRACK":
-      return { text: `backtracked (removed block ${e.block})`, tone: "backtrack" };
+      return { word: "BACKTRACK", detail: <>backtracked (removed block <Mono>{e.block}</Mono>)</>, tone: "backtrack" };
     case "STOP":
-      return { text: `search stopped: ${e.reason}`, tone: "neutral" };
+      return { word: "STOP", detail: <>search stopped: <Mono>{e.reason}</Mono></>, tone: "neutral" };
   }
 }
 
 export function Timeline({ trail }: { trail: TrailEvent[] }) {
-  if (trail.length === 0) return <p className="text-sm text-zinc-500">No search events recorded.</p>;
+  if (trail.length === 0) return <p className="text-sm text-ink-2">No search events recorded.</p>;
   return (
-    <ol className="max-h-96 overflow-y-auto border-l border-zinc-700 pl-4 text-sm">
+    <ol className="relative max-h-[28rem] overflow-y-auto pr-2 text-sm" aria-label="Search trail">
+      <span aria-hidden className="absolute bottom-3 left-[5px] top-3 w-px bg-line" />
       {trail.map((e, i) => {
-        const { text, tone } = describe(e);
+        const { word, detail, tone } = describe(e);
         return (
-          <li key={i} className="relative py-1">
-            <span className={`absolute -left-[21px] top-2.5 h-2 w-2 rounded-full ${TONE[tone].dot}`} />
-            <span className="mr-2 font-mono text-xs text-zinc-500">step {e.step}</span>
-            <span className={TONE[tone].text}>{text}</span>
+          <li key={i} className="relative grid grid-cols-[12px_auto_1fr] items-baseline gap-x-3 py-1.5">
+            <span aria-hidden className={`relative top-[3px] h-[11px] w-[11px] rounded-full ring-4 ring-panel ${TONE[tone].dot}`} />
+            <span className="whitespace-nowrap font-mono text-[11px] text-muted">
+              step {e.step}{" "}
+              <span className={`font-semibold tracking-wider ${TONE[tone].word}`}>{word}</span>
+            </span>
+            <span className="min-w-0 text-ink-2">{detail}</span>
           </li>
         );
       })}
@@ -56,34 +64,40 @@ export function Timeline({ trail }: { trail: TrailEvent[] }) {
 }
 
 function Mark({ ok }: { ok: boolean | null }) {
-  if (ok === null) return <span className="text-zinc-500">not reached</span>;
-  return ok ? <span className="text-emerald-400">✓ pass</span> : <span className="text-red-400">✗ fail</span>;
+  if (ok === null) {
+    return <span className="inline-flex items-center gap-1.5 text-muted"><span aria-hidden>–</span>not reached</span>;
+  }
+  return ok ? (
+    <span className="inline-flex items-center gap-1.5 text-proven"><span aria-hidden>✓</span>pass</span>
+  ) : (
+    <span className="inline-flex items-center gap-1.5 text-rejected"><span aria-hidden>✗</span>fail</span>
+  );
 }
 
 export function ChecksTable({ checks }: { checks: Check[] }) {
-  if (checks.length === 0) return <p className="text-sm text-zinc-500">No checks recorded.</p>;
+  if (checks.length === 0) return <p className="text-sm text-ink-2">No checks recorded.</p>;
   return (
     <div className="overflow-x-auto">
-    <table className="w-full min-w-[420px] text-left text-sm">
-      <thead className="text-xs uppercase text-zinc-500">
-        <tr>
-          <th className="py-1 pr-3">Check</th>
-          <th className="py-1 pr-3">Stored</th>
-          <th className="py-1 pr-3">Computed</th>
-          <th className="py-1">Result</th>
-        </tr>
-      </thead>
-      <tbody className="font-mono">
-        {checks.map((c) => (
-          <tr key={c.check} className="border-t border-zinc-800">
-            <td className="py-1 pr-3">{c.check}</td>
-            <td className="py-1 pr-3">{c.stored ?? (c.expected != null ? c.expected : "")}</td>
-            <td className="py-1 pr-3">{c.computed ?? (c.actual != null ? c.actual : "")}</td>
-            <td className="py-1"><Mark ok={c.ok} /></td>
+      <table className="w-full min-w-[420px] text-left text-sm">
+        <thead className="text-[11px] uppercase tracking-[0.12em] text-muted">
+          <tr>
+            <th className="pb-2 pr-3 font-medium">Check</th>
+            <th className="pb-2 pr-3 font-medium">Stored</th>
+            <th className="pb-2 pr-3 font-medium">Computed</th>
+            <th className="pb-2 font-medium">Result</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {checks.map((c) => (
+            <tr key={c.check} className="border-t border-line">
+              <td className="py-1.5 pr-3 font-mono text-ink">{c.check}</td>
+              <td className="py-1.5 pr-3 font-mono text-ink-2">{c.stored ?? (c.expected != null ? c.expected : "")}</td>
+              <td className="py-1.5 pr-3 font-mono text-ink-2">{c.computed ?? (c.actual != null ? c.actual : "")}</td>
+              <td className="py-1.5 font-medium"><Mark ok={c.ok} /></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

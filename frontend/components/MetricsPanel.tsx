@@ -4,7 +4,11 @@ import type { Metrics, Ratio, RankerTotals } from "@/lib/api";
 import { Card, Empty, ErrorBox, Loading, type Remote } from "./ui";
 
 function Fraction({ n, d }: { n: number; d: number }) {
-  return <span className="font-mono">{n} / {d}</span>;
+  return (
+    <span className="font-mono text-ink">
+      {n} <span className="text-muted">/</span> {d}
+    </span>
+  );
 }
 
 const ROWS: { label: string; cell: (t: RankerTotals) => ReactNode }[] = [
@@ -31,28 +35,32 @@ export function MetricsPanel({ metrics }: { metrics: Remote<Metrics> }) {
   if (!baseline && !ml) return <Card title={title}><Empty message="metrics.json has no ranker results yet." /></Card>;
 
   return (
-    <Card title={title} right={<span className="text-xs text-zinc-500">{metrics.data.cases.length} test disks, never used in training</span>}>
+    <Card title={title} right={
+        <span className="rounded-full border border-line bg-panel-2 px-3 py-1 text-xs text-ink-2">
+          <span className="font-mono text-ink">{metrics.data.cases.length}</span> test disks, never used in training
+        </span>
+      }>
       <div className="overflow-x-auto">
-      <table className="w-full min-w-[480px] text-left text-sm">
-        <thead className="text-xs uppercase text-zinc-500">
-          <tr>
-            <th className="py-1 pr-3">Metric</th>
-            <th className="py-1 pr-3">Baseline</th>
-            <th className="py-1">ML</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ROWS.map(({ label, cell }) => (
-            <tr key={label} className="border-t border-zinc-800">
-              <td className="py-1 pr-3">{label}</td>
-              <td className="py-1 pr-3">{baseline ? cell(baseline.totals) : "—"}</td>
-              <td className="py-1">{ml ? cell(ml.totals) : "—"}</td>
+        <table className="w-full min-w-[480px] text-left text-sm">
+          <thead className="text-[11px] uppercase tracking-[0.12em] text-muted">
+            <tr>
+              <th className="pb-2 pr-3 font-medium">Metric</th>
+              <th className="pb-2 pr-3 font-medium">Baseline</th>
+              <th className="pb-2 font-medium">ML</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {ROWS.map(({ label, cell }) => (
+              <tr key={label} className="border-t border-line transition-colors duration-150 hover:bg-panel-2/60">
+                <td className="py-2 pr-3 text-ink-2">{label}</td>
+                <td className="py-2 pr-3">{baseline ? cell(baseline.totals) : "—"}</td>
+                <td className="py-2">{ml ? cell(ml.totals) : "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <p className="mt-2 text-xs text-zinc-500">
+      <p className="mt-3 text-xs text-muted">
         Top-1/top-5 count only steps where the path so far was correct, so their denominators differ between rankers.
       </p>
     </Card>

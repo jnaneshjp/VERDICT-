@@ -1,9 +1,27 @@
 @import "tailwindcss";
 
-/* Dark theme, system font stacks only — nothing is downloaded at runtime. */
+/* VERDICT design tokens. Fonts are served from node_modules (@fontsource),
+   so nothing is downloaded at runtime — the venue is offline. */
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  --color-bg: #0f1216;
+  --color-panel: #161b21;
+  --color-panel-2: #1c222a;
+  --color-line: #2a313b;
+  --color-ink: #eceef0;
+  --color-ink-2: #aeb6c0;
+  --color-muted: #8b95a1;
+
+  --color-proven: #3dd68c;
+  --color-partial: #f2b544;
+  --color-rejected: #f2665c;
+  --color-plausible: #5aa9f2;
+  --color-accent: #3dd68c;
+
+  --radius-card: 16px;
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 12px 32px -16px rgb(0 0 0 / 0.6);
 }
 
 :root {
@@ -12,4 +30,42 @@
 
 body {
   font-family: var(--font-sans);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgb(61 214 140 / 0.05), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgb(90 169 242 / 0.04), transparent 55%),
+    var(--color-bg);
+  background-attachment: fixed;
+  color: var(--color-ink);
+}
+
+/* Numbers line up in columns everywhere. */
+.font-mono,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* One visible focus ring for every interactive element. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Brief highlight on rows whose state differs when the ranker toggle flips (< 1 s). */
+@keyframes row-flash {
+  0% { background-color: rgb(61 214 140 / 0.22); }
+  100% { background-color: transparent; }
+}
+.row-flash {
+  animation: row-flash 900ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

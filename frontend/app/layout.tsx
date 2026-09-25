@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+// Fonts bundled from node_modules (offline venue, CLAUDE.md §16): no Google Fonts, no CDNs.
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
 import "./globals.css";
 
-// System fonts only (offline venue, CLAUDE.md §16): no next/font/google, no CDNs.
 export const metadata: Metadata = {
   title: "VERDICT",
   description: "Validation-guided reconstruction of fragmented files from damaged storage",
@@ -10,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full bg-zinc-950 text-zinc-100">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
