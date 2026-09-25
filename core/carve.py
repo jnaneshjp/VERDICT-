@@ -1,8 +1,8 @@
 """P0 PNG signature carving (CLAUDE.md §3, §20 task 2).
 
-Scans the raw image for every occurrence of the 8-byte PNG signature at ANY
-byte offset (not only block boundaries). Reports the location only — no chunk
-parsing, no CRC validation, no evidence claims.
+Per CLAUDE.md §3: files start on block boundaries, so carving checks offset 0
+of each block only. Reports the anchor location — no chunk parsing, no CRC
+validation, no evidence claims.
 """
 from dataclasses import dataclass
 from typing import List
@@ -22,17 +22,18 @@ class Anchor:
 
 
 def find_png_anchors(raw: bytes, block_size: int = BLOCK_SIZE) -> List[Anchor]:
-    """Every distinct byte offset in `raw` where the PNG signature begins, ascending."""
+    """PNG signature at offset 0 of each block (CLAUDE.md §3), ascending by block."""
     if block_size <= 0:
         raise ValueError("block_size must be positive")
+    sig_len = len(PNG_SIGNATURE)
+    total = len(raw)
     anchors: List[Anchor] = []
-    start = 0
-    while True:
-        offset = raw.find(PNG_SIGNATURE, start)
-        if offset < 0:
-            break
-        anchors.append(Anchor(byte_offset=offset, block_index=offset // block_size))
-        start = offset + 1
+    for block_index in range(0, total, block_size):
+        if block_index + sig_len > total:
+            break                       # short trailing block cannot hold the signature
+        if raw[block_index:block_index + sig_len] == PNG_SIGNATURE:
+            anchors.append(Anchor(byte_offset=block_index,
+                                  block_index=block_index // block_size))
     return anchors
 
 

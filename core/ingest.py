@@ -3,6 +3,9 @@
 No format parsing here — this module only builds the per-block metadata later
 stages need: SHA-256, entropy, printable ratio, and the SHA-256 dedup map.
 Byte content is preserved exactly, including a final partial block.
+
+Block bytes are NOT copied onto each Block; consumers slice from Image.raw
+(directly or via Image.block_data) to avoid holding the image twice in memory.
 """
 import hashlib
 import math
@@ -22,11 +25,10 @@ for _b in (0x09, 0x0A, 0x0D):             # tab, LF, CR
 
 @dataclass
 class Block:
-    """One block-sized slice of the image (final block may be shorter)."""
+    """Metadata for one block-sized slice (final block may be shorter)."""
     index: int
     offset: int
     length: int
-    data: bytes
     sha256: str
     entropy: float
     printable_ratio: float
@@ -47,6 +49,10 @@ class Image:
     def duplicates(self) -> Dict[str, List[int]]:
         """SHA-256 -> block indices, restricted to hashes shared by 2+ blocks."""
         return {sha: idx for sha, idx in self.dedup.items() if len(idx) > 1}
+
+    def block_data(self, block: "Block") -> bytes:
+        """Bytes of `block`, sliced from the retained raw image."""
+        return self.raw[block.offset:block.offset + block.length]
 
 
 def _entropy(data: bytes) -> float:
@@ -74,13 +80,12 @@ def ingest_bytes(raw: bytes, path: Optional[str] = None, block_size: int = BLOCK
     dedup: Dict[str, List[int]] = defaultdict(list)
     for index in range(block_count):
         offset = index * block_size
-        chunk = raw[offset:offset + block_size]
+        chunk = raw[offset:offset + block_size]      # temporary; not stored on Block
         sha = hashlib.sha256(chunk).hexdigest()
         blocks.append(Block(
             index=index,
             offset=offset,
             length=len(chunk),
-            data=chunk,
             sha256=sha,
             entropy=_entropy(chunk),
             printable_ratio=_printable_ratio(chunk),
