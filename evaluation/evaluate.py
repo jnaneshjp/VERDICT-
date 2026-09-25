@@ -132,6 +132,9 @@ def evaluate_case(image_path: str, truth_path: str,
     ranker = make_ranker(image, ranker_name)
 
     truth_pngs = [entry for entry in truth["files"] if entry["type"] == "png"]
+    # Cross-check that does not depend on anchor matching: the SHA-256 of every
+    # original file in this case, whatever its type, status or location.
+    all_original_shas = {entry["sha256"] for entry in truth["files"]}
     # Several truth files can start on the same block when a newer file was
     # written over an older one. An anchor belongs to the file whose first block
     # was NOT overwritten, i.e. the file whose bytes are actually there.
@@ -240,6 +243,9 @@ def evaluate_case(image_path: str, truth_path: str,
             "verified_bytes": artifact["verified_bytes"],
             "step_ranks": ranks,
             "partial_prefix_matches_original": prefix_match,
+            "proven_matches_any_original":
+                (result.reconstructed_sha256 in all_original_shas)
+                if artifact["state"] == "PROVEN" else None,
             "sha_match": sha_match,
             "classification": classification,
             "exact_recovery": bool(sha_match) if sha_match is not None else False,
@@ -271,6 +277,9 @@ def evaluate_case(image_path: str, truth_path: str,
         "state_counts": {state: sum(1 for r in artifact_results if r["state"] == state)
                          for state in ("PROVEN", "PLAUSIBLE", "PARTIAL", "REJECTED")},
         "attempts_per_artifact": _round(total_valcalls / denom) if denom else None,
+        "proven_matching_an_original_file": _ratio(
+            sum(1 for r in artifact_results if r["proven_matches_any_original"] is True),
+            sum(1 for r in artifact_results if r["state"] == "PROVEN")),
         "partial_prefix_match": _ratio(
             sum(1 for r in artifact_results if r["partial_prefix_matches_original"] is True),
             sum(1 for r in artifact_results if r["state"] == "PARTIAL")),
@@ -427,6 +436,7 @@ def _totals(reports: List[Dict[str, Any]]) -> Dict[str, Any]:
         "known_intact_recovered": _ratio(intact_num, intact_den),
         "total_attempts": attempts,
         "attempts_per_artifact": _round(attempts / artifacts) if artifacts else None,
+        "proven_matching_an_original_file": total("proven_matching_an_original_file"),
         "partial_prefix_match": total("partial_prefix_match"),
         "top1": total("top1"),
         "top5": total("top5"),

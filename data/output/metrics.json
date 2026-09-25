@@ -75,6 +75,11 @@
         },
         "total_attempts": 3305,
         "attempts_per_artifact": 13.8866,
+        "proven_matching_an_original_file": {
+          "numerator": 75,
+          "denominator": 75,
+          "ratio": 1.0
+        },
         "partial_prefix_match": {
           "numerator": 163,
           "denominator": 163,
@@ -242,6 +247,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -294,6 +300,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -367,6 +374,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -437,6 +445,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -493,6 +502,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -558,6 +568,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -571,6 +582,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.3333,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -741,6 +757,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -815,6 +832,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -872,6 +890,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -934,6 +953,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -947,6 +967,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -1132,6 +1157,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1194,6 +1220,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1249,6 +1276,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1327,6 +1355,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1340,6 +1369,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.5,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -1512,6 +1546,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1562,6 +1597,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1620,6 +1656,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -1677,6 +1714,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1690,6 +1728,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -1874,6 +1917,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1939,6 +1983,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -1990,6 +2035,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2041,6 +2087,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2103,6 +2150,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2116,6 +2164,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.6,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -2294,6 +2347,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2353,6 +2407,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2412,6 +2467,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2470,6 +2526,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2483,6 +2540,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -2669,6 +2731,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2723,6 +2786,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -2773,6 +2837,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2835,6 +2900,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2894,6 +2960,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -2907,6 +2974,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -3089,6 +3161,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3142,6 +3215,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3212,6 +3286,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3270,6 +3345,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3328,6 +3404,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3341,6 +3418,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -3518,6 +3600,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3570,6 +3653,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3622,6 +3706,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3676,6 +3761,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3730,6 +3816,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -3743,6 +3830,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.8,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -3921,6 +4013,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -3982,6 +4075,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4039,6 +4133,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4109,6 +4204,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4171,6 +4267,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4184,6 +4281,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -4355,6 +4457,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4421,6 +4524,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4482,6 +4586,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4536,6 +4641,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4549,6 +4655,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -4739,6 +4850,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4798,6 +4910,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4860,6 +4973,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -4929,6 +5043,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -4981,6 +5096,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5047,6 +5163,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -5060,6 +5177,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.6667,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -5249,6 +5371,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5306,6 +5429,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5360,6 +5484,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -5414,6 +5539,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5472,6 +5598,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -5485,6 +5612,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -5665,6 +5797,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5727,6 +5860,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -5776,6 +5910,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5833,6 +5968,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -5903,6 +6039,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -5916,6 +6053,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -6097,6 +6239,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6149,6 +6292,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6211,6 +6355,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -6277,6 +6422,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -6329,6 +6475,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6342,6 +6489,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -6524,6 +6676,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -6577,6 +6730,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6635,6 +6789,7 @@
                 8
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6692,6 +6847,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -6705,6 +6861,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -6895,6 +7056,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -6957,6 +7119,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -7009,6 +7172,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7065,6 +7229,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7118,6 +7283,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7131,6 +7297,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -7321,6 +7492,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7378,6 +7550,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7444,6 +7617,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -7494,6 +7668,7 @@
                 2
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -7546,6 +7721,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7605,6 +7781,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7618,6 +7795,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.3333,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -7789,6 +7971,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7855,6 +8038,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -7916,6 +8100,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7985,6 +8170,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -7998,6 +8184,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -8187,6 +8378,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8239,6 +8431,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8305,6 +8498,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -8363,6 +8557,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8421,6 +8616,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -8495,6 +8691,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -8508,6 +8705,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.6667,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -8683,6 +8885,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8753,6 +8956,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -8818,6 +9022,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8883,6 +9088,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8945,6 +9151,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -8958,6 +9165,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.8,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -9144,6 +9356,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9196,6 +9409,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9254,6 +9468,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9316,6 +9531,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -9374,6 +9590,7 @@
                 6
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -9387,6 +9604,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -9592,6 +9814,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9666,6 +9889,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -9725,6 +9949,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9784,6 +10009,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9843,6 +10069,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -9856,6 +10083,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 19.4,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -10043,6 +10275,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10105,6 +10338,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -10163,6 +10397,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10215,6 +10450,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10289,6 +10525,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -10302,6 +10539,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -10481,6 +10723,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10542,6 +10785,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10618,6 +10862,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10672,6 +10917,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -10726,6 +10972,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -10739,6 +10986,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -10936,6 +11188,7 @@
               "verified_bytes": 22693,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -10993,6 +11246,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11067,6 +11321,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -11125,6 +11380,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -11194,6 +11450,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11207,6 +11464,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 17.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -11385,6 +11647,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11437,6 +11700,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11489,6 +11753,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11559,6 +11824,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -11572,6 +11838,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -11751,6 +12022,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11808,6 +12080,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11874,6 +12147,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -11939,6 +12213,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -11991,6 +12266,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12004,6 +12280,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.4,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -12180,6 +12461,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12235,6 +12517,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12294,6 +12577,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12355,6 +12639,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12368,6 +12653,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 17.5,
+            "proven_matching_an_original_file": {
+              "numerator": 0,
+              "denominator": 0,
+              "ratio": null
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -12562,6 +12852,7 @@
                 2
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -12618,6 +12909,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12683,6 +12975,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12740,6 +13033,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -12798,6 +13092,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -12811,6 +13106,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -12989,6 +13289,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -13048,6 +13349,7 @@
                 6
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13099,6 +13401,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13148,6 +13451,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13161,6 +13465,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -13333,6 +13642,7 @@
                 7
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13399,6 +13709,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -13456,6 +13767,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13514,6 +13826,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13527,6 +13840,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -13723,6 +14041,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13789,6 +14108,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -13859,6 +14179,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13908,6 +14229,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -13921,6 +14243,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -14098,6 +14425,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14153,6 +14481,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14211,6 +14540,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -14270,6 +14600,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14327,6 +14658,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14340,6 +14672,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.4,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -14519,6 +14856,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14576,6 +14914,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14638,6 +14977,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -14696,6 +15036,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14749,6 +15090,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14762,6 +15104,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.0,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -14931,6 +15278,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -14989,6 +15337,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15066,6 +15415,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15120,6 +15470,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -15133,6 +15484,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -15300,6 +15656,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15366,6 +15723,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -15428,6 +15786,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15486,6 +15845,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15499,6 +15859,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -15685,6 +16050,7 @@
                 7
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15743,6 +16109,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -15805,6 +16172,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15867,6 +16235,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -15916,6 +16285,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -15929,6 +16299,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -16113,6 +16488,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16170,6 +16546,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16230,6 +16607,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16282,6 +16660,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16295,6 +16674,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 17.0,
+            "proven_matching_an_original_file": {
+              "numerator": 0,
+              "denominator": 0,
+              "ratio": null
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -16471,6 +16855,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16525,6 +16910,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16578,6 +16964,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16636,6 +17023,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -16649,6 +17037,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -16832,6 +17225,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16886,6 +17280,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -16960,6 +17355,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -17018,6 +17414,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -17072,6 +17469,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17085,6 +17483,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -17264,6 +17667,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -17318,6 +17722,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17372,6 +17777,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17429,6 +17835,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17491,6 +17898,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -17504,6 +17912,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 8.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -17689,6 +18102,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17748,6 +18162,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17813,6 +18228,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -17879,6 +18295,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -17892,6 +18309,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 17.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -18070,6 +18492,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18119,6 +18542,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18193,6 +18617,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -18250,6 +18675,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18329,6 +18755,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18342,6 +18769,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.6,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -18535,6 +18967,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18592,6 +19025,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18655,6 +19089,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18709,6 +19144,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -18775,6 +19211,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -18788,6 +19225,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 18.0,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -19012,6 +19454,7 @@
                 6
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19074,6 +19517,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19126,6 +19570,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19191,6 +19636,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19245,6 +19691,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19303,6 +19750,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19316,6 +19764,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.5,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -19506,6 +19959,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19588,6 +20042,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19642,6 +20097,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19701,6 +20157,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -19771,6 +20228,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19833,6 +20291,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -19846,6 +20305,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.0,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -20037,6 +20501,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20095,6 +20560,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -20151,6 +20617,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20210,6 +20677,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20263,6 +20731,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20276,6 +20745,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.8,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 4,
               "denominator": 4,
@@ -20448,6 +20922,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20502,6 +20977,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20559,6 +21035,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20621,6 +21098,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -20634,6 +21112,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -20813,6 +21296,7 @@
                 4
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -20864,6 +21348,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20916,6 +21401,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -20970,6 +21456,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21032,6 +21519,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -21045,6 +21533,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -21124,6 +21617,11 @@
         },
         "total_attempts": 2980,
         "attempts_per_artifact": 12.521,
+        "proven_matching_an_original_file": {
+          "numerator": 92,
+          "denominator": 92,
+          "ratio": 1.0
+        },
         "partial_prefix_match": {
           "numerator": 146,
           "denominator": 146,
@@ -21291,6 +21789,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -21343,6 +21842,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21425,6 +21925,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -21495,6 +21996,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -21551,6 +22053,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21616,6 +22119,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21629,6 +22133,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.1667,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -21799,6 +22308,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21873,6 +22383,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -21930,6 +22441,7 @@
                 3
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -21992,6 +22504,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -22005,6 +22518,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -22190,6 +22708,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -22252,6 +22771,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -22307,6 +22827,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -22385,6 +22906,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -22398,6 +22920,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.75,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -22570,6 +23097,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -22632,6 +23160,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -22690,6 +23219,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -22747,6 +23277,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -22760,6 +23291,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -22944,6 +23480,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23009,6 +23546,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23060,6 +23598,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23126,6 +23665,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -23188,6 +23728,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -23201,6 +23742,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -23379,6 +23925,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -23438,6 +23985,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23497,6 +24045,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23555,6 +24104,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23568,6 +24118,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -23754,6 +24309,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -23808,6 +24364,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -23858,6 +24415,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23920,6 +24478,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23979,6 +24538,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -23992,6 +24552,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -24174,6 +24739,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24227,6 +24793,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24297,6 +24864,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24355,6 +24923,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -24413,6 +24982,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -24426,6 +24996,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -24603,6 +25178,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24655,6 +25231,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24713,6 +25290,7 @@
                 2
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -24767,6 +25345,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -24821,6 +25400,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -24834,6 +25414,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -25012,6 +25597,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25085,6 +25671,7 @@
                 null
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25142,6 +25729,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25212,6 +25800,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -25274,6 +25863,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -25287,6 +25877,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -25458,6 +26053,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25524,6 +26120,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -25585,6 +26182,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25639,6 +26237,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -25652,6 +26251,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.25,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -25842,6 +26446,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25901,6 +26506,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -25963,6 +26569,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26032,6 +26639,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26090,6 +26698,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26156,6 +26765,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26169,6 +26779,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.1667,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -26357,6 +26972,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26414,6 +27030,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26468,6 +27085,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26522,6 +27140,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26580,6 +27199,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26593,6 +27213,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -26773,6 +27398,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26835,6 +27461,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -26884,6 +27511,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -26941,6 +27569,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27011,6 +27640,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -27024,6 +27654,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -27211,6 +27846,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27263,6 +27899,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27325,6 +27962,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -27391,6 +28029,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -27443,6 +28082,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27456,6 +28096,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -27638,6 +28283,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -27691,6 +28337,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27749,6 +28396,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27806,6 +28454,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -27819,6 +28468,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -28009,6 +28663,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -28071,6 +28726,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -28123,6 +28779,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28179,6 +28836,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28232,6 +28890,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28245,6 +28904,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -28435,6 +29099,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28492,6 +29157,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28558,6 +29224,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -28608,6 +29275,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -28666,6 +29334,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -28725,6 +29394,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28738,6 +29408,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.0,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -28909,6 +29584,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -28975,6 +29651,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29036,6 +29713,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -29105,6 +29783,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -29118,6 +29797,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -29307,6 +29991,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -29359,6 +30044,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -29425,6 +30111,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29489,6 +30176,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -29547,6 +30235,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29621,6 +30310,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29634,6 +30324,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.5,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -29818,6 +30513,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29888,6 +30584,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -29953,6 +30650,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30018,6 +30716,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30080,6 +30779,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30093,6 +30793,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -30279,6 +30984,7 @@
                 2
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30331,6 +31037,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30389,6 +31096,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30451,6 +31159,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -30509,6 +31218,7 @@
                 2
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -30522,6 +31232,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -30727,6 +31442,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30801,6 +31517,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -30863,6 +31580,7 @@
                 2
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -30922,6 +31640,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30981,6 +31700,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -30994,6 +31714,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -31181,6 +31906,7 @@
               "verified_bytes": 14453,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31243,6 +31969,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -31301,6 +32028,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31353,6 +32081,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31427,6 +32156,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -31440,6 +32170,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -31619,6 +32354,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31680,6 +32416,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31756,6 +32493,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -31810,6 +32548,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -31864,6 +32603,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -31877,6 +32617,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -32074,6 +32819,7 @@
               "verified_bytes": 22693,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32131,6 +32877,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32205,6 +32952,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -32263,6 +33011,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -32332,6 +33081,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32345,6 +33095,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -32526,6 +33281,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32578,6 +33334,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32630,6 +33387,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -32700,6 +33458,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -32713,6 +33472,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -32895,6 +33659,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -32952,6 +33717,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33018,6 +33784,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -33083,6 +33850,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33135,6 +33903,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33148,6 +33917,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -33342,6 +34116,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -33397,6 +34172,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33456,6 +34232,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33517,6 +34294,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33530,6 +34308,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -33724,6 +34507,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -33780,6 +34564,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33845,6 +34630,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33902,6 +34688,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -33960,6 +34747,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -33973,6 +34761,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -34151,6 +34944,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -34210,6 +35004,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34261,6 +35056,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34310,6 +35106,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34323,6 +35120,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -34495,6 +35297,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34561,6 +35364,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -34618,6 +35422,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34676,6 +35481,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34689,6 +35495,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -34885,6 +35696,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -34951,6 +35763,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -35021,6 +35834,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35070,6 +35884,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35083,6 +35898,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.75,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -35260,6 +36080,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35315,6 +36136,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35373,6 +36195,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -35435,6 +36258,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -35492,6 +36316,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35505,6 +36330,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 9.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -35696,6 +36526,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -35753,6 +36584,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35815,6 +36647,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -35873,6 +36706,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35930,6 +36764,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -35943,6 +36778,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -36112,6 +36952,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36171,6 +37012,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36248,6 +37090,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36302,6 +37145,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -36315,6 +37159,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -36482,6 +37331,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36548,6 +37398,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -36610,6 +37461,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36668,6 +37520,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36681,6 +37534,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 15.0,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -36867,6 +37725,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -36925,6 +37784,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -36987,6 +37847,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37049,6 +37910,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -37098,6 +37960,7 @@
               "verified_bytes": 2093,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37111,6 +37974,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -37295,6 +38163,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37352,6 +38221,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37418,6 +38288,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -37470,6 +38341,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37483,6 +38355,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.0,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -37659,6 +38536,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37713,6 +38591,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37770,6 +38649,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -37828,6 +38708,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -37841,6 +38722,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.5,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -38030,6 +38916,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38084,6 +38971,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38158,6 +39046,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -38216,6 +39105,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -38270,6 +39160,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38283,6 +39174,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 13.4,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -38462,6 +39358,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -38516,6 +39413,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38570,6 +39468,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38627,6 +39526,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38689,6 +39589,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -38702,6 +39603,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 8.6,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -38887,6 +39793,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -38946,6 +39853,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39011,6 +39919,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39077,6 +39986,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -39090,6 +40000,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 16.25,
+            "proven_matching_an_original_file": {
+              "numerator": 1,
+              "denominator": 1,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -39268,6 +40183,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39326,6 +40242,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -39400,6 +40317,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -39457,6 +40375,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39536,6 +40455,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39549,6 +40469,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -39748,6 +40673,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -39805,6 +40731,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39868,6 +40795,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39922,6 +40850,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -39988,6 +40917,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -40001,6 +40931,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 14.0,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -40225,6 +41160,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -40287,6 +41223,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -40339,6 +41276,7 @@
                 4
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40404,6 +41342,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40458,6 +41397,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40516,6 +41456,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -40529,6 +41470,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.1667,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -40722,6 +41668,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40804,6 +41751,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -40858,6 +41806,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40917,6 +41866,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -40987,6 +41937,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41049,6 +42000,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41062,6 +42014,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 12.5,
+            "proven_matching_an_original_file": {
+              "numerator": 3,
+              "denominator": 3,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -41253,6 +42210,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -41311,6 +42269,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41385,6 +42344,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41444,6 +42404,7 @@
               "verified_bytes": 10333,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -41497,6 +42458,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -41510,6 +42472,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.8,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
@@ -41682,6 +42649,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -41748,6 +42716,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41805,6 +42774,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -41867,6 +42837,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -41880,6 +42851,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 11.5,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 2,
               "denominator": 2,
@@ -42059,6 +43035,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -42110,6 +43087,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -42162,6 +43140,7 @@
               "verified_bytes": 6213,
               "step_ranks": [],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -42216,6 +43195,7 @@
                 1
               ],
               "partial_prefix_matches_original": true,
+              "proven_matches_any_original": null,
               "sha_match": null,
               "classification": "EXHAUSTED_CANDIDATES",
               "exact_recovery": false
@@ -42278,6 +43258,7 @@
                 1
               ],
               "partial_prefix_matches_original": null,
+              "proven_matches_any_original": true,
               "sha_match": true,
               "classification": "EXACT_RECOVERY",
               "exact_recovery": true
@@ -42291,6 +43272,11 @@
               "REJECTED": 0
             },
             "attempts_per_artifact": 10.2,
+            "proven_matching_an_original_file": {
+              "numerator": 2,
+              "denominator": 2,
+              "ratio": 1.0
+            },
             "partial_prefix_match": {
               "numerator": 3,
               "denominator": 3,
