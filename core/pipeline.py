@@ -234,8 +234,8 @@ def _explain_incomplete(image: Image, recon: ReconstructionResult, assembly: Lis
         body += f"Deepest attempt: {deepest}. "
     if recon.status is ReconStatus.EXHAUSTED_BUDGET:
         body += f"The search stopped at its budget of {recon.validation_count} placements. "
-    return (head + body + f"The data needed after byte {verified} is missing or corrupted; "
-            f"the system cannot tell which.")
+    return (head + body + f"The data needed after byte {verified} is missing, corrupted, "
+            f"or not found by the search; the system cannot tell which.")
 
 
 # ---------------------------------------------------------------- one artifact

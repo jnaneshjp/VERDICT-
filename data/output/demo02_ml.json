@@ -31,7 +31,7 @@
       "sha256": "9c66dab0ec66e8951af9af5c2d149318d2a0df51d59b6135ab519fa4094e11b9",
       "attempts": 9,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 8% of the image data. No candidate after block 0 led to a valid continuation (8 tried: [1, 10, 25, 7, 23, 45, 141, 174]). Deepest attempt: block 0 followed by block 1 broke IDAT_3 (CRC mismatch). The data needed after byte 2093 is missing or corrupted; the system cannot tell which.",
+      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 8% of the image data. No candidate after block 0 led to a valid continuation (8 tried: [1, 10, 25, 7, 23, 45, 141, 174]). Deepest attempt: block 0 followed by block 1 broke IDAT_3 (CRC mismatch). The data needed after byte 2093 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
@@ -667,7 +667,7 @@
       "sha256": "3c05f75c48555a05699bc2367a634f8914d239977527cb1f474ba9c915775ab3",
       "attempts": 17,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 8% of the image data. No candidate after block 22 led to a valid continuation (8 tried: [23, 25, 10, 45, 141, 174, 219, 251]). Deepest attempt: block 23 followed by block 26 broke IDAT_4 (CRC mismatch). The data needed after byte 2093 is missing or corrupted; the system cannot tell which.",
+      "explanation": "Verified up to byte 2093: IHDR + 1 IDAT chunk(s), 8% of the image data. No candidate after block 22 led to a valid continuation (8 tried: [23, 25, 10, 45, 141, 174, 219, 251]). Deepest attempt: block 23 followed by block 26 broke IDAT_4 (CRC mismatch). The data needed after byte 2093 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
@@ -1055,7 +1055,7 @@
       "sha256": "bd46ccb77228a5c2fcd5c102b7aa234ad087d27d3b1897ebc03382dfaed6bb99",
       "attempts": 19,
       "search_status": "EXHAUSTED_CANDIDATES",
-      "explanation": "Verified up to byte 10333: IHDR + 5 IDAT chunk(s), 33% of the image data. No candidate after block 26 led to a valid continuation (8 tried: [27, 28, 33, 65, 81, 113, 274, 282]). Deepest attempt: block 27 followed by block 28 broke IDAT_8 (CRC mismatch). The data needed after byte 10333 is missing or corrupted; the system cannot tell which.",
+      "explanation": "Verified up to byte 10333: IHDR + 5 IDAT chunk(s), 33% of the image data. No candidate after block 26 led to a valid continuation (8 tried: [27, 28, 33, 65, 81, 113, 274, 282]). Deepest attempt: block 27 followed by block 28 broke IDAT_8 (CRC mismatch). The data needed after byte 10333 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "checks": [
         {
           "check": "signature",
