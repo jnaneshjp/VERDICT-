@@ -132,7 +132,14 @@ def evaluate_case(image_path: str, truth_path: str,
     ranker = make_ranker(image, ranker_name)
 
     truth_pngs = [entry for entry in truth["files"] if entry["type"] == "png"]
-    truth_pngs_by_block = {entry["blocks"][0]: entry for entry in truth_pngs}
+    # Several truth files can start on the same block when a newer file was
+    # written over an older one. An anchor belongs to the file whose first block
+    # was NOT overwritten, i.e. the file whose bytes are actually there.
+    truth_pngs_by_block: Dict[int, Dict[str, Any]] = {}
+    for entry in truth_pngs:
+        block = entry["blocks"][0]
+        if block not in truth_pngs_by_block or _anchor_expected(entry):
+            truth_pngs_by_block[block] = entry
 
     # ---- anchor comparison -------------------------------------------------
     expected_entries = [entry for entry in truth_pngs if _anchor_expected(entry)]

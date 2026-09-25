@@ -31,7 +31,7 @@ export function MetricsPanel({ metrics }: { metrics: Remote<Metrics> }) {
   if (!baseline && !ml) return <Card title={title}><Empty message="metrics.json has no ranker results yet." /></Card>;
 
   return (
-    <Card title={title} right={<span className="text-xs text-zinc-500">cases: {metrics.data.cases.join(", ")}</span>}>
+    <Card title={title} right={<span className="text-xs text-zinc-500">{metrics.data.cases.length} test disks, never used in training</span>}>
       <div className="overflow-x-auto">
       <table className="w-full min-w-[480px] text-left text-sm">
         <thead className="text-xs uppercase text-zinc-500">

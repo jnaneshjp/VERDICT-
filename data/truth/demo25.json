@@ -1,0 +1,194 @@
+{
+  "case_id": "demo25",
+  "corpus": "demo",
+  "seed": 61,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "216d0159912c8e1c561fc4d178ab290427b847ecb230f51d87dabef130a4b93e",
+  "files": [
+    {
+      "name": "img_01_terrain.png",
+      "type": "png",
+      "size": 20058,
+      "sha256": "970133bf9daf4101a838b89f9740a052fe422dbf6a3c3cdc51e6c9df71b7b0a4",
+      "blocks": [
+        0,
+        1,
+        2,
+        11,
+        12
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        11,
+        12
+      ]
+    },
+    {
+      "name": "img_02_plasma.png",
+      "type": "png",
+      "size": 11102,
+      "sha256": "ce1b5076943321cdab4e5ae63150a8225b66addcb57c01eef1cec2595ae0bf85",
+      "blocks": [
+        30,
+        31,
+        32
+      ],
+      "status": "live",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "img_03_spiral.png",
+      "type": "png",
+      "size": 29639,
+      "sha256": "005fe2066e753cc5c79fca7d123c6a1880b89cee253fed212afe419ca4bdb76d",
+      "blocks": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "name": "img_04_terrain.png",
+      "type": "png",
+      "size": 11012,
+      "sha256": "a84543b083c7a2c4ea561b6956db06e69c5f9a0665fb09f81acfebe1f9ef5977",
+      "blocks": [
+        19,
+        20,
+        21
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "img_05_spiral.png",
+      "type": "png",
+      "size": 41600,
+      "sha256": "66e911b17b8da69a705762fe996e71e096a218e30320171e6124aec55f2d2b1f",
+      "blocks": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        23
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "img_06_spiral.png",
+      "type": "png",
+      "size": 32170,
+      "sha256": "043a77426b0cd6f3c95fb3286260753b25738611419a129d23c50207b9e754b0",
+      "blocks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        5
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "log_01.log",
+      "type": "log",
+      "size": 11328,
+      "sha256": "cfedc59f6f4d5645edf5926fca857bbb09ea89387bc3de6af54a436ba143068d",
+      "blocks": [
+        27,
+        28,
+        29
+      ],
+      "status": "live",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "log_02.log",
+      "type": "log",
+      "size": 13054,
+      "sha256": "25c9841623b8b91d0ec70035854c8ab710a31a702a24fb1423968847be697311",
+      "blocks": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "status": "live",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "table_01.csv",
+      "type": "csv",
+      "size": 6008,
+      "sha256": "36550c00ebfc349ea7507f0c4368b1ddb8ffcc5666a29b13c6ab335e87d1e274",
+      "blocks": [
+        25,
+        26
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        25,
+        26
+      ]
+    }
+  ],
+  "corrupted_blocks": [
+    5,
+    23
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 14,
+      "copy": 104
+    },
+    {
+      "source": 15,
+      "copy": 42
+    },
+    {
+      "source": 6,
+      "copy": 94
+    }
+  ]
+}

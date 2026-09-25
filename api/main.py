@@ -46,7 +46,7 @@ def _load_case(case_id: str, ranker: str) -> dict:
         return json.load(handle)
 
 
-@lru_cache(maxsize=8)
+@lru_cache(maxsize=4)            # each image is ~8 MB; keep at most 4 in memory
 def _image(case_id: str) -> Image:
     """Ingested storage image, kept in memory so previews are fast."""
     return ingest_image(os.path.join(CASES_DIR, f"{case_id}.img"))

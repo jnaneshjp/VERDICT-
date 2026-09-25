@@ -2,7 +2,8 @@
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
-export const CASES = ["demo01", "demo02", "demo03", "demo04", "demo05"];
+// demo01-demo50: test disks, never used in training.
+export const CASES = Array.from({ length: 50 }, (_, i) => `demo${String(i + 1).padStart(2, "0")}`);
 export type RankerName = "baseline" | "ml";
 export type EvidenceState = "PROVEN" | "PLAUSIBLE" | "PARTIAL" | "REJECTED";
 
