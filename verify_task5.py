@@ -17,6 +17,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
@@ -27,8 +28,9 @@ from evaluation.evaluate import evaluate_case  # noqa: E402
 CASE = "demo01"
 IMAGE_PATH = os.path.join(ROOT, "data", "cases", f"{CASE}.img")
 TRUTH_PATH = os.path.join(ROOT, "data", "truth", f"{CASE}.json")
-OUT_DIR = os.path.join(ROOT, "data", "output")
-OUT_JSON = os.path.join(OUT_DIR, "metrics.json")
+# Scratch location so running this harness never overwrites data/output/metrics.json.
+OUT_DIR = os.path.join(tempfile.gettempdir(), "verdict_verify_task5")
+OUT_JSON = os.path.join(OUT_DIR, f"{CASE}.json")
 
 
 def _write_report(report):

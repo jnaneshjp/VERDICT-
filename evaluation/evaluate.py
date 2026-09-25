@@ -27,6 +27,8 @@ if ROOT not in sys.path:
 from core.carve import carve_png_anchors  # noqa: E402
 from core.config import BUDGET  # noqa: E402
 from core.ingest import ingest_image  # noqa: E402
+from core.pipeline import build_artifact  # noqa: E402
+from core.rank import make_ranker  # noqa: E402
 from core.search import ReconStatus, reconstruct_png  # noqa: E402
 
 
@@ -66,6 +68,28 @@ def _classify_reconstruction(recon_status: ReconStatus,
     return recon_status.value                  # EXHAUSTED_* / REJECTED_ANCHOR
 
 
+def _step_ranks(image, events, true_blocks: List[int]) -> List[Optional[int]]:
+    """Rank of the true next block at each search step whose path so far is correct.
+
+    Read from the search trail (CANDIDATE_TRIED events carry the ranked list).
+    Blocks are compared by SHA-256 so a byte-identical copy counts as correct.
+    None = the true block was not among the kept candidates.
+    """
+    true_shas = [image.blocks[b].sha256 for b in true_blocks]
+    ranks: Dict[int, Optional[int]] = {}
+    for e in events:
+        if e.event != "CANDIDATE_TRIED":
+            continue
+        n = len(e.path) - 1                      # position being filled
+        if n >= len(true_blocks) or n in ranks:
+            continue
+        if [image.blocks[b].sha256 for b in e.path[:n]] != true_shas[:n]:
+            continue
+        ranks[n] = next((i + 1 for i, c in enumerate(e.ranked)
+                         if image.blocks[c].sha256 == true_shas[n]), None)
+    return [ranks[n] for n in sorted(ranks)]
+
+
 def _round(value: float, ndigits: int = 4) -> float:
     return round(value, ndigits)
 
@@ -77,7 +101,8 @@ def _ratio(numerator: int, denominator: int) -> Dict[str, Any]:
 
 # ------------------------------------------------------------- core
 
-def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
+def evaluate_case(image_path: str, truth_path: str,
+                  ranker_name: str = "baseline") -> Dict[str, Any]:
     """Run the production pipeline on `image_path` and score it against `truth_path`."""
     with open(truth_path) as handle:
         truth = json.load(handle)
@@ -85,6 +110,7 @@ def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
 
     image = ingest_image(image_path, block_size=block_size)
     found_anchors = carve_png_anchors(image)
+    ranker = make_ranker(image, ranker_name)
 
     truth_pngs = [entry for entry in truth["files"] if entry["type"] == "png"]
     truth_pngs_by_block = {entry["blocks"][0]: entry for entry in truth_pngs}
@@ -126,9 +152,15 @@ def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
 
     # ---- per-artifact reconstruction --------------------------------------
     artifact_results: List[Dict[str, Any]] = []
-    for anchor in found_anchors:
-        result = reconstruct_png(image, anchor)
+    all_ranks: List[Optional[int]] = []
+    for number, anchor in enumerate(found_anchors, start=1):
+        result = reconstruct_png(image, anchor, ranker=ranker)
         truth_entry = truth_pngs_by_block.get(anchor.block_index)
+        artifact = build_artifact(image, result, f"art_{number:03d}", anchor.signature)
+        ranks: List[Optional[int]] = []
+        if truth_entry and not truth_entry["overwritten_blocks"]:
+            ranks = _step_ranks(image, result.events, truth_entry["blocks"])
+        all_ranks.extend(ranks)
 
         sha_match: Optional[bool]
         if truth_entry and result.status is ReconStatus.VERIFIED and result.reconstructed_sha256:
@@ -173,6 +205,9 @@ def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
                     result.final_validator.reason_code
                     if result.final_validator is not None else None,
             },
+            "state": artifact["state"],
+            "verified_bytes": artifact["verified_bytes"],
+            "step_ranks": ranks,
             "sha_match": sha_match,
             "classification": classification,
             "exact_recovery": bool(sha_match) if sha_match is not None else False,
@@ -201,6 +236,11 @@ def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
     intact_exact = [r for r in intact_results if r["exact_recovery"]]
 
     aggregate = {
+        "state_counts": {state: sum(1 for r in artifact_results if r["state"] == state)
+                         for state in ("PROVEN", "PLAUSIBLE", "PARTIAL", "REJECTED")},
+        "attempts_per_artifact": _round(total_valcalls / denom) if denom else None,
+        "top1": _ratio(sum(1 for r in all_ranks if r == 1), len(all_ranks)),
+        "top5": _ratio(sum(1 for r in all_ranks if r is not None and r <= 5), len(all_ranks)),
         "png_artifacts_in_truth": len(truth_pngs),
         "png_anchors_expected": len(expected_set),
         "png_anchors_found": len(found_set),
@@ -249,7 +289,7 @@ def evaluate_case(image_path: str, truth_path: str) -> Dict[str, Any]:
         "block_count": image.block_count,
         "search_config": {
             "budget": BUDGET,
-            "ranker": "BaselineRanker (physical locality)",
+            "ranker": ranker_name,
         },
         "anchor_metrics": anchor_metrics,
         "artifact_results": artifact_results,
@@ -327,36 +367,86 @@ def _fmt_ratio(r: Dict[str, Any]) -> str:
     return f"{r['numerator']}/{r['denominator']} = {r['ratio'] * 100:.1f}%"
 
 
+# --------------------------------------------------------- totals across cases
+
+def _totals(reports: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Sum numerators and denominators over cases (never average ratios)."""
+    def total(key):
+        num = sum(r["aggregate_metrics"][key]["numerator"] for r in reports)
+        den = sum(r["aggregate_metrics"][key]["denominator"] for r in reports)
+        return _ratio(num, den)
+    artifacts = sum(r["aggregate_metrics"]["reconstructions_attempted"] for r in reports)
+    attempts = sum(r["aggregate_metrics"]["total_validator_calls"] for r in reports)
+    states = {}
+    for state in ("PROVEN", "PLAUSIBLE", "PARTIAL", "REJECTED"):
+        states[state] = sum(r["aggregate_metrics"]["state_counts"][state] for r in reports)
+    intact_num = sum(r["aggregate_metrics"]["known_intact_bytes"]["baseline_recovered"]["numerator"]
+                     for r in reports)
+    intact_den = sum(r["aggregate_metrics"]["known_intact_bytes"]["denominator"] for r in reports)
+    return {
+        "cases": len(reports),
+        "artifacts": artifacts,
+        "state_counts": states,
+        "exact_recovery": total("exact_recovery"),
+        "false_verified_count": sum(r["aggregate_metrics"]["false_verified_count"] for r in reports),
+        "known_intact_recovered": _ratio(intact_num, intact_den),
+        "total_attempts": attempts,
+        "attempts_per_artifact": _round(attempts / artifacts) if artifacts else None,
+        "top1": total("top1"),
+        "top5": total("top5"),
+    }
+
+
+def _print_table(results: Dict[str, Dict[str, Dict[str, Any]]], cases: List[str]) -> None:
+    rankers = list(results)
+    head = "".join(f" | {name:<9} {'att':>4}" for name in rankers)
+    print(f"{'case':<7} {'blk':>4}  {'truth file':<22} {'truth status':<22}{head}")
+    for case in cases:
+        rows = zip(*(results[name][case]["artifact_results"] for name in rankers))
+        for per_ranker in rows:
+            first = per_ranker[0]
+            truth = first["truth"] or {}
+            cells = "".join(f" | {r['state']:<9} {r['reconstruction']['validation_count']:>4}"
+                            for r in per_ranker)
+            print(f"{case:<7} {first['anchor']['block']:>4}  {(first['artifact'] or '?'):<22} "
+                  f"{truth.get('damage_class', '?'):<22}{cells}")
+
+
 # --------------------------------------------------------- main
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run the evaluation layer on one case.")
-    parser.add_argument("--case", default="demo01")
-    parser.add_argument("--image-path", default=None)
-    parser.add_argument("--truth-path", default=None)
+    parser = argparse.ArgumentParser(description="Evaluate the pipeline against truth.")
+    parser.add_argument("--case", nargs="+", default=["demo01"])
+    parser.add_argument("--ranker", nargs="+", default=["baseline"], choices=["baseline", "ml"])
     parser.add_argument("--output",
                         default=os.path.join(ROOT, "data", "output", "metrics.json"),
                         help="Where to write the metrics JSON (served verbatim by the API).")
     parser.add_argument("--no-write", action="store_true",
                         help="Do not write the JSON report to disk.")
-    parser.add_argument("--quiet", action="store_true",
-                        help="Suppress the terminal report.")
     args = parser.parse_args()
 
-    image_path = args.image_path or os.path.join(ROOT, "data", "cases", f"{args.case}.img")
-    truth_path = args.truth_path or os.path.join(ROOT, "data", "truth", f"{args.case}.json")
+    results: Dict[str, Dict[str, Dict[str, Any]]] = {}
+    for name in args.ranker:
+        results[name] = {}
+        for case in args.case:
+            image_path = os.path.join(ROOT, "data", "cases", f"{case}.img")
+            truth_path = os.path.join(ROOT, "data", "truth", f"{case}.json")
+            results[name][case] = evaluate_case(image_path, truth_path, name)
 
-    report = evaluate_case(image_path, truth_path)
-
-    if not args.quiet:
-        _print_report(report)
+    if len(args.case) == 1 and len(args.ranker) == 1:
+        _print_report(results[args.ranker[0]][args.case[0]])
+    _print_table(results, args.case)
+    metrics = {"cases": args.case, "rankers": {}}
+    for name in args.ranker:
+        totals = _totals(list(results[name].values()))
+        metrics["rankers"][name] = {"totals": totals, "per_case": results[name]}
+        print(f"\n[{name}] {json.dumps(totals)}")
 
     if not args.no_write:
-        out_path = args.output
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        with open(out_path, "w") as handle:
-            json.dump(report, handle, indent=2)
-        print(f"\nreport written to {os.path.relpath(out_path, ROOT)}")
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        with open(args.output, "w") as handle:
+            json.dump(metrics, handle, indent=2)
+        print(f"\nmetrics written to {os.path.relpath(args.output, ROOT)}")
 
 
 if __name__ == "__main__":

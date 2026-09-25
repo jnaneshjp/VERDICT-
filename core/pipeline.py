@@ -23,7 +23,8 @@ from typing import Dict, List, Optional
 
 from core.carve import carve_png_anchors, classify
 from core.ingest import Image, ingest_image
-from core.search import BaselineRanker, ReconStatus, ReconstructionResult, reconstruct_png
+from core.rank import make_ranker
+from core.search import ReconStatus, ReconstructionResult, reconstruct_png
 from core.triage import triage
 from core.validate_png import PNGValidationResult, Status, _row_bytes, validate_png
 
@@ -47,12 +48,6 @@ REASON_TEXT = {
 def assembly_bytes(image: Image, blocks: List[int]) -> bytes:
     """Concatenate whole blocks in order (anchors sit at offset 0 of a block, §3)."""
     return b"".join(image.block_data(image.blocks[b]) for b in blocks)
-
-
-def _ranker(image: Image, name: str):
-    if name == "baseline":
-        return BaselineRanker(image)
-    raise ValueError(f"ranker '{name}' is not available yet (MLRanker is task 8)")
 
 
 # ---------------------------------------------------------------- chunk helpers
@@ -306,7 +301,7 @@ def _duplicates(image: Image) -> List[dict]:
 def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") -> dict:
     """Run the full pipeline on one image and return the §14 case dict."""
     image = ingest_image(image_path)
-    ranker = _ranker(image, ranker_name)
+    ranker = make_ranker(image, ranker_name)
     artifacts = []
     for number, anchor in enumerate(carve_png_anchors(image), start=1):
         recon = reconstruct_png(image, anchor, ranker=ranker)
