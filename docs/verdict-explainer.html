@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VERDICT: how a file is rebuilt</title>
+<style>
+:root{
+  --bg:#0F1216; --panel:#161B21; --card:#1C222A; --line:#2A313B;
+  --text:#ECEEF0; --soft:#AEB6C0; --muted:#8B95A1;
+  --ok:#3DD68C; --okfill:#1F4D38; --warn:#F2B544; --bad:#F2665C;
+  --sans:"Segoe UI","IBM Plex Sans",system-ui,-apple-system,Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);overflow:hidden}
+#stage{
+  position:absolute;left:50%;top:50%;width:1600px;height:900px;
+  transform:translate(-50%,-50%);
+  padding:48px 64px;
+  display:grid;grid-template-columns:1fr 420px;grid-template-rows:auto 1fr auto;
+  column-gap:56px;row-gap:28px;
+}
+header{grid-column:1 / -1;min-height:136px}
+h1{margin:0 0 12px;font-size:52px;font-weight:600;line-height:1.1;letter-spacing:-.5px}
+#sub{margin:0;font-size:24px;line-height:1.4;color:var(--soft);max-width:1180px}
+.label{font-size:20px;color:var(--muted);margin:0 0 14px;display:flex;justify-content:space-between;gap:16px}
+#gridnote{color:var(--soft)}
+#left{position:relative}
+#grid{display:grid;grid-template-columns:repeat(10,1fr);gap:12px}
+.blk{
+  position:relative;height:72px;border-radius:8px;background:var(--tone,#222932);
+  border:2px solid transparent;opacity:0;transform:translateY(6px);
+  transition:background .25s,border-color .25s,opacity .3s,transform .3s,outline-color .25s;
+  outline:2px dashed transparent;outline-offset:3px;
+}
+.blk.in{opacity:1;transform:none}
+.blk .num{position:absolute;left:10px;top:8px;font:500 20px/1 var(--mono);color:var(--muted)}
+.blk .tag{position:absolute;left:10px;bottom:9px;font:600 16px/1 var(--sans);color:var(--ok)}
+.blk .bar{position:absolute;left:8px;right:8px;bottom:7px;height:calc(34px * var(--score,0));background:#C9D1DA;border-radius:3px;opacity:0;transition:height .45s,opacity .3s}
+.blk.scored .bar{opacity:.75}
+.blk.top8{outline-color:#8B95A1}
+.blk[data-st="scan"]{background:#3A4350}
+.blk[data-st="anchor"]{border-color:var(--ok)}
+.blk[data-st="try"]{border-color:var(--warn);background:#3A3222}
+.blk[data-st="fail"]{border-color:var(--bad);background:#3A2224}
+.blk[data-st="tried"]{border-color:#5A3134}
+.blk[data-st="locked"]{background:var(--okfill);border-color:var(--ok)}
+.blk[data-st="locked"] .num,.blk[data-st="anchor"] .num{color:var(--text)}
+#striplabel{margin-top:26px}
+#strip{display:flex;gap:8px;min-height:44px;flex-wrap:wrap}
+.chip{min-width:54px;height:44px;padding:0 10px;display:grid;place-items:center;border-radius:6px;font:600 20px var(--mono);background:var(--card);border:2px solid var(--line);transition:border-color .2s,background .2s}
+.chip[data-st="ok"]{border-color:var(--ok);background:var(--okfill)}
+.chip[data-st="try"]{border-color:var(--warn)}
+.chip[data-st="fail"]{border-color:var(--bad);background:#3A2224}
+#stats{
+  position:absolute;inset:0;background:#0F1216;border-radius:12px;
+  display:flex;flex-direction:column;justify-content:center;gap:28px;padding:8px 8px 8px 4px;
+  opacity:0;pointer-events:none;transition:opacity .4s;
+}
+#stats.show{opacity:1}
+.stat{display:grid;grid-template-columns:400px 1fr;align-items:baseline;gap:28px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.stat.show{opacity:1;transform:none}
+.stat b{font:600 60px/1 var(--mono);color:var(--ok);white-space:nowrap}
+.stat span{font-size:26px;line-height:1.4;color:var(--soft)}
+#right{display:flex;flex-direction:column;gap:16px}
+#pic{width:240px;height:240px;border-radius:10px;border:1px solid var(--line);display:block;image-rendering:auto}
+.verdictrow{display:flex;align-items:center;gap:16px;min-height:48px}
+#verdict{font:600 22px var(--mono);padding:8px 16px;border-radius:8px;background:var(--card);color:var(--muted);border:1px solid var(--line)}
+#verdict[data-kind="PROVEN"]{background:var(--ok);color:#0F1216;border-color:var(--ok)}
+#verdict[data-kind="PARTIAL"]{background:var(--warn);color:#0F1216;border-color:var(--warn)}
+#meta{font-size:20px;color:var(--soft);min-height:28px;margin:0}
+#log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font:20px/1.35 var(--mono)}
+#log li{color:var(--soft);padding-left:30px;position:relative}
+#log li::before{content:"·";position:absolute;left:4px;color:var(--muted)}
+#log li[data-kind="ok"]::before{content:"✓";color:var(--ok)}
+#log li[data-kind="bad"]::before{content:"✗";color:var(--bad)}
+#log li[data-kind="warn"]::before{content:"!";color:var(--warn)}
+footer{grid-column:1 / -1;display:flex;align-items:center;gap:24px}
+.btns{display:flex;gap:10px}
+button{font:500 20px var(--sans);color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 18px;cursor:pointer}
+button:hover{background:#232A33}
+button:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+#next{border-color:var(--ok)}
+#auto[aria-pressed="true"]{background:var(--okfill);border-color:var(--ok)}
+#dots{display:flex;gap:10px}
+#dots button{width:16px;height:16px;padding:0;border-radius:50%;background:var(--line);border:none}
+#dots button[aria-current="true"]{background:var(--ok)}
+#note{margin-left:auto;font-size:18px;color:var(--muted);text-align:right;max-width:560px;line-height:1.35}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+  <header aria-live="polite">
+    <h1 id="title">VERDICT</h1>
+    <p id="sub"></p>
+  </header>
+
+  <section id="left">
+    <p class="label"><span>Disk image: 40 of its 2,000 blocks shown</span><span id="gridnote"></span></p>
+    <div id="grid" role="img" aria-label="Grid of disk blocks"></div>
+    <p class="label" id="striplabel"><span>Blocks assembled so far, in order</span></p>
+    <div id="strip"></div>
+    <div id="stats" aria-live="polite">
+      <div class="stat"><b>92 / 92</b><span>intact files recovered with ML. Baseline: 75 / 92.</span></div>
+      <div class="stat"><b>0</b><span>wrong files marked PROVEN, by either ranker.</span></div>
+      <div class="stat"><b>146 / 146</b><span>ML partial recoveries correct up to the point claimed. Baseline: 163 / 163.</span></div>
+    </div>
+  </section>
+
+  <section id="right">
+    <p class="label" style="margin:0"><span>Recovered picture</span></p>
+    <canvas id="pic" width="240" height="240" aria-label="Recovered picture, revealed as pieces are verified"></canvas>
+    <div class="verdictrow"><span id="verdict">Not decided yet</span></div>
+    <p id="meta"></p>
+    <ul id="log" aria-live="polite"></ul>
+  </section>
+
+  <footer>
+    <div class="btns">
+      <button id="back" type="button">Back</button>
+      <button id="next" type="button">Next</button>
+      <button id="auto" type="button" aria-pressed="false">Autoplay</button>
+      <button id="restart" type="button">Restart</button>
+    </div>
+    <div id="dots"></div>
+    <p id="note">Simplified illustration of demo01's file that starts at block 11. The live dashboard shows the real run.</p>
+  </footer>
+</div>
+<noscript><p style="padding:40px;font-size:24px">This explainer needs JavaScript turned on.</p></noscript>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const stage = $('#stage');
+  function fit() {
+    const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+    stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  // ---------- timing with pause + cancel ----------
+  const CANCEL = Symbol('cancel');
+  let token = 0;
+  let paused = false;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function sleep(ms) {
+    const mine = token;
+    return new Promise((resolve, reject) => {
+      let remaining = reduced ? ms * 0.5 : ms;
+      let last = performance.now();
+      function tick(now) {
+        if (mine !== token) { reject(CANCEL); return; }
+        if (!paused) remaining -= (now - last);
+        last = now;
+        if (remaining <= 0) resolve(); else requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // ---------- disk grid ----------
+  const N = 40;
+  const tones = ['#1E242C', '#232A33', '#20262E', '#262D36'];
+  const grid = $('#grid');
+  const cells = [];
+  for (let i = 0; i < N; i++) {
+    const d = document.createElement('div');
+    d.className = 'blk in';
+    d.style.setProperty('--tone', tones[(i * 7 + 3) % 4]);
+    d.innerHTML = `<span class="num">${i}</span><span class="tag"></span><span class="bar"></span>`;
+    grid.appendChild(d);
+    cells.push(d);
+  }
+  const setBlock = (i, st) => { cells[i].dataset.st = st || ''; };
+  const tag = (i, t) => { cells[i].querySelector('.tag').textContent = t || ''; };
+  function setScore(i, v) {
+    cells[i].style.setProperty('--score', v);
+    cells[i].classList.toggle('scored', v > 0);
+  }
+  function clearScores() {
+    cells.forEach((c, i) => { setScore(i, 0); c.classList.remove('top8'); });
+    $('#gridnote').textContent = '';
+  }
+
+  // ---------- assembly strip ----------
+  const strip = $('#strip');
+  function addChip(n, st) {
+    const c = document.createElement('div');
+    c.className = 'chip'; c.dataset.st = st; c.textContent = n;
+    strip.appendChild(c);
+    return c;
+  }
+
+  // ---------- log ----------
+  const log = $('#log');
+  function logLine(text, kind) {
+    const li = document.createElement('li');
+    li.dataset.kind = kind || '';
+    li.textContent = text;
+    log.appendChild(li);
+    while (log.children.length > 4) log.firstChild.remove();
+  }
+
+  // ---------- picture ----------
+  const cv = $('#pic');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const full = (() => {
+    const img = ctx.createImageData(W, H);
+    const d = img.data;
+    const pal = [[214, 69, 65], [42, 157, 143], [233, 196, 106], [38, 70, 83]];
+    const cx = W * 0.52, cy = H * 0.48;
+    for (let y = 0; y < H; y++) {
+      for (let x = 0; x < W; x++) {
+        const dx = x - cx, dy = y - cy;
+        const r = Math.hypot(dx, dy), a = Math.atan2(dy, dx);
+        const v = (Math.sin(r / 7 - a * 3) + 1) / 2;
+        const band = ((Math.floor(r / 18 + (a / Math.PI) * 2 + 8) % 4) + 4) % 4;
+        const c1 = pal[band], c2 = pal[(band + 1) % 4];
+        const k = (y * W + x) * 4;
+        for (let j = 0; j < 3; j++) d[k + j] = c1[j] * v + c2[j] * (1 - v);
+        d[k + 3] = 255;
+      }
+    }
+    return img;
+  })();
+  let reveal = 0;
+  let hatch = false;
+  function drawPic() {
+    ctx.fillStyle = '#161B21';
+    ctx.fillRect(0, 0, W, H);
+    const rows = Math.round(H * reveal);
+    if (rows > 0) ctx.putImageData(full, 0, 0, 0, 0, W, rows);
+    if (rows < H) {
+      if (hatch) {
+        ctx.save();
+        ctx.beginPath(); ctx.rect(0, rows, W, H - rows); ctx.clip();
+        ctx.fillStyle = '#1C222A'; ctx.fillRect(0, rows, W, H - rows);
+        ctx.strokeStyle = '#3A424D'; ctx.lineWidth = 6;
+        for (let k = -H; k < W + H; k += 18) {
+          ctx.beginPath(); ctx.moveTo(k, H); ctx.lineTo(k + H, 0); ctx.stroke();
+        }
+        ctx.restore();
+        ctx.fillStyle = '#F2B544';
+        ctx.fillRect(0, Math.max(0, rows - 1), W, 3);
+      } else if (H - rows > 40) {
+        ctx.fillStyle = '#8B95A1';
+        ctx.font = '18px "Segoe UI", Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('not recovered yet', W / 2, rows + (H - rows) / 2 + 6);
+      }
+    }
+  }
+  async function revealTo(to, ms = 300) {
+    const from = reveal;
+    const steps = Math.max(1, Math.round(ms / 16));
+    for (let s = 1; s <= steps; s++) {
+      reveal = from + (to - from) * (s / steps);
+      drawPic();
+      await sleep(16);
+    }
+  }
+
+  // ---------- verdict ----------
+  function verdict(kind, meta) {
+    const v = $('#verdict');
+    v.dataset.kind = kind || '';
+    v.textContent = kind || 'Not decided yet';
+    $('#meta').textContent = meta || '';
+  }
+
+  // ---------- states ----------
+  const FIRST = [11, 12, 13, 14, 15, 16, 17];
+  function base() {
+    cells.forEach((c, i) => { setBlock(i, ''); tag(i, ''); c.classList.add('in'); });
+    clearScores();
+    strip.innerHTML = '';
+    log.innerHTML = '';
+    reveal = 0; hatch = false;
+    verdict(null, '');
+    $('#stats').classList.remove('show');
+    document.querySelectorAll('.stat').forEach((s) => s.classList.remove('show'));
+    drawPic();
+  }
+  function afterFirstRun() {
+    base();
+    FIRST.forEach((b) => { setBlock(b, 'locked'); addChip(b, 'ok'); });
+    tag(11, 'start');
+    reveal = 0.7; drawPic();
+    logLine('Blocks 11 to 17 verified', 'ok');
+    logLine('Next chunk needs more bytes', '');
+  }
+  function finalState() {
+    afterFirstRun();
+    [28, 29, 30].forEach((b) => { setBlock(b, 'locked'); addChip(b, 'ok'); });
+    reveal = 1; drawPic();
+    log.innerHTML = '';
+    logLine('Blocks 11 to 17 verified', 'ok');
+    logLine('Blocks 28 to 30 verified', 'ok');
+    logLine('All whole-picture checks pass', 'ok');
+    verdict('PROVEN', 'Real run: 11 attempts. Baseline needed 23 and stopped at PARTIAL.');
+  }
+
+  // ---------- scenes ----------
+  const scenes = [
+    {
+      title: 'This is a damaged disk',
+      sub: "A forensic copy of the whole drive, cut into 4 KB blocks. File names are gone, and one picture's pieces can be scattered across the disk.",
+      setup() { base(); cells.forEach((c) => c.classList.remove('in')); },
+      async play() {
+        for (let i = 0; i < N; i++) { cells[i].classList.add('in'); await sleep(22); }
+      },
+    },
+    {
+      title: 'First, find where a picture starts',
+      sub: 'Every PNG file begins with the same 8-byte signature. VERDICT checks the start of every block for it.',
+      setup() { base(); },
+      async play() {
+        for (let i = 0; i <= 11; i++) {
+          setBlock(i, 'scan');
+          await sleep(120);
+          if (i < 11) setBlock(i, '');
+        }
+        setBlock(11, 'anchor'); tag(11, 'start');
+        logLine('Block 11 starts with PNG signature', 'ok');
+      },
+    },
+    {
+      title: 'Add a block, check it straight away',
+      sub: 'PNG stores a checksum (CRC) for every chunk of the picture. A match locks the piece in. A mismatch means undo and try another block.',
+      setup() { base(); setBlock(11, 'anchor'); tag(11, 'start'); },
+      async play() {
+        await sleep(300);
+        setBlock(11, 'locked'); addChip(11, 'ok');
+        logLine('Header chunk: checksum matches', 'ok');
+        await revealTo(0.1);
+        for (const b of FIRST.slice(1)) {
+          setBlock(b, 'try');
+          await sleep(420);
+          setBlock(b, 'locked'); addChip(b, 'ok');
+          logLine(`Block ${b}: checksum matches`, 'ok');
+          await revealTo(reveal + 0.1, 220);
+          await sleep(140);
+        }
+        logLine('Next chunk needs more bytes', '');
+      },
+    },
+    {
+      title: 'Nearest-first gets stuck',
+      sub: 'The baseline tries the 8 blocks closest to block 17. The picture really continues at block 28, so every check fails and only the verified part is kept.',
+      setup() { afterFirstRun(); },
+      async play() {
+        const near = [18, 19, 20, 21, 22, 23, 24, 10];
+        $('#gridnote').textContent = 'Dashed: the 8 blocks the baseline will try';
+        near.forEach((i) => cells[i].classList.add('top8'));
+        await sleep(900);
+        for (const c of near) {
+          setBlock(c, 'try');
+          const chip = addChip(c, 'try');
+          await sleep(300);
+          setBlock(c, 'fail'); chip.dataset.st = 'fail';
+          logLine(`Block ${c}: mismatch, undo`, 'bad');
+          await sleep(380);
+          chip.remove(); setBlock(c, 'tried'); cells[c].classList.remove('top8');
+        }
+        $('#gridnote').textContent = '';
+        logLine('Nothing fits: keep verified part', 'warn');
+        hatch = true; drawPic();
+        verdict('PARTIAL', 'Real run: 23 attempts. Hatched rows are not verified.');
+      },
+    },
+    {
+      title: 'The ML ranker changes the order of guesses',
+      sub: 'It scores the nearby blocks and tries the likeliest first. When it guesses wrong, the checksum catches it. Block 28 fits, and the picture completes.',
+      setup() { afterFirstRun(); },
+      async play() {
+        $('#gridnote').textContent = 'Bars: ML score (illustration)';
+        const scores = {};
+        for (let i = 0; i < N; i++) {
+          if (FIRST.includes(i)) continue;
+          const noise = ((i * 53) % 17) / 100;
+          scores[i] = 0.08 + 0.34 * Math.exp(-Math.abs(i - 17) / 7) + noise;
+        }
+        scores[18] = 0.9; scores[28] = 0.84; scores[29] = 0.3; scores[30] = 0.22;
+        const order = Object.keys(scores).map(Number).sort((a, b) => scores[b] - scores[a]);
+        for (const i of Object.keys(scores).map(Number).sort((a, b) => a - b)) {
+          setScore(i, scores[i]);
+          await sleep(28);
+        }
+        await sleep(500);
+        order.slice(0, 8).forEach((i) => cells[i].classList.add('top8'));
+        await sleep(800);
+
+        setBlock(18, 'try');
+        let chip = addChip(18, 'try');
+        await sleep(360);
+        setBlock(18, 'fail'); chip.dataset.st = 'fail';
+        logLine('Block 18: mismatch, undo', 'bad');
+        await sleep(450);
+        chip.remove(); setBlock(18, 'tried');
+
+        setBlock(28, 'try');
+        chip = addChip(28, 'try');
+        await sleep(450);
+        setBlock(28, 'locked'); chip.dataset.st = 'ok';
+        logLine('Block 28: checksum matches', 'ok');
+        clearScores();
+        await revealTo(0.8, 260);
+        await sleep(200);
+
+        for (const b of [29, 30]) {
+          setBlock(b, 'try');
+          await sleep(380);
+          setBlock(b, 'locked'); addChip(b, 'ok');
+          logLine(`Block ${b}: checksum matches`, 'ok');
+          await revealTo(reveal + 0.1, 220);
+        }
+        setBlock(18, '');
+        logLine('End marker: all checks pass', 'ok');
+        verdict('PROVEN', 'Real run: 11 attempts. Baseline needed 23 and stopped at PARTIAL.');
+      },
+    },
+    {
+      title: 'ML proposes. The checksum decides.',
+      sub: 'Measured on 50 test disks the model never saw during training.',
+      setup() { finalState(); },
+      async play() {
+        $('#stats').classList.add('show');
+        for (const s of document.querySelectorAll('.stat')) {
+          await sleep(500);
+          s.classList.add('show');
+        }
+      },
+    },
+  ];
+
+  // ---------- controller ----------
+  let current = -1;
+  let auto = false;
+  let done = false;
+  const dots = $('#dots');
+  scenes.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Step ${i + 1}: ${s.title}`);
+    b.addEventListener('click', () => go(i));
+    dots.appendChild(b);
+  });
+  function updateDots() {
+    [...dots.children].forEach((b, i) => b.setAttribute('aria-current', String(i === current)));
+    $('#back').disabled = current <= 0;
+    $('#next').textContent = current >= scenes.length - 1 ? 'Done' : 'Next';
+  }
+  async function go(n) {
+    n = Math.max(0, Math.min(scenes.length - 1, n));
+    token++; paused = false; done = false; current = n;
+    const s = scenes[n];
+    $('#title').textContent = s.title;
+    $('#sub').textContent = s.sub;
+    updateDots();
+    s.setup();
+    try {
+      await s.play();
+      done = true;
+      if (auto && n < scenes.length - 1) {
+        await sleep(2800);
+        go(n + 1);
+      }
+    } catch (e) {
+      if (e !== CANCEL) throw e;
+    }
+  }
+  function next() { if (current < scenes.length - 1) go(current + 1); }
+  function back() { if (current > 0) go(current - 1); }
+  $('#next').addEventListener('click', next);
+  $('#back').addEventListener('click', back);
+  $('#restart').addEventListener('click', () => go(0));
+  $('#auto').addEventListener('click', () => {
+    auto = !auto;
+    $('#auto').setAttribute('aria-pressed', String(auto));
+    if (auto && done) next();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); back(); }
+    else if (e.key === 'r' || e.key === 'R') go(0);
+    else if (e.key === 'p' || e.key === 'P') paused = !paused;
+    else if (e.key === 'a' || e.key === 'A') $('#auto').click();
+  });
+
+  go(0);
+})();
+</script>
+</body>
+</html>
