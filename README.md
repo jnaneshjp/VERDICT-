@@ -65,8 +65,9 @@ How to read this:
   blocks. Nearest-first never reaches it and stops at PARTIAL; the ML ranker tries it early.
 - Top-1 / top-5 denominators differ between rankers because each ranker's search takes different
   paths, so it passes through a different number of steps.
-- Every number in this README, the dashboard and the explainer comes from `metrics.json`. None is
-  typed in by hand.
+- The dashboard reads its numbers from `metrics.json`, and the numbers in this README were copied
+  from it. The explainer's figures (`docs/verdict-explainer.html`) were copied from `metrics.json`
+  by hand and checked against it.
 
 ## How we validated
 
