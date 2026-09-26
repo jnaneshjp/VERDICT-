@@ -184,8 +184,12 @@ def _verify_events(image: Image, step: int, path: List[int]) -> List[dict]:
     return events
 
 
-def build_trail(image: Image, recon: ReconstructionResult) -> List[dict]:
-    """Translate search events into the §14 Proof Panel trail."""
+def build_trail(image: Image, recon: ReconstructionResult, verify_events=None) -> List[dict]:
+    """Translate search events into the §14 Proof Panel trail.
+
+    `verify_events` names what each attempt verified; PNG's by default, ZIP passes its own.
+    """
+    verify_events = verify_events or _verify_events
     trail: List[dict] = []
     ranked_at: Dict[int, List[int]] = {}      # path position -> ranked candidate list
     prev_path: List[int] = []
@@ -204,7 +208,7 @@ def build_trail(image: Image, recon: ReconstructionResult) -> List[dict]:
             trail.append({"step": e.step, "event": "BACKTRACK", "block": dropped})
             trail.append({"step": e.step, "event": "PLACE", "block": e.block, "rank": rank})
         elif e.event == "VALIDATION_RESULT":
-            trail.extend(_verify_events(image, e.step, e.path))
+            trail.extend(verify_events(image, e.step, e.path))
         elif e.event in ("SEARCH_SUCCESS", "SEARCH_EXHAUSTED"):
             trail.append({"step": e.step, "event": "STOP", "reason": recon.status.value})
         prev_path = e.path
@@ -341,6 +345,14 @@ def _duplicates(image: Image) -> List[dict]:
     return [{"sha256": sha, "blocks": blocks} for sha, blocks in groups]
 
 
+def _zip_artifacts(image: Image, first_number: int) -> List[dict]:
+    """ZIP / DOCX anchors (P1 prototype); always the baseline ranker."""
+    from core.carve import carve_zip_anchors
+    from core.pipeline_zip import build_zip_artifact, reconstruct_zip
+    return [build_zip_artifact(image, reconstruct_zip(image, anchor), f"art_{number:03d}")
+            for number, anchor in enumerate(carve_zip_anchors(image), start=first_number)]
+
+
 def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") -> dict:
     """Run the full pipeline on one image and return the §14 case dict."""
     image = ingest_image(image_path)
@@ -349,6 +361,7 @@ def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") 
     for number, anchor in enumerate(carve_png_anchors(image), start=1):
         recon = reconstruct_png(image, anchor, ranker=ranker)
         artifacts.append(build_artifact(image, recon, f"art_{number:03d}", anchor.signature))
+    artifacts += _zip_artifacts(image, first_number=len(artifacts) + 1)
 
     claimed = {b for art in artifacts for b in art["assembly"]}
     duplicates = _duplicates(image)

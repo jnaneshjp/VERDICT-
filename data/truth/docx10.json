@@ -1,0 +1,107 @@
+{
+  "case_id": "docx10",
+  "corpus": "docx",
+  "seed": 210,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "9b45e40598c69819480c2fdb478917f164f0d2ac3cb5b293f1f4c56ded12e6c1",
+  "files": [
+    {
+      "name": "doc_01_incident_review.docx",
+      "type": "docx",
+      "size": 24979,
+      "sha256": "d95b2084645b5c0b6a5183ba15a3a9fbeb1d9dd8580c40a04f7643ddc98dd700",
+      "blocks": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        13
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_site_inspection.docx",
+      "type": "docx",
+      "size": 14264,
+      "sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_vendor_audit.docx",
+      "type": "docx",
+      "size": 21843,
+      "sha256": "a7932b6610b931c08de0bacb079c1f93f5b943ce837843f60b13afa8895d28b3",
+      "blocks": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "name": "doc_04_incident_review.docx",
+      "type": "docx",
+      "size": 20516,
+      "sha256": "4375dec9b5d5165702bf8e7f81cc72b4dcc06661292a38e1d421c5d8a308a515",
+      "blocks": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  ],
+  "corrupted_blocks": [
+    13
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 16,
+      "copy": 142
+    },
+    {
+      "source": 11,
+      "copy": 21
+    },
+    {
+      "source": 15,
+      "copy": 111
+    }
+  ]
+}

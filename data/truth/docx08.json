@@ -1,0 +1,105 @@
+{
+  "case_id": "docx08",
+  "corpus": "docx",
+  "seed": 208,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "56580e34b0c3210012c0c839b108635ba917ddf5d356fa48c8c8be03cc7f95d5",
+  "files": [
+    {
+      "name": "doc_01_vendor_audit.docx",
+      "type": "docx",
+      "size": 19705,
+      "sha256": "e88c37690dc74d3c1c90db2dfadf13e0ff06f10a79a52a8fb67b6e6694661bde",
+      "blocks": [
+        0,
+        6,
+        7,
+        8,
+        9
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        7
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_vendor_audit.docx",
+      "type": "docx",
+      "size": 17034,
+      "sha256": "10e1c71d6daeddfe408b03d50270058311a7ea04169a889e8230127f75efcfae",
+      "blocks": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "name": "doc_03_incident_review.docx",
+      "type": "docx",
+      "size": 18661,
+      "sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_04_quarterly_ledger.docx",
+      "type": "docx",
+      "size": 22909,
+      "sha256": "770a3c16febc68c96d1a8f93d45d88fefc2a8cacd7b9934c381e41992aa8bc23",
+      "blocks": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "corrupted_blocks": [
+    7
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 9,
+      "copy": 227
+    },
+    {
+      "source": 6,
+      "copy": 210
+    },
+    {
+      "source": 8,
+      "copy": 190
+    }
+  ]
+}

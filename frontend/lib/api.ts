@@ -2,8 +2,11 @@
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
-// demo01-demo50: test disks, never used in training.
-export const CASES = Array.from({ length: 50 }, (_, i) => `demo${String(i + 1).padStart(2, "0")}`);
+// demo01-demo50: test disks, never used in training. docx01-docx10: DOCX prototype disks.
+export const CASES = [
+  ...Array.from({ length: 50 }, (_, i) => `demo${String(i + 1).padStart(2, "0")}`),
+  ...Array.from({ length: 10 }, (_, i) => `docx${String(i + 1).padStart(2, "0")}`),
+];
 export type RankerName = "baseline" | "ml";
 export type EvidenceState = "PROVEN" | "PLAUSIBLE" | "PARTIAL" | "REJECTED";
 
@@ -51,7 +54,13 @@ export type Artifact = {
   checks: Check[];
   trail: TrailEvent[];
   triage: Triage;
+  text_preview?: string; // DOCX/ZIP only: text of the verified word/document.xml
 };
+
+// DOCX and ZIP artifacts show verified text instead of an image preview.
+export function isZipLike(a: Artifact): boolean {
+  return a.type === "docx" || a.type === "zip";
+}
 
 export type CaseReport = {
   case_id: string;
@@ -115,6 +124,8 @@ export function previewUrl(caseId: string, artifactId: string, ranker: RankerNam
 
 // "PNG image · 183×259" — type and category from classification, size from IHDR.
 export function typeLabel(a: Artifact): string {
+  if (a.type === "docx") return "DOCX document";
+  if (a.type === "zip") return "ZIP archive";
   const size = a.width && a.height ? ` · ${a.width}×${a.height}` : "";
   return `${a.type.toUpperCase()} ${a.category}${size}`;
 }

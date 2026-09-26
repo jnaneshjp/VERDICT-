@@ -1,0 +1,67 @@
+{
+  "case_id": "docx09",
+  "corpus": "docx",
+  "seed": 209,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "a2620590b35db93147468f57df55d1c707475687584353202c70195f51832914",
+  "files": [
+    {
+      "name": "doc_01_access_log_summary.docx",
+      "type": "docx",
+      "size": 23117,
+      "sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
+      "blocks": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_field_notes.docx",
+      "type": "docx",
+      "size": 24914,
+      "sha256": "df53336da6175675314365637bb4855d2de01d86e3c55a96c9b660f6d1915807",
+      "blocks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "name": "doc_03_site_inspection.docx",
+      "type": "docx",
+      "size": 12835,
+      "sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
+      "blocks": [
+        0,
+        1,
+        2,
+        10
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

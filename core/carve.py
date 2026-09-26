@@ -42,8 +42,29 @@ def carve_png_anchors(image: Image) -> List[Anchor]:
     return find_png_anchors(image.raw, block_size=image.block_size)
 
 
+ZIP_SIGNATURE = b"PK\x03\x04"
+
+
+def carve_zip_anchors(image: Image) -> List[Anchor]:
+    """ZIP local-file-header signature at offset 0 of each block (P1 prototype)."""
+    anchors = []
+    for block_index in range(image.block_count):
+        start = block_index * image.block_size
+        if image.raw[start:start + len(ZIP_SIGNATURE)] == ZIP_SIGNATURE:
+            anchors.append(Anchor(byte_offset=start, block_index=block_index, signature="zip"))
+    return anchors
+
+
+DOCX_REQUIRED_ENTRIES = {"[Content_Types].xml", "word/document.xml"}
+
+
+def zip_type(entry_names: List[str]) -> str:
+    """'docx' if the verified entries include both DOCX marker parts, else plain 'zip'."""
+    return "docx" if DOCX_REQUIRED_ENTRIES <= set(entry_names) else "zip"
+
+
 # Deterministic classification (CLAUDE.md §9): signature -> type -> category. No ML.
-CATEGORY_BY_TYPE = {"png": "image"}
+CATEGORY_BY_TYPE = {"png": "image", "docx": "document", "zip": "archive"}
 
 
 def classify(signature: str) -> dict:

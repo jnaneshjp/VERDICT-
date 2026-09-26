@@ -1,7 +1,7 @@
 "use client";
 // Everything about one artifact: evidence preview, explanation, Proof Panel, checks, triage.
 import { useEffect, useState } from "react";
-import { fetchPreview, typeLabel, type Artifact, type Preview, type RankerName } from "@/lib/api";
+import { fetchPreview, isZipLike, typeLabel, type Artifact, type Preview, type RankerName } from "@/lib/api";
 import { ChecksTable, Timeline } from "./ProofPanel";
 import { Card, Empty, ErrorBox, Loading, Skeleton, StateBadge, type Remote } from "./ui";
 
@@ -60,6 +60,29 @@ function PreviewImage({ caseId, artifact, ranker }: { caseId: string; artifact: 
   );
 }
 
+// DOCX/ZIP: the text of word/document.xml, shown only if that entry's CRC-32 verified.
+function PreviewText({ artifact }: { artifact: Artifact }) {
+  if (artifact.state === "REJECTED") return <Empty message="No preview: no ZIP entry verified." />;
+  return (
+    <figure className="w-full max-w-md rounded-xl border border-line bg-bg p-3">
+      <div className="mb-2 flex items-center justify-between gap-2 text-[10px] uppercase tracking-[0.14em] text-muted">
+        <span>Evidence · {artifact.id}</span>
+        <span className="font-mono normal-case tracking-normal">{typeLabel(artifact)}</span>
+      </div>
+      {artifact.text_preview ? (
+        <pre className="max-h-72 overflow-auto whitespace-pre-wrap break-words font-sans text-xs leading-relaxed text-ink">
+          {artifact.text_preview}
+        </pre>
+      ) : (
+        <Empty message="word/document.xml is not among the verified entries, so no text is shown." />
+      )}
+      <figcaption className="mt-2 text-xs text-ink-2">
+        Text extracted only from entries whose CRC-32 and size verified.
+      </figcaption>
+    </figure>
+  );
+}
+
 function TriageBox({ artifact }: { artifact: Artifact }) {
   const { score, components, weights, label } = artifact.triage;
   const rows: [string, number, number][] = [
@@ -106,7 +129,9 @@ export function DetailPanel({ caseId, ranker, report, anchor }: Props) {
     <div className="space-y-5">
       <Card title={title} right={<StateBadge state={artifact.state} />}>
         <div className="grid gap-5 2xl:grid-cols-[minmax(0,auto)_minmax(0,1fr)]">
-          <PreviewImage caseId={caseId} artifact={artifact} ranker={ranker} />
+          {isZipLike(artifact)
+            ? <PreviewText artifact={artifact} />
+            : <PreviewImage caseId={caseId} artifact={artifact} ranker={ranker} />}
           <div className="min-w-0 space-y-4 text-sm">
             <p className="leading-relaxed text-ink">{artifact.explanation}</p>
             <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs">

@@ -209,11 +209,20 @@ def reconstruct_png(image: Image,
                     budget: int = BUDGET,
                     top_k: int = TOP_K,
                     window: int = WINDOW,
-                    ranker: Optional[Ranker] = None) -> ReconstructionResult:
-    """Deterministic validator-guided reconstruction from a PNG anchor."""
+                    ranker: Optional[Ranker] = None,
+                    validator=validate_png,
+                    prefix_bytes=None) -> ReconstructionResult:
+    """Deterministic validator-guided reconstruction from an anchor.
+
+    Defaults are the PNG validator and PNG verified-prefix rule. Another format
+    (ZIP) passes its own `validator` and `prefix_bytes(result) -> int`.
+    """
     if ranker is None:
         ranker = BaselineRanker(image)
-    return _Search(image, anchor, budget, top_k, window, ranker).run()
+    search = _Search(image, anchor, budget, top_k, window, ranker)
+    search.validator = validator
+    search.prefix_bytes = prefix_bytes or _verified_prefix_bytes
+    return search.run()
 
 
 class _Search:
@@ -231,6 +240,8 @@ class _Search:
         self.top_k = top_k
         self.window = window
         self.ranker = ranker
+        self.validator = validate_png
+        self.prefix_bytes = _verified_prefix_bytes
 
         self.anchor_block = anchor.block_index
         self.anchor_offset = anchor.byte_offset
@@ -260,7 +271,7 @@ class _Search:
             self._log("VALIDATION_RESULT",
                       status=result.status.value,
                       reason=result.reason_code,
-                      verified_prefix=_verified_prefix_bytes(result))
+                      verified_prefix=self.prefix_bytes(result))
 
             if result.status is Status.VALID:
                 # Whole reconstruction is verified evidence; the final block's
@@ -300,7 +311,7 @@ class _Search:
 
     def _validate_current(self) -> PNGValidationResult:
         candidate_bytes = _bytes_of_path(self.image, self.path, self.anchor_offset)
-        result = validate_png(candidate_bytes)
+        result = self.validator(candidate_bytes)
         self.validation_count += 1
         return result
 
@@ -312,7 +323,7 @@ class _Search:
         failed (e.g. IEND with valid CRC but zlib inflate error), which would
         wrongly freeze the whole path and defeat backtracking.
         """
-        verified_bytes = _verified_prefix_bytes(result)
+        verified_bytes = self.prefix_bytes(result)
         cum = _cumulative_lengths(self.image, self.path, self.anchor_offset)
         positions = _verified_positions(cum, verified_bytes)
         if positions > self.verified_upto:

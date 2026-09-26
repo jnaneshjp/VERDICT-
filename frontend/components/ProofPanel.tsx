@@ -10,6 +10,14 @@ const REASON: Record<string, string> = {
   zlib_error: "image data did not inflate",
   inflated_length_mismatch: "inflated size differs from IHDR",
   idat_not_consecutive: "IDAT chunks not consecutive",
+  entry_zlib_error: "compressed entry did not inflate",
+  entry_crc_mismatch: "CRC-32 of the entry did not match",
+  entry_size_mismatch: "entry size differs from its header",
+  central_directory_mismatch: "central directory disagrees with the entries",
+  eocd_mismatch: "end-of-central-directory record disagrees",
+  unexpected_signature: "next bytes are not a ZIP record",
+  local_header_invalid: "next entry header is not plausible",
+  unsupported_zip_feature: "unsupported ZIP feature (data descriptor, ZIP64 or encryption)",
 };
 
 const TONE = {
@@ -29,6 +37,8 @@ function describe(e: TrailEvent): { word: string; detail: ReactNode; tone: keyof
     case "PLACE":
       return { word: "PLACE", detail: <>tried block <Mono>{e.block}</Mono> (rank <Mono>#{e.rank ?? "?"}</Mono>)</>, tone: "place" };
     case "VERIFY_OK":
+      if (e.chunk === "zip_final_checks")
+        return { word: "VERIFY OK", detail: "central directory and EOCD matched every entry", tone: "ok" };
       return e.chunk === "final_checks"
         ? { word: "VERIFY OK", detail: "image data inflated and matched IHDR size", tone: "ok" }
         : { word: "VERIFY OK", detail: <><Mono>{e.chunk}</Mono>: CRC matched</>, tone: "ok" };

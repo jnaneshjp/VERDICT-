@@ -1,0 +1,68 @@
+{
+  "case_id": "docx02",
+  "corpus": "docx",
+  "seed": 202,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "96dacd06e632a372a0852f1539c23d7bdb0a3ef1261d1dd7df512a8f675326af",
+  "files": [
+    {
+      "name": "doc_01_board_minutes.docx",
+      "type": "docx",
+      "size": 15069,
+      "sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_incident_review.docx",
+      "type": "docx",
+      "size": 14941,
+      "sha256": "e2991d994161ef475d9e3f8f6b1990bdf2c6c6ae398469bfe91223af1a95f3c5",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "doc_03_board_minutes.docx",
+      "type": "docx",
+      "size": 22622,
+      "sha256": "4f6fa1b74edfb0762b737cea6fe3da51c06ed8e48d560fbeec8df0a1f2e232f5",
+      "blocks": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        8,
+        9,
+        10
+      ]
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

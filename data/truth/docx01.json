@@ -1,0 +1,103 @@
+{
+  "case_id": "docx01",
+  "corpus": "docx",
+  "seed": 201,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "d519968c06eace6d7d7c8e9d4f7595038d8152c81602d5953a8ca9bf01d8c761",
+  "files": [
+    {
+      "name": "doc_01_shipment_reconciliation.docx",
+      "type": "docx",
+      "size": 18344,
+      "sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
+      "blocks": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_field_notes.docx",
+      "type": "docx",
+      "size": 20248,
+      "sha256": "552b06673f585b7cbea5a3395fc3ac67c01f1fa00370c4504aa3ee2157c9fc9d",
+      "blocks": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "name": "doc_03_vendor_audit.docx",
+      "type": "docx",
+      "size": 17204,
+      "sha256": "ed5cd130e4c300d4bd6e931f31423ba0d91f490d73f58b341ee3ada40b1eb989",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        4
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_04_vendor_audit.docx",
+      "type": "docx",
+      "size": 18198,
+      "sha256": "ac1780e66939d9d04e25a5846f8aeb31bd839b7d0433e1653631dc8ea960fb3e",
+      "blocks": [
+        0,
+        6,
+        7,
+        8,
+        9
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "corrupted_blocks": [
+    4
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 3,
+      "copy": 21
+    },
+    {
+      "source": 5,
+      "copy": 126
+    },
+    {
+      "source": 2,
+      "copy": 187
+    }
+  ]
+}

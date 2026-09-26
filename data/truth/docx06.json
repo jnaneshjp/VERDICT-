@@ -1,0 +1,97 @@
+{
+  "case_id": "docx06",
+  "corpus": "docx",
+  "seed": 206,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "17cb7d34cf4975693020d239c8006457bf1e287cb8cb6c47fb4806521ef8a767",
+  "files": [
+    {
+      "name": "doc_01_access_log_summary.docx",
+      "type": "docx",
+      "size": 16032,
+      "sha256": "2d038dcdc0698f616c3761484310ce10b8fc8f4e1919162b06fd2a83818e4570",
+      "blocks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "doc_02_field_notes.docx",
+      "type": "docx",
+      "size": 16867,
+      "sha256": "5e6a8cc89f5504974f3b7974aa3daed6ff7121a62a5d7e96712c899ca00334d4",
+      "blocks": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "name": "doc_03_vendor_audit.docx",
+      "type": "docx",
+      "size": 23712,
+      "sha256": "03cc47c53b42ce42c9a7d80090342228ba5105494066e97b5a540a5589d3ee26",
+      "blocks": [
+        4,
+        5,
+        6,
+        7,
+        13,
+        14
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_04_site_inspection.docx",
+      "type": "docx",
+      "size": 13139,
+      "sha256": "0a7d79ab3ddd2e286f6f5bea6ade2069e6f91632331809cbaa261f44721d0a05",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        3
+      ],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [
+    3
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 2,
+      "copy": 141
+    },
+    {
+      "source": 1,
+      "copy": 240
+    }
+  ]
+}

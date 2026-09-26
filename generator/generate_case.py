@@ -19,6 +19,7 @@ import math
 import os
 import struct
 import sys
+import zipfile
 import zlib
 
 import numpy as np
@@ -30,7 +31,7 @@ from core.config import BLOCK_SIZE, IDAT_CHUNK_SIZE, WINDOW  # noqa: E402
 
 NUM_BLOCKS = 2000
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
-CORPUS_IDS = {"train": 1, "val": 2, "demo": 3}  # keeps each corpus in its own seed space
+CORPUS_IDS = {"train": 1, "val": 2, "demo": 3, "docx": 4}  # keeps each corpus in its own seed space
 
 
 # ---------------------------------------------------------------- PNG writer
@@ -141,6 +142,7 @@ IMAGE_FAMILIES = {
     "train": [field_stripes, field_checker, field_rings],
     "val": [field_waves, field_blobs, field_diamonds],
     "demo": [field_plasma, field_terrain, field_spiral],
+    "docx": [field_rings, field_blobs, field_plasma],     # residue only; docx disks hold no PNGs
 }
 
 
@@ -197,6 +199,7 @@ CSV_HEADERS = {
     "train": "sensor_id,zone,temp_c,humidity_pct",
     "val": "txn_id,account,amount,currency",
     "demo": "sku,item,warehouse,qty,unit_price",
+    "docx": "sku,item,warehouse,qty,unit_price",   # residue only (rows use the demo format)
 }
 
 
@@ -218,8 +221,100 @@ def make_csv(rng, corpus, target_size):
     return ("\n".join(lines) + "\n").encode()
 
 
+# ------------------------------------------------------------------- DOCX writer
+
+DOCX_TOPICS = ["incident review", "vendor audit", "quarterly ledger", "site inspection",
+               "access log summary", "shipment reconciliation", "board minutes", "field notes"]
+DOCX_WORDS = ("account amount approved archive asset audit balance batch branch budget cargo case "
+              "clearance client contract courier custody deadline delivery deposit device dispatch "
+              "document entry evidence exception export filing freight handover invoice ledger "
+              "manifest memo notice order packet payment permit policy record refund register "
+              "release report request review route schedule seal serial settlement shipment "
+              "signature statement storage summary supplier tally ticket transfer vault voucher "
+              "warehouse witness").split()
+
+DOCX_PARTS = {
+    "[Content_Types].xml": (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+        '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+        '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+        '<Default Extension="xml" ContentType="application/xml"/>'
+        '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'
+        '<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>'
+        '</Types>'),
+    "_rels/.rels": (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+        '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>'
+        '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>'
+        '</Relationships>'),
+}
+
+
+def docx_paragraph(rng):
+    words = [str(rng.choice(DOCX_WORDS)) for _ in range(int(rng.integers(12, 40)))]
+    words.insert(int(rng.integers(len(words))), f"#{int(rng.integers(10000, 99999))}")
+    words.insert(int(rng.integers(len(words))), f"{rng.uniform(10, 99999):.2f}")
+    return " ".join(words).capitalize() + "."
+
+
+def write_docx(rng, title, min_size):
+    """A minimal DOCX (zipfile, ZIP_DEFLATED) at least `min_size` bytes long.
+
+    Written to a seekable buffer so zipfile never uses data descriptors (flag bit 3 = 0).
+    Fixed timestamps and create_system make the bytes depend only on the seed.
+    """
+    paragraphs = [title.title()]
+    while True:
+        paragraphs += [docx_paragraph(rng) for _ in range(20)]
+        body = "".join(f"<w:p><w:r><w:t>{p}</w:t></w:r></w:p>" for p in paragraphs)
+        parts = dict(DOCX_PARTS)
+        parts["word/document.xml"] = (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+            '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+            f'<w:body>{body}</w:body></w:document>')
+        parts["docProps/core.xml"] = (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+            '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" '
+            f'xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:title>{title}</dc:title></cp:coreProperties>')
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+            for name, text in parts.items():
+                info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.create_system = 0
+                archive.writestr(info, text)
+        data = buffer.getvalue()
+        if len(data) >= min_size:
+            return data
+
+
+def check_docx(data):
+    """Every entry: flag bit 3 clear, CRC checks out (zipfile.testzip), DOCX parts present."""
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        if any(info.flag_bits & 0x08 for info in archive.infolist()):
+            raise RuntimeError("DOCX entry uses a data descriptor")
+        if archive.testzip() is not None:
+            raise RuntimeError("DOCX entry fails its CRC")
+        if not {"[Content_Types].xml", "word/document.xml"} <= set(archive.namelist()):
+            raise RuntimeError("DOCX is missing a required part")
+
+
+def build_docx_corpus(rng):
+    """3-4 DOCX files, each >= 12 KB so it spans at least 3 blocks."""
+    files = []
+    for number in range(1, int(rng.integers(3, 5)) + 1):
+        topic = str(rng.choice(DOCX_TOPICS))
+        data = write_docx(rng, topic, int(rng.integers(12 * 1024, 24 * 1024)))
+        check_docx(data)
+        files.append({"name": f"doc_{number:02d}_{topic.replace(' ', '_')}.docx", "type": "docx", "data": data})
+    return files
+
+
 def build_corpus(rng, corpus):
-    """6 procedural PNGs, 2 text logs and 1 CSV."""
+    """6 procedural PNGs, 2 text logs and 1 CSV (docx corpus: 3-4 DOCX files only)."""
+    if corpus == "docx":
+        return build_docx_corpus(rng)
     files = []
     for number in range(1, 7):
         family, pixels = make_image(rng, corpus)
@@ -383,8 +478,8 @@ def corrupt_live_blocks(disk, files, rng, count=2):
 
 
 def duplicate_blocks(disk, files, rng, count=3):
-    """Copy undamaged live PNG blocks (not anchors) into nearby never-used free blocks."""
-    sources = [block for f in files if f["status"] == "live" and f["type"] == "png"
+    """Copy undamaged live PNG (or DOCX) blocks (not anchors) into nearby never-used free blocks."""
+    sources = [block for f in files if f["status"] == "live" and f["type"] in ("png", "docx")
                for block in f["blocks"][1:] if block not in f["corrupted_blocks"]]
     duplicates = []
     for source in rng.permutation(sources)[:count]:

@@ -1,0 +1,68 @@
+{
+  "case_id": "docx04",
+  "corpus": "docx",
+  "seed": 204,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "cbf7d2a8fa90dd36c778c98abacdad722f15bea71af72be91cd2ba85baedb011",
+  "files": [
+    {
+      "name": "doc_01_site_inspection.docx",
+      "type": "docx",
+      "size": 20915,
+      "sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
+      "blocks": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_quarterly_ledger.docx",
+      "type": "docx",
+      "size": 18522,
+      "sha256": "a15cea98d049cd79e5bacb53603ae485b60b00916aa1a1fc962e8a799eb6e2c6",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "doc_03_field_notes.docx",
+      "type": "docx",
+      "size": 16259,
+      "sha256": "3bd918af02084582f95ce3d0b158767052a5cf724338faa262c909fb30b359f4",
+      "blocks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

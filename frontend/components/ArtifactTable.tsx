@@ -3,7 +3,7 @@
 // rankers end in different evidence states are marked, and flash briefly when
 // the ranker toggle flips. Rows can be shown in disk order or by triage score.
 import { useEffect, useRef, useState } from "react";
-import { previewUrl, typeLabel, type Artifact, type CaseReport, type RankerName } from "@/lib/api";
+import { isZipLike, previewUrl, typeLabel, type Artifact, type CaseReport, type RankerName } from "@/lib/api";
 import { Card, Empty, ErrorBox, Segmented, Skeleton, StateBadge, type Remote } from "./ui";
 
 export type RowOrder = "disk" | "priority";
@@ -30,6 +30,9 @@ function Thumbnail({ caseId, artifact, ranker }: { caseId: string; artifact: Art
   const box = "flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-line bg-bg";
   if (!artifact || artifact.state === "REJECTED" || failed) {
     return <div className={`${box} text-xs text-muted`}>none</div>;
+  }
+  if (isZipLike(artifact)) {
+    return <div className={`${box} font-mono text-xs text-ink-2`}>{artifact.type.toUpperCase()}</div>;
   }
   return (
     <div className={box}>
