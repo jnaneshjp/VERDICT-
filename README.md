@@ -95,13 +95,50 @@ How to read this:
   corpus and seed (confirmed against the stored SHA-256) and compares every PARTIAL artifact's
   verified bytes with the same-length start of the original.
 
+## DOCX prototype
+
+An early extension using the same search and backtracking, with a ZIP validator plugged in. Each ZIP
+entry is its own verified unit: the CRC-32 and size of its uncompressed data are checked as soon as the
+entry is complete. PROVEN also needs a central directory that matches every entry, and the End of
+Central Directory record. It was tested on 10 separate DOCX disks, `docx01`–`docx10` (corpus `docx`,
+seeds 201–210). The numbers below are copied from
+[`data/output/metrics_docx.json`](data/output/metrics_docx.json).
+
+| | Baseline | DOCX ML ranker |
+|---|---|---|
+| Intact DOCX files recovered exactly | 9 / 11 | 10 / 11 |
+| False PROVEN | 0 / 9 | 0 / 10 |
+| PARTIAL prefixes matching the original | 18 / 18 | 17 / 17 |
+
+- Only 1 of the baseline's 9 PROVEN DOCX files was fragmented (`docx09`, blocks 0, 1, 2, 10). The
+  other 8 sit in one contiguous run, so these disks test fragmentation much less than the PNG disks.
+- The DOCX ML ranker is a separate model (`ml/models/ranker_docx.joblib`) trained on its own disks
+  (`docx_train` seeds 301–308, chosen on `docx_val` seeds 401–403). The PNG model is never used for
+  DOCX. Its result is **mixed on a small sample**: it recovers the 2 intact files the baseline missed
+  (`docx05` and `docx06`) but loses the one fragmented file the baseline got (`docx09`), whose true
+  next block fell outside its top 8.
+- Why: a ZIP gives the ranker few checkpoints. A PNG has a CRC every 2 KB, but a DOCX has only a
+  handful of entries, and most of the bytes sit in one large compressed entry. The ZIP clue "does the
+  next entry header appear where this entry should end?" only applies at those few boundaries. The
+  other clue, "does inflation continue without error?", also passes for most wrong blocks. So the model
+  mostly relies on distance, and with 49 training steps it has little else to learn from.
+- In the dashboard's ML column, every DOCX row is labelled "DOCX model", or "baseline fallback" if the
+  DOCX model was not available.
+
+Reproduce: generate the disks (`--corpus docx` with seeds 201–210 as `docx01`–`docx10`;
+`--corpus docx_train` seeds 301–308 as `docxtrain301`–`docxtrain308`; `--corpus docx_val` seeds
+401–403 as `docxval401`–`docxval403`), then run `python ml/train_docx.py` and
+`python evaluation/evaluate_docx.py`.
+
 ## Honest limits
 
 - **Synthetic disks only.** All disks come from our own generator, which simulates a block
   allocator (write, delete, reuse, partial overwrite, byte flips, duplicate blocks). It has not been
   run on a real drive or a real filesystem image.
-- **PNG only.** Carving, validation and reconstruction are implemented for PNG. ZIP/DOCX, JPEG and
-  text formats are designed for (JPEG and text could at most reach PLAUSIBLE) but not built.
+- **PNG, plus an early DOCX prototype.** PNG is the evaluated format (50 test disks). ZIP/DOCX works
+  end to end but has only been tested on 10 small synthetic disks with little fragmentation, and it
+  rejects ZIP data descriptors, ZIP64 and encryption. JPEG and text formats are designed for (they
+  could at most reach PLAUSIBLE) but not built.
 - Files are assumed to start at the beginning of a 4 KB block, matching the generator.
 - The search tries at most 8 candidates per position, within ±256 blocks, and at most 60 placements
   per file. A piece further away than that is reported as unverifiable, not as missing.
@@ -184,8 +221,9 @@ Open http://localhost:3000. The API address defaults to `http://localhost:8000`;
 ```
 generator/generate_case.py   synthetic damaged disk + answer key
 core/                        ingest, carve, PNG validation, search, rankers, triage, pipeline
-ml/                          features, training (train/val only), saved model
+ml/                          features, training (train/val only), saved models (PNG, DOCX)
 evaluation/evaluate.py       scores results against the answer key → metrics.json
+evaluation/evaluate_docx.py  DOCX prototype, baseline vs ML → metrics_docx.json
 api/main.py                  FastAPI: analyze, case, preview, metrics
 frontend/                    Next.js dashboard + Proof Panel
 docs/verdict-explainer.html  animated walkthrough
