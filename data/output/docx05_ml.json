@@ -6,11 +6,11 @@
   "block_count": 2000,
   "summary": {
     "artifacts": 3,
-    "PROVEN": 0,
+    "PROVEN": 1,
     "PLAUSIBLE": 0,
-    "PARTIAL": 3,
+    "PARTIAL": 2,
     "REJECTED": 0,
-    "unattributed_blocks": 1997,
+    "unattributed_blocks": 1992,
     "duplicate_blocks": 36
   },
   "artifacts": [
@@ -31,7 +31,7 @@
       "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
       "attempts": 60,
       "search_status": "EXHAUSTED_BUDGET",
-      "ranker_used": "baseline",
+      "ranker_used": "ml",
       "explanation": "Verified up to byte 562: 2 complete entries ([Content_Types].xml, _rels/.rels). No complete continuation was found after block 0. The total size is unknown until the central directory is reached. The data needed after byte 562 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "entries": [
         {
@@ -107,13 +107,13 @@
           "rank": 1,
           "ranked": [
             1,
-            2,
-            3,
-            4,
-            5,
-            6,
             7,
-            8
+            5,
+            69,
+            6,
+            129,
+            152,
+            244
           ]
         },
         {
@@ -123,13 +123,13 @@
           "rank": 1,
           "ranked": [
             2,
-            3,
-            4,
-            5,
-            6,
-            7,
             8,
-            9
+            7,
+            69,
+            6,
+            129,
+            152,
+            244
           ]
         },
         {
@@ -139,13 +139,13 @@
           "rank": 1,
           "ranked": [
             3,
-            4,
-            5,
-            6,
             7,
-            8,
             9,
-            10
+            8,
+            69,
+            44,
+            64,
+            65
           ]
         },
         {
@@ -155,13 +155,13 @@
           "rank": 1,
           "ranked": [
             4,
-            5,
-            6,
-            7,
             8,
+            69,
             9,
             10,
-            11
+            152,
+            7,
+            244
           ]
         },
         {
@@ -178,7 +178,7 @@
         {
           "step": 5,
           "event": "PLACE",
-          "block": 5,
+          "block": 8,
           "rank": 2
         },
         {
@@ -190,12 +190,12 @@
         {
           "step": 6,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 8
         },
         {
           "step": 6,
           "event": "PLACE",
-          "block": 6,
+          "block": 69,
           "rank": 3
         },
         {
@@ -207,12 +207,12 @@
         {
           "step": 7,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 69
         },
         {
           "step": 7,
           "event": "PLACE",
-          "block": 7,
+          "block": 9,
           "rank": 4
         },
         {
@@ -224,12 +224,12 @@
         {
           "step": 8,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 9
         },
         {
           "step": 8,
           "event": "PLACE",
-          "block": 8,
+          "block": 10,
           "rank": 5
         },
         {
@@ -241,12 +241,12 @@
         {
           "step": 9,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 10
         },
         {
           "step": 9,
           "event": "PLACE",
-          "block": 9,
+          "block": 152,
           "rank": 6
         },
         {
@@ -258,12 +258,12 @@
         {
           "step": 10,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 152
         },
         {
           "step": 10,
           "event": "PLACE",
-          "block": 10,
+          "block": 7,
           "rank": 7
         },
         {
@@ -275,12 +275,12 @@
         {
           "step": 11,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 7
         },
         {
           "step": 11,
           "event": "PLACE",
-          "block": 11,
+          "block": 244,
           "rank": 8
         },
         {
@@ -297,23 +297,23 @@
         {
           "step": 12,
           "event": "PLACE",
-          "block": 4,
+          "block": 7,
           "rank": 2
         },
         {
           "step": 13,
           "event": "PLACE",
-          "block": 3,
+          "block": 8,
           "rank": 1,
           "ranked": [
-            3,
-            5,
-            6,
-            7,
             8,
-            9,
-            10,
-            11
+            12,
+            14,
+            69,
+            13,
+            129,
+            152,
+            244
           ]
         },
         {
@@ -325,12 +325,12 @@
         {
           "step": 14,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 8
         },
         {
           "step": 14,
           "event": "PLACE",
-          "block": 5,
+          "block": 12,
           "rank": 2
         },
         {
@@ -342,12 +342,12 @@
         {
           "step": 15,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 12
         },
         {
           "step": 15,
           "event": "PLACE",
-          "block": 6,
+          "block": 14,
           "rank": 3
         },
         {
@@ -359,12 +359,12 @@
         {
           "step": 16,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 14
         },
         {
           "step": 16,
           "event": "PLACE",
-          "block": 7,
+          "block": 69,
           "rank": 4
         },
         {
@@ -376,12 +376,12 @@
         {
           "step": 17,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 69
         },
         {
           "step": 17,
           "event": "PLACE",
-          "block": 8,
+          "block": 13,
           "rank": 5
         },
         {
@@ -393,12 +393,12 @@
         {
           "step": 18,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 13
         },
         {
           "step": 18,
           "event": "PLACE",
-          "block": 9,
+          "block": 129,
           "rank": 6
         },
         {
@@ -410,12 +410,12 @@
         {
           "step": 19,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 129
         },
         {
           "step": 19,
           "event": "PLACE",
-          "block": 10,
+          "block": 152,
           "rank": 7
         },
         {
@@ -427,12 +427,12 @@
         {
           "step": 20,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 152
         },
         {
           "step": 20,
           "event": "PLACE",
-          "block": 11,
+          "block": 244,
           "rank": 8
         },
         {
@@ -444,28 +444,28 @@
         {
           "step": 21,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 7
         },
         {
           "step": 21,
           "event": "PLACE",
-          "block": 5,
+          "block": 9,
           "rank": 3
         },
         {
           "step": 22,
           "event": "PLACE",
-          "block": 4,
+          "block": 10,
           "rank": 1,
           "ranked": [
-            4,
-            6,
-            3,
-            7,
-            8,
-            9,
             10,
-            11
+            14,
+            69,
+            16,
+            7,
+            15,
+            13,
+            129
           ]
         },
         {
@@ -477,12 +477,12 @@
         {
           "step": 23,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 10
         },
         {
           "step": 23,
           "event": "PLACE",
-          "block": 6,
+          "block": 14,
           "rank": 2
         },
         {
@@ -494,12 +494,12 @@
         {
           "step": 24,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 14
         },
         {
           "step": 24,
           "event": "PLACE",
-          "block": 3,
+          "block": 69,
           "rank": 3
         },
         {
@@ -511,12 +511,12 @@
         {
           "step": 25,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 69
         },
         {
           "step": 25,
           "event": "PLACE",
-          "block": 7,
+          "block": 16,
           "rank": 4
         },
         {
@@ -528,12 +528,12 @@
         {
           "step": 26,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 16
         },
         {
           "step": 26,
           "event": "PLACE",
-          "block": 8,
+          "block": 7,
           "rank": 5
         },
         {
@@ -545,12 +545,12 @@
         {
           "step": 27,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 7
         },
         {
           "step": 27,
           "event": "PLACE",
-          "block": 9,
+          "block": 15,
           "rank": 6
         },
         {
@@ -562,12 +562,12 @@
         {
           "step": 28,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 15
         },
         {
           "step": 28,
           "event": "PLACE",
-          "block": 10,
+          "block": 13,
           "rank": 7
         },
         {
@@ -579,12 +579,12 @@
         {
           "step": 29,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 13
         },
         {
           "step": 29,
           "event": "PLACE",
-          "block": 11,
+          "block": 129,
           "rank": 8
         },
         {
@@ -596,28 +596,28 @@
         {
           "step": 30,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 9
         },
         {
           "step": 30,
           "event": "PLACE",
-          "block": 6,
+          "block": 8,
           "rank": 4
         },
         {
           "step": 31,
           "event": "PLACE",
-          "block": 5,
+          "block": 9,
           "rank": 1,
           "ranked": [
-            5,
-            7,
-            4,
-            8,
-            3,
             9,
-            10,
-            11
+            13,
+            14,
+            69,
+            15,
+            7,
+            129,
+            152
           ]
         },
         {
@@ -629,12 +629,12 @@
         {
           "step": 32,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 9
         },
         {
           "step": 32,
           "event": "PLACE",
-          "block": 7,
+          "block": 13,
           "rank": 2
         },
         {
@@ -646,12 +646,12 @@
         {
           "step": 33,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 13
         },
         {
           "step": 33,
           "event": "PLACE",
-          "block": 4,
+          "block": 14,
           "rank": 3
         },
         {
@@ -663,12 +663,12 @@
         {
           "step": 34,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 14
         },
         {
           "step": 34,
           "event": "PLACE",
-          "block": 8,
+          "block": 69,
           "rank": 4
         },
         {
@@ -680,12 +680,12 @@
         {
           "step": 35,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 69
         },
         {
           "step": 35,
           "event": "PLACE",
-          "block": 3,
+          "block": 15,
           "rank": 5
         },
         {
@@ -697,12 +697,12 @@
         {
           "step": 36,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 15
         },
         {
           "step": 36,
           "event": "PLACE",
-          "block": 9,
+          "block": 7,
           "rank": 6
         },
         {
@@ -714,12 +714,12 @@
         {
           "step": 37,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 7
         },
         {
           "step": 37,
           "event": "PLACE",
-          "block": 10,
+          "block": 129,
           "rank": 7
         },
         {
@@ -731,12 +731,12 @@
         {
           "step": 38,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 129
         },
         {
           "step": 38,
           "event": "PLACE",
-          "block": 11,
+          "block": 152,
           "rank": 8
         },
         {
@@ -748,28 +748,28 @@
         {
           "step": 39,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 8
         },
         {
           "step": 39,
           "event": "PLACE",
-          "block": 7,
+          "block": 69,
           "rank": 5
         },
         {
           "step": 40,
           "event": "PLACE",
-          "block": 6,
+          "block": 70,
           "rank": 1,
           "ranked": [
-            6,
-            8,
-            5,
-            9,
-            4,
-            10,
-            3,
-            11
+            70,
+            76,
+            74,
+            305,
+            75,
+            67,
+            63,
+            129
           ]
         },
         {
@@ -781,12 +781,12 @@
         {
           "step": 41,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 70
         },
         {
           "step": 41,
           "event": "PLACE",
-          "block": 8,
+          "block": 76,
           "rank": 2
         },
         {
@@ -798,12 +798,12 @@
         {
           "step": 42,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 76
         },
         {
           "step": 42,
           "event": "PLACE",
-          "block": 5,
+          "block": 74,
           "rank": 3
         },
         {
@@ -815,12 +815,12 @@
         {
           "step": 43,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 74
         },
         {
           "step": 43,
           "event": "PLACE",
-          "block": 9,
+          "block": 305,
           "rank": 4
         },
         {
@@ -832,12 +832,12 @@
         {
           "step": 44,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 305
         },
         {
           "step": 44,
           "event": "PLACE",
-          "block": 4,
+          "block": 75,
           "rank": 5
         },
         {
@@ -849,12 +849,12 @@
         {
           "step": 45,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 75
         },
         {
           "step": 45,
           "event": "PLACE",
-          "block": 10,
+          "block": 67,
           "rank": 6
         },
         {
@@ -866,12 +866,12 @@
         {
           "step": 46,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 67
         },
         {
           "step": 46,
           "event": "PLACE",
-          "block": 3,
+          "block": 63,
           "rank": 7
         },
         {
@@ -883,12 +883,12 @@
         {
           "step": 47,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 63
         },
         {
           "step": 47,
           "event": "PLACE",
-          "block": 11,
+          "block": 129,
           "rank": 8
         },
         {
@@ -900,28 +900,28 @@
         {
           "step": 48,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 69
         },
         {
           "step": 48,
           "event": "PLACE",
-          "block": 8,
+          "block": 44,
           "rank": 6
         },
         {
           "step": 49,
           "event": "PLACE",
-          "block": 7,
+          "block": 45,
           "rank": 1,
           "ranked": [
-            7,
-            9,
-            6,
-            10,
-            5,
-            11,
-            4,
-            12
+            45,
+            49,
+            69,
+            51,
+            50,
+            40,
+            48,
+            38
           ]
         },
         {
@@ -933,12 +933,12 @@
         {
           "step": 50,
           "event": "BACKTRACK",
-          "block": 7
+          "block": 45
         },
         {
           "step": 50,
           "event": "PLACE",
-          "block": 9,
+          "block": 49,
           "rank": 2
         },
         {
@@ -950,12 +950,12 @@
         {
           "step": 51,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 49
         },
         {
           "step": 51,
           "event": "PLACE",
-          "block": 6,
+          "block": 69,
           "rank": 3
         },
         {
@@ -967,12 +967,12 @@
         {
           "step": 52,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 69
         },
         {
           "step": 52,
           "event": "PLACE",
-          "block": 10,
+          "block": 51,
           "rank": 4
         },
         {
@@ -984,12 +984,12 @@
         {
           "step": 53,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 51
         },
         {
           "step": 53,
           "event": "PLACE",
-          "block": 5,
+          "block": 50,
           "rank": 5
         },
         {
@@ -1001,12 +1001,12 @@
         {
           "step": 54,
           "event": "BACKTRACK",
-          "block": 5
+          "block": 50
         },
         {
           "step": 54,
           "event": "PLACE",
-          "block": 11,
+          "block": 40,
           "rank": 6
         },
         {
@@ -1018,12 +1018,12 @@
         {
           "step": 55,
           "event": "BACKTRACK",
-          "block": 11
+          "block": 40
         },
         {
           "step": 55,
           "event": "PLACE",
-          "block": 4,
+          "block": 48,
           "rank": 7
         },
         {
@@ -1035,12 +1035,12 @@
         {
           "step": 56,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 48
         },
         {
           "step": 56,
           "event": "PLACE",
-          "block": 12,
+          "block": 38,
           "rank": 8
         },
         {
@@ -1052,28 +1052,28 @@
         {
           "step": 57,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 44
         },
         {
           "step": 57,
           "event": "PLACE",
-          "block": 9,
+          "block": 64,
           "rank": 7
         },
         {
           "step": 58,
           "event": "PLACE",
-          "block": 8,
+          "block": 65,
           "rank": 1,
           "ranked": [
-            8,
-            10,
-            7,
-            11,
-            6,
-            12,
-            5,
-            13
+            65,
+            69,
+            71,
+            305,
+            70,
+            67,
+            63,
+            108
           ]
         },
         {
@@ -1085,12 +1085,12 @@
         {
           "step": 59,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 65
         },
         {
           "step": 59,
           "event": "PLACE",
-          "block": 10,
+          "block": 69,
           "rank": 2
         },
         {
@@ -1102,12 +1102,12 @@
         {
           "step": 60,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 69
         },
         {
           "step": 60,
           "event": "PLACE",
-          "block": 7,
+          "block": 71,
           "rank": 3
         },
         {
@@ -1133,23 +1133,28 @@
     },
     {
       "id": "art_002",
-      "type": "zip",
-      "category": "archive",
+      "type": "docx",
+      "category": "document",
       "anchor_block": 5,
       "width": null,
       "height": null,
       "assembly": [
-        5
+        5,
+        11,
+        12,
+        13,
+        14,
+        15
       ],
-      "state": "PARTIAL",
-      "verified_bytes": 562,
-      "expected_bytes": null,
-      "unverifiable_from": 562,
-      "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+      "state": "PROVEN",
+      "verified_bytes": 22453,
+      "expected_bytes": 22453,
+      "unverifiable_from": null,
+      "sha256": "0d78c4905f6299d5d1beb6779c8da3f8f56ae17d25b61dc7f776cb83b25be6de",
       "attempts": 9,
-      "search_status": "EXHAUSTED_CANDIDATES",
-      "ranker_used": "baseline",
-      "explanation": "Verified up to byte 562: 2 complete entries ([Content_Types].xml, _rels/.rels). No complete continuation was found after block 5. The total size is unknown until the central directory is reached. The data needed after byte 562 is missing, corrupted, or not found by the search; the system cannot tell which.",
+      "search_status": "VERIFIED",
+      "ranker_used": "ml",
+      "explanation": "All 4 entries matched their stored CRC-32 and size, the central directory agrees with every local header, and the EOCD was reached. Assembled from 6 blocks in 2 separate fragments; the search backtracked 3 time(s).",
       "entries": [
         {
           "name": "[Content_Types].xml",
@@ -1160,9 +1165,19 @@
           "name": "_rels/.rels",
           "size": 443,
           "ok": true
+        },
+        {
+          "name": "word/document.xml",
+          "size": 93428,
+          "ok": true
+        },
+        {
+          "name": "docProps/core.xml",
+          "size": 254,
+          "ok": true
         }
       ],
-      "text_preview": "",
+      "text_preview": "Field Notes\nAmount batch voucher refund ticket #76924 16992.70 contract transfer asset vault handover manifest clearance summary register dispatch settlement memo transfer contract policy handover courier warehouse clearance payment vault contract export deadline.\nClient ledger warehouse ticket audit #47020 case evidence courier amount balance branch witness 67009.10 client client packet voucher record statement contract freight deposit schedule signature.\nMemo balance freight ticket freight 99498.74 document report #38038 evidence warehouse cargo export permit report budget document balance summary voucher document supplier ledger report export policy balance archive document.\nSchedule branch ticket supplier payment invoice permit settlement tally permit notice 88397.32 case audit #48913 cargo cargo policy export vault deposit order export handover witness summary case.\nRelease handover settlement memo delivery seal tally case amount #30862 batch document entry case record archive vault serial freight settlement device memo schedule tally amount case 98170.96 entry transfer witness.\nClient schedule client filing warehouse order account cargo courier case balance entry notice supplier packet 237.00 courier ledger memo #61237 witness invoice archive delivery witness ledger manifest account exception ticket account transfer contract freight.\nAudit dispatch serial freight shipment custody order vault signature clearance notice 59608.85 document order review release statement account manifest cargo client supplier courier seal release #57023 summary report.\nException handover policy balance #17887 permit deadline shipment audit notice handover transfer evidence 27494.02 delivery document vault.\nTally delivery client audit voucher #33010 invoice register document seal client notice payment entry exception 89969.06 seal report case memo release balance audit schedule register branch device case deadline signature cargo custody.\nClearance case memo invoice report client client asset archive asset audit balance deposit account notice budget approved branch filing clearance exception freight exception register branch filing order request exception 34496.66 storage client contract deadline #74626 schedule.\nSettlement shipment amount settlement #28599 archive clearance policy deposit record payment storage budget balance payment permit storage warehouse serial branch tally request handover notice audit storage warehouse payment schedule witness case order archive device order notice 47597.89 shipment deadline.\nMemo seal payment memo clearance seal #93395 deadline budget transfer summary dispatch 16169.37 batch shipment storage deadline request courier statement settlement cargo balance register request.\nAmount audit vault balance case witness payment serial seal permit handover policy transfer audit 21384.38 route freight route payment filing budget policy witness case serial #10682 vault voucher notice cargo budget budget.\nClient #14009 payment deposit dea…",
       "checks": [
         {
           "check": "signature",
@@ -1193,12 +1208,36 @@
           "ok": true
         },
         {
+          "check": "word/document.xml_crc",
+          "stored": "0x3D9E390B",
+          "computed": "0x3D9E390B",
+          "ok": true
+        },
+        {
+          "check": "word/document.xml_size",
+          "actual": 93428,
+          "expected": 93428,
+          "ok": true
+        },
+        {
+          "check": "docProps/core.xml_crc",
+          "stored": "0x3FDED625",
+          "computed": "0x3FDED625",
+          "ok": true
+        },
+        {
+          "check": "docProps/core.xml_size",
+          "actual": 254,
+          "expected": 254,
+          "ok": true
+        },
+        {
           "check": "central_directory",
-          "ok": null
+          "ok": true
         },
         {
           "check": "EOCD",
-          "ok": null
+          "ok": true
         }
       ],
       "trail": [
@@ -1220,17 +1259,17 @@
         {
           "step": 1,
           "event": "PLACE",
-          "block": 4,
+          "block": 6,
           "rank": 1,
           "ranked": [
-            4,
             6,
-            3,
+            12,
+            10,
+            11,
+            69,
             7,
-            2,
-            8,
             1,
-            9
+            8
           ]
         },
         {
@@ -1242,12 +1281,12 @@
         {
           "step": 2,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 6
         },
         {
           "step": 2,
           "event": "PLACE",
-          "block": 6,
+          "block": 12,
           "rank": 2
         },
         {
@@ -1259,12 +1298,12 @@
         {
           "step": 3,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 12
         },
         {
           "step": 3,
           "event": "PLACE",
-          "block": 3,
+          "block": 10,
           "rank": 3
         },
         {
@@ -1276,100 +1315,105 @@
         {
           "step": 4,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 10
         },
         {
           "step": 4,
           "event": "PLACE",
-          "block": 7,
+          "block": 11,
           "rank": 4
         },
         {
           "step": 5,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 5,
-          "event": "BACKTRACK",
-          "block": 7
-        },
-        {
-          "step": 5,
           "event": "PLACE",
-          "block": 2,
-          "rank": 5
-        },
-        {
-          "step": 6,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 6,
-          "event": "BACKTRACK",
-          "block": 2
+          "block": 12,
+          "rank": 1,
+          "ranked": [
+            12,
+            17,
+            18,
+            69,
+            16,
+            7,
+            8,
+            14
+          ]
         },
         {
           "step": 6,
           "event": "PLACE",
-          "block": 8,
-          "rank": 6
-        },
-        {
-          "step": 7,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 7,
-          "event": "BACKTRACK",
-          "block": 8
+          "block": 13,
+          "rank": 1,
+          "ranked": [
+            13,
+            17,
+            19,
+            69,
+            18,
+            7,
+            14,
+            8
+          ]
         },
         {
           "step": 7,
           "event": "PLACE",
-          "block": 1,
-          "rank": 7
-        },
-        {
-          "step": 8,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 8,
-          "event": "BACKTRACK",
-          "block": 1
+          "block": 14,
+          "rank": 1,
+          "ranked": [
+            14,
+            18,
+            19,
+            69,
+            20,
+            7,
+            9,
+            17
+          ]
         },
         {
           "step": 8,
           "event": "PLACE",
-          "block": 9,
-          "rank": 8
+          "block": 15,
+          "rank": 1,
+          "ranked": [
+            15,
+            19,
+            69,
+            21,
+            7,
+            20,
+            9,
+            8
+          ]
         },
         {
           "step": 9,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
+          "event": "VERIFY_OK",
+          "chunk": "word/document.xml"
+        },
+        {
+          "step": 9,
+          "event": "VERIFY_OK",
+          "chunk": "docProps/core.xml"
+        },
+        {
+          "step": 9,
+          "event": "VERIFY_OK",
+          "chunk": "zip_final_checks"
         },
         {
           "step": 9,
           "event": "STOP",
-          "reason": "EXHAUSTED_CANDIDATES"
+          "reason": "VERIFIED"
         }
       ],
       "triage": {
-        "score": 0.3,
+        "score": 1.0,
         "components": {
-          "state": 0.4,
-          "completeness": 0.0,
-          "category": 0.5
+          "state": 1.0,
+          "completeness": 1.0,
+          "category": 1.0
         },
         "weights": {
           "state": 0.5,
@@ -1396,7 +1440,7 @@
       "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
       "attempts": 60,
       "search_status": "EXHAUSTED_BUDGET",
-      "ranker_used": "baseline",
+      "ranker_used": "ml",
       "explanation": "Verified up to byte 562: 2 complete entries ([Content_Types].xml, _rels/.rels). No complete continuation was found after block 6. The total size is unknown until the central directory is reached. The data needed after byte 562 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "entries": [
         {
@@ -1468,100 +1512,100 @@
         {
           "step": 1,
           "event": "PLACE",
-          "block": 5,
+          "block": 7,
           "rank": 1,
           "ranked": [
-            5,
             7,
-            4,
-            8,
+            11,
+            13,
+            12,
+            69,
             3,
-            9,
-            2,
-            10
+            8,
+            1
           ]
         },
         {
           "step": 2,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 2,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 2,
-          "event": "PLACE",
-          "block": 7,
-          "rank": 2
-        },
-        {
-          "step": 3,
           "event": "PLACE",
           "block": 8,
           "rank": 1,
           "ranked": [
             8,
-            5,
+            12,
+            14,
+            69,
+            13,
+            129,
+            152,
+            244
+          ]
+        },
+        {
+          "step": 3,
+          "event": "PLACE",
+          "block": 9,
+          "rank": 1,
+          "ranked": [
             9,
-            4,
-            10,
-            3,
-            11,
-            2
+            13,
+            14,
+            69,
+            15,
+            1,
+            129,
+            152
           ]
         },
         {
           "step": 4,
           "event": "PLACE",
-          "block": 9,
+          "block": 10,
           "rank": 1,
           "ranked": [
-            9,
             10,
-            5,
-            11,
-            4,
-            12,
-            3,
-            13
+            14,
+            69,
+            16,
+            15,
+            13,
+            129,
+            244
           ]
         },
         {
           "step": 5,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 1,
-          "ranked": [
-            10,
-            11,
-            12,
-            5,
-            13,
-            4,
-            14,
-            3
-          ]
-        },
-        {
-          "step": 6,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_size_mismatch"
         },
         {
-          "step": 6,
+          "step": 5,
           "event": "BACKTRACK",
           "block": 10
         },
         {
+          "step": 5,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 2
+        },
+        {
+          "step": 6,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 6,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
           "step": 6,
           "event": "PLACE",
-          "block": 11,
-          "rank": 2
+          "block": 69,
+          "rank": 3
         },
         {
           "step": 7,
@@ -1572,891 +1616,891 @@
         {
           "step": 7,
           "event": "BACKTRACK",
-          "block": 11
+          "block": 69
         },
         {
           "step": 7,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 3
-        },
-        {
-          "step": 8,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 8,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 8,
-          "event": "PLACE",
-          "block": 5,
-          "rank": 4
-        },
-        {
-          "step": 9,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 9,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 9,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 5
-        },
-        {
-          "step": 10,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 10,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 10,
-          "event": "PLACE",
-          "block": 4,
-          "rank": 6
-        },
-        {
-          "step": 11,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 11,
-          "event": "BACKTRACK",
-          "block": 4
-        },
-        {
-          "step": 11,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 7
-        },
-        {
-          "step": 12,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 12,
-          "event": "BACKTRACK",
-          "block": 14
-        },
-        {
-          "step": 12,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 8
-        },
-        {
-          "step": 13,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 13,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 13,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 2
-        },
-        {
-          "step": 14,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 1,
-          "ranked": [
-            9,
-            11,
-            12,
-            13,
-            14,
-            5,
-            15,
-            4
-          ]
-        },
-        {
-          "step": 15,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 15,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 15,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 2
-        },
-        {
-          "step": 16,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 16,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 16,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 3
-        },
-        {
-          "step": 17,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 17,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 17,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 4
-        },
-        {
-          "step": 18,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 18,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 18,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 5
-        },
-        {
-          "step": 19,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 19,
-          "event": "BACKTRACK",
-          "block": 14
-        },
-        {
-          "step": 19,
-          "event": "PLACE",
-          "block": 5,
-          "rank": 6
-        },
-        {
-          "step": 20,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 20,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 20,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 7
-        },
-        {
-          "step": 21,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 21,
-          "event": "BACKTRACK",
-          "block": 15
-        },
-        {
-          "step": 21,
-          "event": "PLACE",
-          "block": 4,
-          "rank": 8
-        },
-        {
-          "step": 22,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 22,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 22,
-          "event": "PLACE",
-          "block": 5,
-          "rank": 3
-        },
-        {
-          "step": 23,
-          "event": "PLACE",
-          "block": 4,
-          "rank": 1,
-          "ranked": [
-            4,
-            3,
-            2,
-            1,
-            9,
-            0,
-            10,
-            11
-          ]
-        },
-        {
-          "step": 24,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 24,
-          "event": "BACKTRACK",
-          "block": 4
-        },
-        {
-          "step": 24,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 2
-        },
-        {
-          "step": 25,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 25,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 25,
-          "event": "PLACE",
-          "block": 2,
-          "rank": 3
-        },
-        {
-          "step": 26,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 26,
-          "event": "BACKTRACK",
-          "block": 2
-        },
-        {
-          "step": 26,
-          "event": "PLACE",
-          "block": 1,
-          "rank": 4
-        },
-        {
-          "step": 27,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 27,
-          "event": "BACKTRACK",
-          "block": 1
-        },
-        {
-          "step": 27,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 5
-        },
-        {
-          "step": 28,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 28,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 28,
-          "event": "PLACE",
-          "block": 0,
-          "rank": 6
-        },
-        {
-          "step": 29,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 29,
-          "event": "BACKTRACK",
-          "block": 0
-        },
-        {
-          "step": 29,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 7
-        },
-        {
-          "step": 30,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 30,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 30,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 8
-        },
-        {
-          "step": 31,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 31,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 31,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 4
-        },
-        {
-          "step": 32,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 1,
-          "ranked": [
-            10,
-            12,
-            9,
-            13,
-            14,
-            15,
-            16,
-            5
-          ]
-        },
-        {
-          "step": 33,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 33,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 33,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 2
-        },
-        {
-          "step": 34,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 34,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 34,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 3
-        },
-        {
-          "step": 35,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 35,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 35,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 4
-        },
-        {
-          "step": 36,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 36,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 36,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 5
-        },
-        {
-          "step": 37,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 37,
-          "event": "BACKTRACK",
-          "block": 14
-        },
-        {
-          "step": 37,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 6
-        },
-        {
-          "step": 38,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 38,
-          "event": "BACKTRACK",
-          "block": 15
-        },
-        {
-          "step": 38,
           "event": "PLACE",
           "block": 16,
-          "rank": 7
+          "rank": 4
         },
         {
-          "step": 39,
+          "step": 8,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 39,
+          "step": 8,
           "event": "BACKTRACK",
           "block": 16
         },
         {
-          "step": 39,
+          "step": 8,
           "event": "PLACE",
-          "block": 5,
-          "rank": 8
-        },
-        {
-          "step": 40,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 40,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 40,
-          "event": "PLACE",
-          "block": 4,
+          "block": 15,
           "rank": 5
         },
         {
-          "step": 41,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 1,
-          "ranked": [
-            3,
-            5,
-            2,
-            1,
-            0,
-            9,
-            10,
-            11
-          ]
-        },
-        {
-          "step": 42,
+          "step": 9,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 42,
+          "step": 9,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 15
         },
         {
-          "step": 42,
+          "step": 9,
           "event": "PLACE",
-          "block": 5,
-          "rank": 2
-        },
-        {
-          "step": 43,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 43,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 43,
-          "event": "PLACE",
-          "block": 2,
-          "rank": 3
-        },
-        {
-          "step": 44,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 44,
-          "event": "BACKTRACK",
-          "block": 2
-        },
-        {
-          "step": 44,
-          "event": "PLACE",
-          "block": 1,
-          "rank": 4
-        },
-        {
-          "step": 45,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 45,
-          "event": "BACKTRACK",
-          "block": 1
-        },
-        {
-          "step": 45,
-          "event": "PLACE",
-          "block": 0,
-          "rank": 5
-        },
-        {
-          "step": 46,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 46,
-          "event": "BACKTRACK",
-          "block": 0
-        },
-        {
-          "step": 46,
-          "event": "PLACE",
-          "block": 9,
+          "block": 13,
           "rank": 6
         },
         {
-          "step": 47,
+          "step": 10,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 47,
+          "step": 10,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 10,
+          "event": "PLACE",
+          "block": 129,
+          "rank": 7
+        },
+        {
+          "step": 11,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 11,
+          "event": "BACKTRACK",
+          "block": 129
+        },
+        {
+          "step": 11,
+          "event": "PLACE",
+          "block": 244,
+          "rank": 8
+        },
+        {
+          "step": 12,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 12,
           "event": "BACKTRACK",
           "block": 9
         },
         {
-          "step": 47,
+          "step": 12,
           "event": "PLACE",
-          "block": 10,
-          "rank": 7
+          "block": 13,
+          "rank": 2
         },
         {
-          "step": 48,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 48,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 48,
+          "step": 13,
           "event": "PLACE",
-          "block": 11,
-          "rank": 8
-        },
-        {
-          "step": 49,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 49,
-          "event": "BACKTRACK",
-          "block": 4
-        },
-        {
-          "step": 49,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 6
-        },
-        {
-          "step": 50,
-          "event": "PLACE",
-          "block": 11,
+          "block": 14,
           "rank": 1,
           "ranked": [
-            11,
-            13,
-            10,
             14,
+            18,
+            19,
+            69,
+            20,
+            11,
             9,
-            15,
-            16,
             17
           ]
         },
         {
-          "step": 51,
+          "step": 14,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 51,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 51,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 2
-        },
-        {
-          "step": 52,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 52,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 52,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 3
-        },
-        {
-          "step": 53,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 53,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 53,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 4
-        },
-        {
-          "step": 54,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 54,
+          "step": 14,
           "event": "BACKTRACK",
           "block": 14
         },
         {
-          "step": 54,
+          "step": 14,
           "event": "PLACE",
-          "block": 9,
-          "rank": 5
+          "block": 18,
+          "rank": 2
         },
         {
-          "step": 55,
+          "step": 15,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 55,
+          "step": 15,
+          "event": "BACKTRACK",
+          "block": 18
+        },
+        {
+          "step": 15,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 3
+        },
+        {
+          "step": 16,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 16,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 16,
+          "event": "PLACE",
+          "block": 69,
+          "rank": 4
+        },
+        {
+          "step": 17,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 17,
+          "event": "BACKTRACK",
+          "block": 69
+        },
+        {
+          "step": 17,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 5
+        },
+        {
+          "step": 18,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 18,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 18,
+          "event": "PLACE",
+          "block": 11,
+          "rank": 6
+        },
+        {
+          "step": 19,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 19,
+          "event": "BACKTRACK",
+          "block": 11
+        },
+        {
+          "step": 19,
+          "event": "PLACE",
+          "block": 9,
+          "rank": 7
+        },
+        {
+          "step": 20,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 20,
           "event": "BACKTRACK",
           "block": 9
         },
         {
-          "step": 55,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 6
-        },
-        {
-          "step": 56,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 56,
-          "event": "BACKTRACK",
-          "block": 15
-        },
-        {
-          "step": 56,
-          "event": "PLACE",
-          "block": 16,
-          "rank": 7
-        },
-        {
-          "step": 57,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 57,
-          "event": "BACKTRACK",
-          "block": 16
-        },
-        {
-          "step": 57,
+          "step": 20,
           "event": "PLACE",
           "block": 17,
           "rank": 8
         },
         {
-          "step": 58,
+          "step": 21,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 58,
+          "step": 21,
           "event": "BACKTRACK",
-          "block": 12
+          "block": 13
         },
         {
-          "step": 58,
+          "step": 21,
           "event": "PLACE",
-          "block": 3,
+          "block": 14,
+          "rank": 3
+        },
+        {
+          "step": 22,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 1,
+          "ranked": [
+            15,
+            19,
+            69,
+            21,
+            20,
+            9,
+            129,
+            152
+          ]
+        },
+        {
+          "step": 23,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 23,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 23,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 2
+        },
+        {
+          "step": 24,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 24,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 24,
+          "event": "PLACE",
+          "block": 69,
+          "rank": 3
+        },
+        {
+          "step": 25,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 25,
+          "event": "BACKTRACK",
+          "block": 69
+        },
+        {
+          "step": 25,
+          "event": "PLACE",
+          "block": 21,
+          "rank": 4
+        },
+        {
+          "step": 26,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 26,
+          "event": "BACKTRACK",
+          "block": 21
+        },
+        {
+          "step": 26,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 5
+        },
+        {
+          "step": 27,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 27,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 27,
+          "event": "PLACE",
+          "block": 9,
+          "rank": 6
+        },
+        {
+          "step": 28,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 28,
+          "event": "BACKTRACK",
+          "block": 9
+        },
+        {
+          "step": 28,
+          "event": "PLACE",
+          "block": 129,
           "rank": 7
         },
         {
-          "step": 59,
+          "step": 29,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 29,
+          "event": "BACKTRACK",
+          "block": 129
+        },
+        {
+          "step": 29,
+          "event": "PLACE",
+          "block": 152,
+          "rank": 8
+        },
+        {
+          "step": 30,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 30,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 30,
+          "event": "PLACE",
+          "block": 69,
+          "rank": 4
+        },
+        {
+          "step": 31,
+          "event": "PLACE",
+          "block": 70,
+          "rank": 1,
+          "ranked": [
+            70,
+            76,
+            74,
+            305,
+            75,
+            67,
+            63,
+            129
+          ]
+        },
+        {
+          "step": 32,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 32,
+          "event": "BACKTRACK",
+          "block": 70
+        },
+        {
+          "step": 32,
+          "event": "PLACE",
+          "block": 76,
+          "rank": 2
+        },
+        {
+          "step": 33,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 33,
+          "event": "BACKTRACK",
+          "block": 76
+        },
+        {
+          "step": 33,
+          "event": "PLACE",
+          "block": 74,
+          "rank": 3
+        },
+        {
+          "step": 34,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 34,
+          "event": "BACKTRACK",
+          "block": 74
+        },
+        {
+          "step": 34,
+          "event": "PLACE",
+          "block": 305,
+          "rank": 4
+        },
+        {
+          "step": 35,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 35,
+          "event": "BACKTRACK",
+          "block": 305
+        },
+        {
+          "step": 35,
+          "event": "PLACE",
+          "block": 75,
+          "rank": 5
+        },
+        {
+          "step": 36,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 36,
+          "event": "BACKTRACK",
+          "block": 75
+        },
+        {
+          "step": 36,
+          "event": "PLACE",
+          "block": 67,
+          "rank": 6
+        },
+        {
+          "step": 37,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 37,
+          "event": "BACKTRACK",
+          "block": 67
+        },
+        {
+          "step": 37,
+          "event": "PLACE",
+          "block": 63,
+          "rank": 7
+        },
+        {
+          "step": 38,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 38,
+          "event": "BACKTRACK",
+          "block": 63
+        },
+        {
+          "step": 38,
+          "event": "PLACE",
+          "block": 129,
+          "rank": 8
+        },
+        {
+          "step": 39,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 39,
+          "event": "BACKTRACK",
+          "block": 69
+        },
+        {
+          "step": 39,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 5
+        },
+        {
+          "step": 40,
+          "event": "PLACE",
+          "block": 16,
+          "rank": 1,
+          "ranked": [
+            16,
+            22,
+            20,
+            69,
+            21,
+            13,
+            17,
+            11
+          ]
+        },
+        {
+          "step": 41,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 41,
+          "event": "BACKTRACK",
+          "block": 16
+        },
+        {
+          "step": 41,
+          "event": "PLACE",
+          "block": 22,
+          "rank": 2
+        },
+        {
+          "step": 42,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 42,
+          "event": "BACKTRACK",
+          "block": 22
+        },
+        {
+          "step": 42,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 3
+        },
+        {
+          "step": 43,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 43,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 43,
+          "event": "PLACE",
+          "block": 69,
+          "rank": 4
+        },
+        {
+          "step": 44,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 44,
+          "event": "BACKTRACK",
+          "block": 69
+        },
+        {
+          "step": 44,
+          "event": "PLACE",
+          "block": 21,
+          "rank": 5
+        },
+        {
+          "step": 45,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 45,
+          "event": "BACKTRACK",
+          "block": 21
+        },
+        {
+          "step": 45,
+          "event": "PLACE",
+          "block": 13,
+          "rank": 6
+        },
+        {
+          "step": 46,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 46,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 46,
+          "event": "PLACE",
+          "block": 17,
+          "rank": 7
+        },
+        {
+          "step": 47,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 47,
+          "event": "BACKTRACK",
+          "block": 17
+        },
+        {
+          "step": 47,
+          "event": "PLACE",
+          "block": 11,
+          "rank": 8
+        },
+        {
+          "step": 48,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 48,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 48,
+          "event": "PLACE",
+          "block": 1,
+          "rank": 6
+        },
+        {
+          "step": 49,
           "event": "PLACE",
           "block": 2,
           "rank": 1,
           "ranked": [
             2,
-            4,
-            1,
-            5,
-            0,
-            9,
-            10,
-            11
+            69,
+            129,
+            152,
+            244,
+            33,
+            145,
+            22
           ]
+        },
+        {
+          "step": 50,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 50,
+          "event": "BACKTRACK",
+          "block": 2
+        },
+        {
+          "step": 50,
+          "event": "PLACE",
+          "block": 69,
+          "rank": 2
+        },
+        {
+          "step": 51,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 51,
+          "event": "BACKTRACK",
+          "block": 69
+        },
+        {
+          "step": 51,
+          "event": "PLACE",
+          "block": 129,
+          "rank": 3
+        },
+        {
+          "step": 52,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 52,
+          "event": "BACKTRACK",
+          "block": 129
+        },
+        {
+          "step": 52,
+          "event": "PLACE",
+          "block": 152,
+          "rank": 4
+        },
+        {
+          "step": 53,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 53,
+          "event": "BACKTRACK",
+          "block": 152
+        },
+        {
+          "step": 53,
+          "event": "PLACE",
+          "block": 244,
+          "rank": 5
+        },
+        {
+          "step": 54,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 54,
+          "event": "BACKTRACK",
+          "block": 244
+        },
+        {
+          "step": 54,
+          "event": "PLACE",
+          "block": 33,
+          "rank": 6
+        },
+        {
+          "step": 55,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 55,
+          "event": "BACKTRACK",
+          "block": 33
+        },
+        {
+          "step": 55,
+          "event": "PLACE",
+          "block": 145,
+          "rank": 7
+        },
+        {
+          "step": 56,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 56,
+          "event": "BACKTRACK",
+          "block": 145
+        },
+        {
+          "step": 56,
+          "event": "PLACE",
+          "block": 22,
+          "rank": 8
+        },
+        {
+          "step": 57,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 57,
+          "event": "BACKTRACK",
+          "block": 1
+        },
+        {
+          "step": 57,
+          "event": "PLACE",
+          "block": 129,
+          "rank": 7
+        },
+        {
+          "step": 58,
+          "event": "PLACE",
+          "block": 136,
+          "rank": 1,
+          "ranked": [
+            136,
+            134,
+            69,
+            305,
+            122,
+            135,
+            132,
+            133
+          ]
+        },
+        {
+          "step": 59,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 59,
+          "event": "BACKTRACK",
+          "block": 136
+        },
+        {
+          "step": 59,
+          "event": "PLACE",
+          "block": 134,
+          "rank": 2
         },
         {
           "step": 60,
@@ -2467,13 +2511,13 @@
         {
           "step": 60,
           "event": "BACKTRACK",
-          "block": 2
+          "block": 134
         },
         {
           "step": 60,
           "event": "PLACE",
-          "block": 4,
-          "rank": 2
+          "block": 69,
+          "rank": 3
         },
         {
           "step": 61,
@@ -2665,31 +2709,6 @@
       "block": 10,
       "entropy": 7.88,
       "printable": 0.383
-    },
-    {
-      "block": 11,
-      "entropy": 7.942,
-      "printable": 0.373
-    },
-    {
-      "block": 12,
-      "entropy": 7.941,
-      "printable": 0.385
-    },
-    {
-      "block": 13,
-      "entropy": 7.943,
-      "printable": 0.375
-    },
-    {
-      "block": 14,
-      "entropy": 7.949,
-      "printable": 0.394
-    },
-    {
-      "block": 15,
-      "entropy": 7.866,
-      "printable": 0.374
     },
     {
       "block": 16,

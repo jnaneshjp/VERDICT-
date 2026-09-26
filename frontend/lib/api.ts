@@ -55,7 +55,14 @@ export type Artifact = {
   trail: TrailEvent[];
   triage: Triage;
   text_preview?: string; // DOCX/ZIP only: text of the verified word/document.xml
+  ranker_used?: RankerName; // DOCX/ZIP only: the ranker the search actually used
 };
+
+// For a DOCX/ZIP result in the ML column: which model really ordered the candidates.
+export function zipRankerNote(a: Artifact | undefined): string | null {
+  if (!a || !isZipLike(a) || !a.ranker_used) return null;
+  return a.ranker_used === "ml" ? "DOCX model" : "baseline fallback";
+}
 
 // DOCX and ZIP artifacts show verified text instead of an image preview.
 export function isZipLike(a: Artifact): boolean {

@@ -1,0 +1,101 @@
+{
+  "case_id": "docxtrain307",
+  "corpus": "docx_train",
+  "seed": 307,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "6279c5ddeba3d7729a7df811ef99e24f21a585b5b5a6f21172e18ee6ebb1937f",
+  "files": [
+    {
+      "name": "doc_01_course_syllabus.docx",
+      "type": "docx",
+      "size": 12839,
+      "sha256": "377f9fcc9efaaa9defce40efd06bfa0f0b0f2dafc23e21b385534234209546ba",
+      "blocks": [
+        5,
+        6,
+        7,
+        13
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        7,
+        13
+      ]
+    },
+    {
+      "name": "doc_02_trial_summary.docx",
+      "type": "docx",
+      "size": 18953,
+      "sha256": "4ef32d87adf6b6c3183cb931abf1a8c77516cb957d0d938571d32d3c72d6f9d8",
+      "blocks": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        10
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_course_syllabus.docx",
+      "type": "docx",
+      "size": 18275,
+      "sha256": "cf0f9b95178aa51a59528437d8d2bd3944bbb925c66831ac66ed5d55d2c4395f",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_04_grant_proposal.docx",
+      "type": "docx",
+      "size": 17679,
+      "sha256": "84f2b7a5e0c9f0f99b300841e447e06a62b30b50cd6c54343ab1d121b75dda2d",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "corrupted_blocks": [
+    10
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 12,
+      "copy": 130
+    },
+    {
+      "source": 9,
+      "copy": 211
+    },
+    {
+      "source": 11,
+      "copy": 160
+    }
+  ]
+}

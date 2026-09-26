@@ -1,0 +1,96 @@
+{
+  "case_id": "docxtrain305",
+  "corpus": "docx_train",
+  "seed": 305,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "22ee63afd574f8a64af8b623fda85237d4b02b60629904d37841f5f406004bb4",
+  "files": [
+    {
+      "name": "doc_01_grant_proposal.docx",
+      "type": "docx",
+      "size": 22998,
+      "sha256": "123c94782943cf01115964d1688b21cff2d5ae542e87212645e83682d437c110",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "doc_02_project_charter.docx",
+      "type": "docx",
+      "size": 13299,
+      "sha256": "854dea79e481c3a8717d013a1ba249bd1a8b2b04eb7c1766137eb9803987ab2d",
+      "blocks": [
+        6,
+        7,
+        12,
+        13
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        7
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_lab_protocol.docx",
+      "type": "docx",
+      "size": 13198,
+      "sha256": "82d626c04de9c2d0c8061e8073dba0c06970751188dff0462fe3e7b61f1cbe34",
+      "blocks": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "doc_04_project_charter.docx",
+      "type": "docx",
+      "size": 13949,
+      "sha256": "a5a3ee683305a8286bf2df851f1f3d7f2c00990bd17dc0a1215a4bf027506f85",
+      "blocks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [
+    7
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 12,
+      "copy": 109
+    },
+    {
+      "source": 13,
+      "copy": 260
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "case_id": "docxtrain301",
+  "corpus": "docx_train",
+  "seed": 301,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "ccc86e7aa3cf2a5f2f26504c94d7362e86dfd824b62899267658520cab54c2d2",
+  "files": [
+    {
+      "name": "doc_01_lab_protocol.docx",
+      "type": "docx",
+      "size": 23825,
+      "sha256": "e76cc7a947da14c98038fffbb003944da11de20f20a6ea83f49e46b1387967aa",
+      "blocks": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "name": "doc_02_lab_protocol.docx",
+      "type": "docx",
+      "size": 16194,
+      "sha256": "498ed4dfc34e25b7a2416f762eece552643755f09b2a5fa3562fda1a6b379bef",
+      "blocks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_course_syllabus.docx",
+      "type": "docx",
+      "size": 24200,
+      "sha256": "3d92bd3394344caee7cc710a29f9d01a28e23328c55a1d1f11967e278be30047",
+      "blocks": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "name": "doc_04_equipment_log.docx",
+      "type": "docx",
+      "size": 17805,
+      "sha256": "090eeed1cc300c367ed306b031a6da93ed6a5ffc0d0a90427a468d151b2a1465",
+      "blocks": [
+        0,
+        1,
+        6,
+        7,
+        8
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        7
+      ],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [
+    7
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 1,
+      "copy": 61
+    },
+    {
+      "source": 6,
+      "copy": 181
+    },
+    {
+      "source": 8,
+      "copy": 95
+    }
+  ]
+}

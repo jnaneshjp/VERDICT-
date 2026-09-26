@@ -1,8 +1,9 @@
 """ZIP / DOCX artifacts for the pipeline (P1 prototype).
 
 Uses the same search and backtracking as PNG, with the ZIP validator plugged
-in. The ML ranker was trained on PNG only, so ZIP always uses the baseline
-(nearest block first) ranker.
+in. The PNG ML model is never used here. With --ranker ml, ZIP anchors use the
+separate DOCX model (ml/models/ranker_docx.joblib) if it exists, otherwise the
+baseline; each artifact records the ranker it actually used in `ranker_used`.
 
 Evidence states:
   every entry + central directory + EOCD verified   -> PROVEN
@@ -30,8 +31,8 @@ def zip_prefix_bytes(result: ZipValidationResult) -> int:
     return result.verified_bytes
 
 
-def reconstruct_zip(image: Image, anchor) -> ReconstructionResult:
-    return reconstruct_png(image, anchor, ranker=BaselineRanker(image),
+def reconstruct_zip(image: Image, anchor, ranker=None) -> ReconstructionResult:
+    return reconstruct_png(image, anchor, ranker=ranker or BaselineRanker(image),
                            validator=validate_zip, prefix_bytes=zip_prefix_bytes)
 
 
@@ -121,7 +122,8 @@ def _explain(state: str, recon: ReconstructionResult, result: ZipValidationResul
             f"or not found by the search; the system cannot tell which.")
 
 
-def build_zip_artifact(image: Image, recon: ReconstructionResult, art_id: str) -> dict:
+def build_zip_artifact(image: Image, recon: ReconstructionResult, art_id: str,
+                       ranker_used: str = "baseline") -> dict:
     unsupported = any(e.event == "VALIDATION_RESULT" and e.validator_reason == "unsupported_zip_feature"
                       for e in recon.events)
     if recon.status is ReconStatus.VERIFIED and not unsupported:
@@ -154,7 +156,7 @@ def build_zip_artifact(image: Image, recon: ReconstructionResult, art_id: str) -
         "sha256": hashlib.sha256(data).hexdigest() if verified else None,
         "attempts": recon.validation_count,
         "search_status": recon.status.value,
-        "ranker_used": "baseline",
+        "ranker_used": ranker_used,
         "explanation": _explain(state, recon, result, assembly, verified, unsupported),
         "entries": [{"name": e.name, "size": e.stored_size, "ok": e.ok} for e in result.entries],
         "text_preview": docx_text(result) if not unsupported else "",

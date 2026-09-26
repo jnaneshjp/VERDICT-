@@ -1,0 +1,73 @@
+{
+  "case_id": "docxtrain302",
+  "corpus": "docx_train",
+  "seed": 302,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "bee3cd98d447a94e47d96b96fcb435c0dacf6c8d18d924e73384de3c9df36486",
+  "files": [
+    {
+      "name": "doc_01_trial_summary.docx",
+      "type": "docx",
+      "size": 22974,
+      "sha256": "6d009886460c8e1e2536448a28c5cd0dddf993c763005cc4b225033616314e12",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "doc_02_equipment_log.docx",
+      "type": "docx",
+      "size": 20101,
+      "sha256": "2b45f39c0c3e8bddc45a3a0c87b2053e959959112b30f1c8b9aed9889a810d3c",
+      "blocks": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_safety_briefing.docx",
+      "type": "docx",
+      "size": 21021,
+      "sha256": "e7c3dbce7b0420e003c9e85b831aa8412460c0003a2cb22582a581e44b04d4ec",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

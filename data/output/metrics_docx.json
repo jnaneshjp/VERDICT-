@@ -11,585 +11,1479 @@
     "docx09",
     "docx10"
   ],
-  "totals": {
-    "cases": 10,
-    "ranker": "baseline",
-    "artifacts": 27,
-    "state_counts": {
-      "PROVEN": 9,
-      "PLAUSIBLE": 0,
-      "PARTIAL": 18,
-      "REJECTED": 0
-    },
-    "types": {
-      "zip": 17,
-      "docx": 10
-    },
-    "exact_recovery": {
-      "numerator": 9,
-      "denominator": 11,
-      "ratio": 0.8182
-    },
-    "false_proven": {
-      "numerator": 0,
-      "denominator": 9,
-      "ratio": 0.0
-    },
-    "proven_matching_an_original_file": {
-      "numerator": 9,
-      "denominator": 9,
-      "ratio": 1.0
-    },
-    "partial_prefix_match": {
-      "numerator": 18,
-      "denominator": 18,
-      "ratio": 1.0
-    },
-    "attempts_per_artifact": 35.7407
-  },
-  "per_case": [
-    {
-      "case_id": "docx01",
-      "corpus": "docx",
-      "seed": 201,
-      "image_sha256": "d519968c06eace6d7d7c8e9d4f7595038d8152c81602d5953a8ca9bf01d8c761",
-      "intact_docx_files": [
-        "doc_01_shipment_reconciliation.docx"
-      ],
-      "artifacts": [
+  "rankers": {
+    "baseline": {
+      "totals": {
+        "cases": 10,
+        "ranker": "baseline",
+        "ranker_used": {
+          "baseline": 27
+        },
+        "artifacts": 27,
+        "state_counts": {
+          "PROVEN": 9,
+          "PLAUSIBLE": 0,
+          "PARTIAL": 18,
+          "REJECTED": 0
+        },
+        "types": {
+          "zip": 17,
+          "docx": 10
+        },
+        "exact_recovery": {
+          "numerator": 9,
+          "denominator": 11,
+          "ratio": 0.8182
+        },
+        "false_proven": {
+          "numerator": 0,
+          "denominator": 9,
+          "ratio": 0.0
+        },
+        "proven_matching_an_original_file": {
+          "numerator": 9,
+          "denominator": 9,
+          "ratio": 1.0
+        },
+        "partial_prefix_match": {
+          "numerator": 18,
+          "denominator": 18,
+          "ratio": 1.0
+        },
+        "attempts_per_artifact": 35.7407
+      },
+      "per_case": [
         {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_04_vendor_audit.docx",
-          "truth_sha256": "ac1780e66939d9d04e25a5846f8aeb31bd839b7d0433e1653631dc8ea960fb3e",
-          "truth_size": 18198,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx01",
+          "corpus": "docx",
+          "seed": 201,
+          "image_sha256": "d519968c06eace6d7d7c8e9d4f7595038d8152c81602d5953a8ca9bf01d8c761",
+          "intact_docx_files": [
+            "doc_01_shipment_reconciliation.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_vendor_audit.docx",
+              "truth_sha256": "ac1780e66939d9d04e25a5846f8aeb31bd839b7d0433e1653631dc8ea960fb3e",
+              "truth_size": 18198,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 1,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                1
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "ed5cd130e4c300d4bd6e931f31423ba0d91f490d73f58b341ee3ada40b1eb989",
+              "truth_size": 17204,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 10,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 18344,
+              "attempts": 6,
+              "ranker_used": "baseline",
+              "assembly": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
+              "truth_file": "doc_01_shipment_reconciliation.docx",
+              "truth_sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
+              "truth_size": 18344,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
         },
         {
-          "anchor_block": 1,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_vendor_audit.docx",
-          "truth_sha256": "ed5cd130e4c300d4bd6e931f31423ba0d91f490d73f58b341ee3ada40b1eb989",
-          "truth_size": 17204,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx02",
+          "corpus": "docx",
+          "seed": 202,
+          "image_sha256": "96dacd06e632a372a0852f1539c23d7bdb0a3ef1261d1dd7df512a8f675326af",
+          "intact_docx_files": [
+            "doc_01_board_minutes.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 15069,
+              "attempts": 4,
+              "ranker_used": "baseline",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
+              "truth_file": "doc_01_board_minutes.docx",
+              "truth_sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
+              "truth_size": 15069,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 5,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                5
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_board_minutes.docx",
+              "truth_sha256": "4f6fa1b74edfb0762b737cea6fe3da51c06ed8e48d560fbeec8df0a1f2e232f5",
+              "truth_size": 22622,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 10,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 18344,
-          "attempts": 6,
-          "sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
-          "truth_file": "doc_01_shipment_reconciliation.docx",
-          "truth_sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
-          "truth_size": 18344,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
+          "case_id": "docx03",
+          "corpus": "docx",
+          "seed": 203,
+          "image_sha256": "9d5c2caf75e8ec4204674e96c54728354aa0657ea87c551b49340ada3005d0b5",
+          "intact_docx_files": [
+            "doc_02_quarterly_ledger.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 9,
+              "ranker_used": "baseline",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_board_minutes.docx",
+              "truth_sha256": "b8195546f1e22930558e41ce19ded57263d905e56967a1fd20bf6217e6e7284f",
+              "truth_size": 24349,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 3,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                3
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_site_inspection.docx",
+              "truth_sha256": "961a0eef9513358ed94a09d4433b29f5d4acb01fb0abec7b031a594bde23e0be",
+              "truth_size": 17525,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 11,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 21585,
+              "attempts": 7,
+              "ranker_used": "baseline",
+              "assembly": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
+              "truth_file": "doc_02_quarterly_ledger.docx",
+              "truth_sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
+              "truth_size": 21585,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
+        },
+        {
+          "case_id": "docx04",
+          "corpus": "docx",
+          "seed": 204,
+          "image_sha256": "cbf7d2a8fa90dd36c778c98abacdad722f15bea71af72be91cd2ba85baedb011",
+          "intact_docx_files": [
+            "doc_01_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_quarterly_ledger.docx",
+              "truth_sha256": "a15cea98d049cd79e5bacb53603ae485b60b00916aa1a1fc962e8a799eb6e2c6",
+              "truth_size": 18522,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 8,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 20915,
+              "attempts": 7,
+              "ranker_used": "baseline",
+              "assembly": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
+              "truth_file": "doc_01_site_inspection.docx",
+              "truth_sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
+              "truth_size": 20915,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
+        },
+        {
+          "case_id": "docx05",
+          "corpus": "docx",
+          "seed": 205,
+          "image_sha256": "664e7df229ceaed2dd9e163b366529f05bdb1a4a0191ce44f9e933773007471b",
+          "intact_docx_files": [
+            "doc_03_field_notes.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_site_inspection.docx",
+              "truth_sha256": "6a4fefb093be7cee50d8660e29cd0e7df49a7f07fba81c220eb3303f7beab036",
+              "truth_size": 18988,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 5,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 9,
+              "ranker_used": "baseline",
+              "assembly": [
+                5
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_field_notes.docx",
+              "truth_sha256": "0d78c4905f6299d5d1beb6779c8da3f8f56ae17d25b61dc7f776cb83b25be6de",
+              "truth_size": 22453,
+              "damage_class": "deleted_intact_bytes",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 6,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                6
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_incident_review.docx",
+              "truth_sha256": "761108f3218867e63c75391ba252d3e8d32f84a995d7fd9322f9a5d11e84cd20",
+              "truth_size": 17153,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
+        },
+        {
+          "case_id": "docx06",
+          "corpus": "docx",
+          "seed": 206,
+          "image_sha256": "17cb7d34cf4975693020d239c8006457bf1e287cb8cb6c47fb4806521ef8a767",
+          "intact_docx_files": [
+            "doc_03_vendor_audit.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "docx",
+              "verified_bytes": 12641,
+              "attempts": 25,
+              "ranker_used": "baseline",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "a6e0f6d9c86632a8c8356f16fcb59a4ed6a93900d076e4c76826139b378c54ab",
+              "truth_file": "doc_04_site_inspection.docx",
+              "truth_sha256": "0a7d79ab3ddd2e286f6f5bea6ade2069e6f91632331809cbaa261f44721d0a05",
+              "truth_size": 13139,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 4,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                4
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "03cc47c53b42ce42c9a7d80090342228ba5105494066e97b5a540a5589d3ee26",
+              "truth_size": 23712,
+              "damage_class": "deleted_intact_bytes",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 8,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 25,
+              "ranker_used": "baseline",
+              "assembly": [
+                8
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_field_notes.docx",
+              "truth_sha256": "5e6a8cc89f5504974f3b7974aa3daed6ff7121a62a5d7e96712c899ca00334d4",
+              "truth_size": 16867,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
+        },
+        {
+          "case_id": "docx07",
+          "corpus": "docx",
+          "seed": 207,
+          "image_sha256": "963434a72b9d66c8a3f5e16ced233a4fc5416010307d00b442f6dac87eb2eee4",
+          "intact_docx_files": [
+            "doc_02_incident_review.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 17027,
+              "attempts": 5,
+              "ranker_used": "baseline",
+              "assembly": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
+              "truth_file": "doc_02_incident_review.docx",
+              "truth_sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
+              "truth_size": 17027,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 7,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                7
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_incident_review.docx",
+              "truth_sha256": "29ef85625cb3c980b6454dc844777ec2e29365e552eb3210444552be2f699156",
+              "truth_size": 17375,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
+        },
+        {
+          "case_id": "docx08",
+          "corpus": "docx",
+          "seed": 208,
+          "image_sha256": "56580e34b0c3210012c0c839b108635ba917ddf5d356fa48c8c8be03cc7f95d5",
+          "intact_docx_files": [
+            "doc_03_incident_review.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_vendor_audit.docx",
+              "truth_sha256": "e88c37690dc74d3c1c90db2dfadf13e0ff06f10a79a52a8fb67b6e6694661bde",
+              "truth_size": 19705,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 1,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 18661,
+              "attempts": 6,
+              "ranker_used": "baseline",
+              "assembly": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
+              "truth_file": "doc_03_incident_review.docx",
+              "truth_sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
+              "truth_size": 18661,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 10,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                10
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_vendor_audit.docx",
+              "truth_sha256": "10e1c71d6daeddfe408b03d50270058311a7ea04169a889e8230127f75efcfae",
+              "truth_size": 17034,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
+        },
+        {
+          "case_id": "docx09",
+          "corpus": "docx",
+          "seed": 209,
+          "image_sha256": "a2620590b35db93147468f57df55d1c707475687584353202c70195f51832914",
+          "intact_docx_files": [
+            "doc_01_access_log_summary.docx",
+            "doc_03_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 12835,
+              "attempts": 11,
+              "ranker_used": "baseline",
+              "assembly": [
+                0,
+                1,
+                2,
+                10
+              ],
+              "sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
+              "truth_file": "doc_03_site_inspection.docx",
+              "truth_sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
+              "truth_size": 12835,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 3,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                3
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_field_notes.docx",
+              "truth_sha256": "df53336da6175675314365637bb4855d2de01d86e3c55a96c9b660f6d1915807",
+              "truth_size": 24914,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 13,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 23117,
+              "attempts": 7,
+              "ranker_used": "baseline",
+              "assembly": [
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
+              "truth_file": "doc_01_access_log_summary.docx",
+              "truth_sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
+              "truth_size": 23117,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
+        },
+        {
+          "case_id": "docx10",
+          "corpus": "docx",
+          "seed": 210,
+          "image_sha256": "9b45e40598c69819480c2fdb478917f164f0d2ac3cb5b293f1f4c56ded12e6c1",
+          "intact_docx_files": [
+            "doc_02_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 14264,
+              "attempts": 4,
+              "ranker_used": "baseline",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
+              "truth_file": "doc_02_site_inspection.docx",
+              "truth_sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
+              "truth_size": 14264,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 4,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                4
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "a7932b6610b931c08de0bacb079c1f93f5b943ce837843f60b13afa8895d28b3",
+              "truth_size": 21843,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 10,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "baseline",
+              "assembly": [
+                10
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_incident_review.docx",
+              "truth_sha256": "d95b2084645b5c0b6a5183ba15a3a9fbeb1d9dd8580c40a04f7643ddc98dd700",
+              "truth_size": 24979,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         }
       ]
     },
-    {
-      "case_id": "docx02",
-      "corpus": "docx",
-      "seed": 202,
-      "image_sha256": "96dacd06e632a372a0852f1539c23d7bdb0a3ef1261d1dd7df512a8f675326af",
-      "intact_docx_files": [
-        "doc_01_board_minutes.docx"
-      ],
-      "artifacts": [
+    "ml": {
+      "totals": {
+        "cases": 10,
+        "ranker": "ml",
+        "ranker_used": {
+          "ml": 27
+        },
+        "artifacts": 27,
+        "state_counts": {
+          "PROVEN": 10,
+          "PLAUSIBLE": 0,
+          "PARTIAL": 17,
+          "REJECTED": 0
+        },
+        "types": {
+          "zip": 16,
+          "docx": 11
+        },
+        "exact_recovery": {
+          "numerator": 10,
+          "denominator": 11,
+          "ratio": 0.9091
+        },
+        "false_proven": {
+          "numerator": 0,
+          "denominator": 10,
+          "ratio": 0.0
+        },
+        "proven_matching_an_original_file": {
+          "numerator": 10,
+          "denominator": 10,
+          "ratio": 1.0
+        },
+        "partial_prefix_match": {
+          "numerator": 17,
+          "denominator": 17,
+          "ratio": 1.0
+        },
+        "attempts_per_artifact": 34.0
+      },
+      "per_case": [
         {
-          "anchor_block": 0,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 15069,
-          "attempts": 4,
-          "sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
-          "truth_file": "doc_01_board_minutes.docx",
-          "truth_sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
-          "truth_size": 15069,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
+          "case_id": "docx01",
+          "corpus": "docx",
+          "seed": 201,
+          "image_sha256": "d519968c06eace6d7d7c8e9d4f7595038d8152c81602d5953a8ca9bf01d8c761",
+          "intact_docx_files": [
+            "doc_01_shipment_reconciliation.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_vendor_audit.docx",
+              "truth_sha256": "ac1780e66939d9d04e25a5846f8aeb31bd839b7d0433e1653631dc8ea960fb3e",
+              "truth_size": 18198,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 1,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                1
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "ed5cd130e4c300d4bd6e931f31423ba0d91f490d73f58b341ee3ada40b1eb989",
+              "truth_size": 17204,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 10,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 18344,
+              "attempts": 5,
+              "ranker_used": "ml",
+              "assembly": [
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
+              "truth_file": "doc_01_shipment_reconciliation.docx",
+              "truth_sha256": "3d06f9a815674b3c9b8f716a5123ffd5d5bbadf0ec1f006e83b616499e4a82dc",
+              "truth_size": 18344,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
         },
         {
-          "anchor_block": 5,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_board_minutes.docx",
-          "truth_sha256": "4f6fa1b74edfb0762b737cea6fe3da51c06ed8e48d560fbeec8df0a1f2e232f5",
-          "truth_size": 22622,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        }
-      ]
-    },
-    {
-      "case_id": "docx03",
-      "corpus": "docx",
-      "seed": 203,
-      "image_sha256": "9d5c2caf75e8ec4204674e96c54728354aa0657ea87c551b49340ada3005d0b5",
-      "intact_docx_files": [
-        "doc_02_quarterly_ledger.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 9,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_04_board_minutes.docx",
-          "truth_sha256": "b8195546f1e22930558e41ce19ded57263d905e56967a1fd20bf6217e6e7284f",
-          "truth_size": 24349,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx02",
+          "corpus": "docx",
+          "seed": 202,
+          "image_sha256": "96dacd06e632a372a0852f1539c23d7bdb0a3ef1261d1dd7df512a8f675326af",
+          "intact_docx_files": [
+            "doc_01_board_minutes.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 15069,
+              "attempts": 4,
+              "ranker_used": "ml",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
+              "truth_file": "doc_01_board_minutes.docx",
+              "truth_sha256": "31ace79a58bd24d9abad5b022ab9de36485166ce7d3c834e0384f8893a3d8327",
+              "truth_size": 15069,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 5,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                5
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_board_minutes.docx",
+              "truth_sha256": "4f6fa1b74edfb0762b737cea6fe3da51c06ed8e48d560fbeec8df0a1f2e232f5",
+              "truth_size": 22622,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 3,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_site_inspection.docx",
-          "truth_sha256": "961a0eef9513358ed94a09d4433b29f5d4acb01fb0abec7b031a594bde23e0be",
-          "truth_size": 17525,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx03",
+          "corpus": "docx",
+          "seed": 203,
+          "image_sha256": "9d5c2caf75e8ec4204674e96c54728354aa0657ea87c551b49340ada3005d0b5",
+          "intact_docx_files": [
+            "doc_02_quarterly_ledger.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 9,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_board_minutes.docx",
+              "truth_sha256": "b8195546f1e22930558e41ce19ded57263d905e56967a1fd20bf6217e6e7284f",
+              "truth_size": 24349,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 3,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                3
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_site_inspection.docx",
+              "truth_sha256": "961a0eef9513358ed94a09d4433b29f5d4acb01fb0abec7b031a594bde23e0be",
+              "truth_size": 17525,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 11,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 21585,
+              "attempts": 6,
+              "ranker_used": "ml",
+              "assembly": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
+              "truth_file": "doc_02_quarterly_ledger.docx",
+              "truth_sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
+              "truth_size": 21585,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
         },
         {
-          "anchor_block": 11,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 21585,
-          "attempts": 7,
-          "sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
-          "truth_file": "doc_02_quarterly_ledger.docx",
-          "truth_sha256": "595b4cdaec1dd387ad5b57a82b5cd369ed252a0a28338cbd103bdc6160d4a245",
-          "truth_size": 21585,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        }
-      ]
-    },
-    {
-      "case_id": "docx04",
-      "corpus": "docx",
-      "seed": 204,
-      "image_sha256": "cbf7d2a8fa90dd36c778c98abacdad722f15bea71af72be91cd2ba85baedb011",
-      "intact_docx_files": [
-        "doc_01_site_inspection.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_02_quarterly_ledger.docx",
-          "truth_sha256": "a15cea98d049cd79e5bacb53603ae485b60b00916aa1a1fc962e8a799eb6e2c6",
-          "truth_size": 18522,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx04",
+          "corpus": "docx",
+          "seed": 204,
+          "image_sha256": "cbf7d2a8fa90dd36c778c98abacdad722f15bea71af72be91cd2ba85baedb011",
+          "intact_docx_files": [
+            "doc_01_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 17,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_quarterly_ledger.docx",
+              "truth_sha256": "a15cea98d049cd79e5bacb53603ae485b60b00916aa1a1fc962e8a799eb6e2c6",
+              "truth_size": 18522,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 8,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 20915,
+              "attempts": 6,
+              "ranker_used": "ml",
+              "assembly": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+              ],
+              "sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
+              "truth_file": "doc_01_site_inspection.docx",
+              "truth_sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
+              "truth_size": 20915,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
         },
         {
-          "anchor_block": 8,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 20915,
-          "attempts": 7,
-          "sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
-          "truth_file": "doc_01_site_inspection.docx",
-          "truth_sha256": "3fb8d9cf87454a8152923162b5d4e74f678d8659e2728c2225cbe50dbb3ca783",
-          "truth_size": 20915,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        }
-      ]
-    },
-    {
-      "case_id": "docx05",
-      "corpus": "docx",
-      "seed": 205,
-      "image_sha256": "664e7df229ceaed2dd9e163b366529f05bdb1a4a0191ce44f9e933773007471b",
-      "intact_docx_files": [
-        "doc_03_field_notes.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_02_site_inspection.docx",
-          "truth_sha256": "6a4fefb093be7cee50d8660e29cd0e7df49a7f07fba81c220eb3303f7beab036",
-          "truth_size": 18988,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx05",
+          "corpus": "docx",
+          "seed": 205,
+          "image_sha256": "664e7df229ceaed2dd9e163b366529f05bdb1a4a0191ce44f9e933773007471b",
+          "intact_docx_files": [
+            "doc_03_field_notes.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_site_inspection.docx",
+              "truth_sha256": "6a4fefb093be7cee50d8660e29cd0e7df49a7f07fba81c220eb3303f7beab036",
+              "truth_size": 18988,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 5,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 22453,
+              "attempts": 9,
+              "ranker_used": "ml",
+              "assembly": [
+                5,
+                11,
+                12,
+                13,
+                14,
+                15
+              ],
+              "sha256": "0d78c4905f6299d5d1beb6779c8da3f8f56ae17d25b61dc7f776cb83b25be6de",
+              "truth_file": "doc_03_field_notes.docx",
+              "truth_sha256": "0d78c4905f6299d5d1beb6779c8da3f8f56ae17d25b61dc7f776cb83b25be6de",
+              "truth_size": 22453,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 6,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                6
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_04_incident_review.docx",
+              "truth_sha256": "761108f3218867e63c75391ba252d3e8d32f84a995d7fd9322f9a5d11e84cd20",
+              "truth_size": 17153,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 5,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 9,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_field_notes.docx",
-          "truth_sha256": "0d78c4905f6299d5d1beb6779c8da3f8f56ae17d25b61dc7f776cb83b25be6de",
-          "truth_size": 22453,
-          "damage_class": "deleted_intact_bytes",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx06",
+          "corpus": "docx",
+          "seed": 206,
+          "image_sha256": "17cb7d34cf4975693020d239c8006457bf1e287cb8cb6c47fb4806521ef8a767",
+          "intact_docx_files": [
+            "doc_03_vendor_audit.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "docx",
+              "verified_bytes": 12641,
+              "attempts": 25,
+              "ranker_used": "ml",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "a6e0f6d9c86632a8c8356f16fcb59a4ed6a93900d076e4c76826139b378c54ab",
+              "truth_file": "doc_04_site_inspection.docx",
+              "truth_sha256": "0a7d79ab3ddd2e286f6f5bea6ade2069e6f91632331809cbaa261f44721d0a05",
+              "truth_size": 13139,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 4,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 23712,
+              "attempts": 15,
+              "ranker_used": "ml",
+              "assembly": [
+                4,
+                5,
+                6,
+                7,
+                13,
+                14
+              ],
+              "sha256": "03cc47c53b42ce42c9a7d80090342228ba5105494066e97b5a540a5589d3ee26",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "03cc47c53b42ce42c9a7d80090342228ba5105494066e97b5a540a5589d3ee26",
+              "truth_size": 23712,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 8,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 25,
+              "ranker_used": "ml",
+              "assembly": [
+                8
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_field_notes.docx",
+              "truth_sha256": "5e6a8cc89f5504974f3b7974aa3daed6ff7121a62a5d7e96712c899ca00334d4",
+              "truth_size": 16867,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 6,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_04_incident_review.docx",
-          "truth_sha256": "761108f3218867e63c75391ba252d3e8d32f84a995d7fd9322f9a5d11e84cd20",
-          "truth_size": 17153,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        }
-      ]
-    },
-    {
-      "case_id": "docx06",
-      "corpus": "docx",
-      "seed": 206,
-      "image_sha256": "17cb7d34cf4975693020d239c8006457bf1e287cb8cb6c47fb4806521ef8a767",
-      "intact_docx_files": [
-        "doc_03_vendor_audit.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "docx",
-          "verified_bytes": 12641,
-          "attempts": 25,
-          "sha256": "a6e0f6d9c86632a8c8356f16fcb59a4ed6a93900d076e4c76826139b378c54ab",
-          "truth_file": "doc_04_site_inspection.docx",
-          "truth_sha256": "0a7d79ab3ddd2e286f6f5bea6ade2069e6f91632331809cbaa261f44721d0a05",
-          "truth_size": 13139,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx07",
+          "corpus": "docx",
+          "seed": 207,
+          "image_sha256": "963434a72b9d66c8a3f5e16ced233a4fc5416010307d00b442f6dac87eb2eee4",
+          "intact_docx_files": [
+            "doc_02_incident_review.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 17027,
+              "attempts": 5,
+              "ranker_used": "ml",
+              "assembly": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
+              "truth_file": "doc_02_incident_review.docx",
+              "truth_sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
+              "truth_size": 17027,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 7,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                7
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_incident_review.docx",
+              "truth_sha256": "29ef85625cb3c980b6454dc844777ec2e29365e552eb3210444552be2f699156",
+              "truth_size": 17375,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 4,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_vendor_audit.docx",
-          "truth_sha256": "03cc47c53b42ce42c9a7d80090342228ba5105494066e97b5a540a5589d3ee26",
-          "truth_size": 23712,
-          "damage_class": "deleted_intact_bytes",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx08",
+          "corpus": "docx",
+          "seed": 208,
+          "image_sha256": "56580e34b0c3210012c0c839b108635ba917ddf5d356fa48c8c8be03cc7f95d5",
+          "intact_docx_files": [
+            "doc_03_incident_review.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_vendor_audit.docx",
+              "truth_sha256": "e88c37690dc74d3c1c90db2dfadf13e0ff06f10a79a52a8fb67b6e6694661bde",
+              "truth_size": 19705,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 1,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 18661,
+              "attempts": 5,
+              "ranker_used": "ml",
+              "assembly": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
+              "truth_file": "doc_03_incident_review.docx",
+              "truth_sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
+              "truth_size": 18661,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 10,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                10
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_vendor_audit.docx",
+              "truth_sha256": "10e1c71d6daeddfe408b03d50270058311a7ea04169a889e8230127f75efcfae",
+              "truth_size": 17034,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         },
         {
-          "anchor_block": 8,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 25,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_02_field_notes.docx",
-          "truth_sha256": "5e6a8cc89f5504974f3b7974aa3daed6ff7121a62a5d7e96712c899ca00334d4",
-          "truth_size": 16867,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        }
-      ]
-    },
-    {
-      "case_id": "docx07",
-      "corpus": "docx",
-      "seed": 207,
-      "image_sha256": "963434a72b9d66c8a3f5e16ced233a4fc5416010307d00b442f6dac87eb2eee4",
-      "intact_docx_files": [
-        "doc_02_incident_review.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 17027,
-          "attempts": 5,
-          "sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
-          "truth_file": "doc_02_incident_review.docx",
-          "truth_sha256": "09893f166a8669a04efd81b75341bc3044c4e10e4069efda04a5595ad7423bc5",
-          "truth_size": 17027,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
+          "case_id": "docx09",
+          "corpus": "docx",
+          "seed": 209,
+          "image_sha256": "a2620590b35db93147468f57df55d1c707475687584353202c70195f51832914",
+          "intact_docx_files": [
+            "doc_01_access_log_summary.docx",
+            "doc_03_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 57,
+              "ranker_used": "ml",
+              "assembly": [
+                0
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_site_inspection.docx",
+              "truth_sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
+              "truth_size": 12835,
+              "damage_class": "deleted_intact_bytes",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 3,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                3
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_02_field_notes.docx",
+              "truth_sha256": "df53336da6175675314365637bb4855d2de01d86e3c55a96c9b660f6d1915807",
+              "truth_size": 24914,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 13,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 23117,
+              "attempts": 6,
+              "ranker_used": "ml",
+              "assembly": [
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
+              "truth_file": "doc_01_access_log_summary.docx",
+              "truth_sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
+              "truth_size": 23117,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            }
+          ]
         },
         {
-          "anchor_block": 7,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_01_incident_review.docx",
-          "truth_sha256": "29ef85625cb3c980b6454dc844777ec2e29365e552eb3210444552be2f699156",
-          "truth_size": 17375,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        }
-      ]
-    },
-    {
-      "case_id": "docx08",
-      "corpus": "docx",
-      "seed": 208,
-      "image_sha256": "56580e34b0c3210012c0c839b108635ba917ddf5d356fa48c8c8be03cc7f95d5",
-      "intact_docx_files": [
-        "doc_03_incident_review.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_01_vendor_audit.docx",
-          "truth_sha256": "e88c37690dc74d3c1c90db2dfadf13e0ff06f10a79a52a8fb67b6e6694661bde",
-          "truth_size": 19705,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        },
-        {
-          "anchor_block": 1,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 18661,
-          "attempts": 6,
-          "sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
-          "truth_file": "doc_03_incident_review.docx",
-          "truth_sha256": "2a2ae76e181a435b9ca2352bffd3f0569318ed30cf470404ae49809b045c7a38",
-          "truth_size": 18661,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        },
-        {
-          "anchor_block": 10,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_02_vendor_audit.docx",
-          "truth_sha256": "10e1c71d6daeddfe408b03d50270058311a7ea04169a889e8230127f75efcfae",
-          "truth_size": 17034,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        }
-      ]
-    },
-    {
-      "case_id": "docx09",
-      "corpus": "docx",
-      "seed": 209,
-      "image_sha256": "a2620590b35db93147468f57df55d1c707475687584353202c70195f51832914",
-      "intact_docx_files": [
-        "doc_01_access_log_summary.docx",
-        "doc_03_site_inspection.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 12835,
-          "attempts": 11,
-          "sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
-          "truth_file": "doc_03_site_inspection.docx",
-          "truth_sha256": "f8a1a324da49433386d7874a7e816b774cd48d34b9bb8da8547c2248e3bcbeaa",
-          "truth_size": 12835,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        },
-        {
-          "anchor_block": 3,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_02_field_notes.docx",
-          "truth_sha256": "df53336da6175675314365637bb4855d2de01d86e3c55a96c9b660f6d1915807",
-          "truth_size": 24914,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        },
-        {
-          "anchor_block": 13,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 23117,
-          "attempts": 7,
-          "sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
-          "truth_file": "doc_01_access_log_summary.docx",
-          "truth_sha256": "ae992220f29b2adabff4535286cfc6f9c431cb9456b0b7f4481328da5f3046d4",
-          "truth_size": 23117,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        }
-      ]
-    },
-    {
-      "case_id": "docx10",
-      "corpus": "docx",
-      "seed": 210,
-      "image_sha256": "9b45e40598c69819480c2fdb478917f164f0d2ac3cb5b293f1f4c56ded12e6c1",
-      "intact_docx_files": [
-        "doc_02_site_inspection.docx"
-      ],
-      "artifacts": [
-        {
-          "anchor_block": 0,
-          "state": "PROVEN",
-          "type": "docx",
-          "verified_bytes": 14264,
-          "attempts": 4,
-          "sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
-          "truth_file": "doc_02_site_inspection.docx",
-          "truth_sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
-          "truth_size": 14264,
-          "damage_class": "deleted_intact_bytes",
-          "exact": true,
-          "false_proven": false,
-          "prefix_match": null,
-          "matches_an_original": true
-        },
-        {
-          "anchor_block": 4,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_03_vendor_audit.docx",
-          "truth_sha256": "a7932b6610b931c08de0bacb079c1f93f5b943ce837843f60b13afa8895d28b3",
-          "truth_size": 21843,
-          "damage_class": "partially_overwritten",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
-        },
-        {
-          "anchor_block": 10,
-          "state": "PARTIAL",
-          "type": "zip",
-          "verified_bytes": 562,
-          "attempts": 60,
-          "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
-          "truth_file": "doc_01_incident_review.docx",
-          "truth_sha256": "d95b2084645b5c0b6a5183ba15a3a9fbeb1d9dd8580c40a04f7643ddc98dd700",
-          "truth_size": 24979,
-          "damage_class": "byte_flip_corruption",
-          "exact": false,
-          "false_proven": false,
-          "prefix_match": true,
-          "matches_an_original": null
+          "case_id": "docx10",
+          "corpus": "docx",
+          "seed": 210,
+          "image_sha256": "9b45e40598c69819480c2fdb478917f164f0d2ac3cb5b293f1f4c56ded12e6c1",
+          "intact_docx_files": [
+            "doc_02_site_inspection.docx"
+          ],
+          "artifacts": [
+            {
+              "anchor_block": 0,
+              "state": "PROVEN",
+              "type": "docx",
+              "verified_bytes": 14264,
+              "attempts": 4,
+              "ranker_used": "ml",
+              "assembly": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
+              "truth_file": "doc_02_site_inspection.docx",
+              "truth_sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
+              "truth_size": 14264,
+              "damage_class": "deleted_intact_bytes",
+              "exact": true,
+              "false_proven": false,
+              "prefix_match": null,
+              "matches_an_original": true
+            },
+            {
+              "anchor_block": 4,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                4
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_03_vendor_audit.docx",
+              "truth_sha256": "a7932b6610b931c08de0bacb079c1f93f5b943ce837843f60b13afa8895d28b3",
+              "truth_size": 21843,
+              "damage_class": "partially_overwritten",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            },
+            {
+              "anchor_block": 10,
+              "state": "PARTIAL",
+              "type": "zip",
+              "verified_bytes": 562,
+              "attempts": 60,
+              "ranker_used": "ml",
+              "assembly": [
+                10
+              ],
+              "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
+              "truth_file": "doc_01_incident_review.docx",
+              "truth_sha256": "d95b2084645b5c0b6a5183ba15a3a9fbeb1d9dd8580c40a04f7643ddc98dd700",
+              "truth_size": 24979,
+              "damage_class": "byte_flip_corruption",
+              "exact": false,
+              "false_proven": false,
+              "prefix_match": true,
+              "matches_an_original": null
+            }
+          ]
         }
       ]
     }
-  ]
+  }
 }

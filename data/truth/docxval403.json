@@ -1,0 +1,65 @@
+{
+  "case_id": "docxval403",
+  "corpus": "docx_val",
+  "seed": 403,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "8e056a2d88726547c8d98a69d97ec28a8b726a33e69c55485f77c517be7e160b",
+  "files": [
+    {
+      "name": "doc_01_event_program.docx",
+      "type": "docx",
+      "size": 13651,
+      "sha256": "7ad817cf9f9ddb225db5d8d0560f965cd8da08845c92730b90028c1701a08781",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_tenancy_notice.docx",
+      "type": "docx",
+      "size": 13794,
+      "sha256": "713a484121601bdcd66958d7c1dae31946300fe9e5d170db74b2b254fd3c8087",
+      "blocks": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        11,
+        12
+      ]
+    },
+    {
+      "name": "doc_03_tenancy_notice.docx",
+      "type": "docx",
+      "size": 23387,
+      "sha256": "48a41891a558708c622a9ac6c557b8022e1e513d0715cdf79fd0c96dd3b85803",
+      "blocks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        3
+      ]
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

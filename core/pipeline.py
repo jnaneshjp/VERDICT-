@@ -345,12 +345,17 @@ def _duplicates(image: Image) -> List[dict]:
     return [{"sha256": sha, "blocks": blocks} for sha, blocks in groups]
 
 
-def _zip_artifacts(image: Image, first_number: int) -> List[dict]:
-    """ZIP / DOCX anchors (P1 prototype); always the baseline ranker."""
+def _zip_artifacts(image: Image, first_number: int, ranker_name: str) -> List[dict]:
+    """ZIP / DOCX anchors (P1 prototype): DOCX model for 'ml' if trained, else baseline."""
     from core.carve import carve_zip_anchors
     from core.pipeline_zip import build_zip_artifact, reconstruct_zip
-    return [build_zip_artifact(image, reconstruct_zip(image, anchor), f"art_{number:03d}")
-            for number, anchor in enumerate(carve_zip_anchors(image), start=first_number)]
+    from core.rank import make_zip_ranker
+    anchors = carve_zip_anchors(image)
+    if not anchors:
+        return []
+    ranker, used = make_zip_ranker(image, ranker_name)
+    return [build_zip_artifact(image, reconstruct_zip(image, anchor, ranker), f"art_{number:03d}", used)
+            for number, anchor in enumerate(anchors, start=first_number)]
 
 
 def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") -> dict:
@@ -361,7 +366,7 @@ def analyze_image(image_path: str, case_id: str, ranker_name: str = "baseline") 
     for number, anchor in enumerate(carve_png_anchors(image), start=1):
         recon = reconstruct_png(image, anchor, ranker=ranker)
         artifacts.append(build_artifact(image, recon, f"art_{number:03d}", anchor.signature))
-    artifacts += _zip_artifacts(image, first_number=len(artifacts) + 1)
+    artifacts += _zip_artifacts(image, len(artifacts) + 1, ranker_name)
 
     claimed = {b for art in artifacts for b in art["assembly"]}
     duplicates = _duplicates(image)

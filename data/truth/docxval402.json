@@ -1,0 +1,100 @@
+{
+  "case_id": "docxval402",
+  "corpus": "docx_val",
+  "seed": 402,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "9c575c40bb2cf622452ed24afb809addd7290ff22afa849025d508fb390610d8",
+  "files": [
+    {
+      "name": "doc_01_tenancy_notice.docx",
+      "type": "docx",
+      "size": 24513,
+      "sha256": "4e496026f6a34aca00aac37bad4ae3234dbded836a47e5b611c1a07fed4c0e45",
+      "blocks": [
+        6,
+        7,
+        12,
+        13,
+        14,
+        15
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "doc_02_insurance_claim.docx",
+      "type": "docx",
+      "size": 13561,
+      "sha256": "986ee15fe475946977f84800fcefac384b6d688967670f1ef2b71ee2581f32ca",
+      "blocks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "live",
+      "corrupted_blocks": [
+        10
+      ],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_03_travel_itinerary.docx",
+      "type": "docx",
+      "size": 19099,
+      "sha256": "0754e2c18eec49c940d65858ba9cff1eff73044fe4a4ec926624af573fee254c",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status": "overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "doc_04_lease_agreement.docx",
+      "type": "docx",
+      "size": 22637,
+      "sha256": "6597411b89f5ea2e347ca784328cfef6a6e7a3b65403dba69684790e30bba506",
+      "blocks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [
+    10
+  ],
+  "duplicated_blocks": [
+    {
+      "source": 11,
+      "copy": 140
+    },
+    {
+      "source": 9,
+      "copy": 55
+    }
+  ]
+}

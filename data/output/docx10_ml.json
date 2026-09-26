@@ -34,7 +34,7 @@
       "sha256": "0dfa009772048e8dbd0afeaaf40f1eeb20e490df958e2b37589e1744c5c468f8",
       "attempts": 4,
       "search_status": "VERIFIED",
-      "ranker_used": "baseline",
+      "ranker_used": "ml",
       "explanation": "All 4 entries matched their stored CRC-32 and size, the central directory agrees with every local header, and the EOCD was reached. Assembled from 4 blocks in one contiguous run; the search backtracked 0 time(s).",
       "entries": [
         {
@@ -144,13 +144,13 @@
           "rank": 1,
           "ranked": [
             1,
-            2,
-            3,
-            4,
             5,
             6,
             7,
-            8
+            13,
+            14,
+            23,
+            2
           ]
         },
         {
@@ -160,13 +160,13 @@
           "rank": 1,
           "ranked": [
             2,
-            3,
-            4,
-            5,
             6,
-            7,
             8,
-            9
+            7,
+            5,
+            13,
+            14,
+            12
           ]
         },
         {
@@ -176,13 +176,13 @@
           "rank": 1,
           "ranked": [
             3,
-            4,
+            7,
+            9,
+            8,
             5,
             6,
-            7,
-            8,
-            9,
-            10
+            13,
+            14
           ]
         },
         {
@@ -238,7 +238,7 @@
       "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
       "attempts": 60,
       "search_status": "EXHAUSTED_BUDGET",
-      "ranker_used": "baseline",
+      "ranker_used": "ml",
       "explanation": "Verified up to byte 562: 2 complete entries ([Content_Types].xml, _rels/.rels). No complete continuation was found after block 4. The total size is unknown until the central directory is reached. The data needed after byte 562 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "entries": [
         {
@@ -310,724 +310,724 @@
         {
           "step": 1,
           "event": "PLACE",
-          "block": 3,
+          "block": 5,
           "rank": 1,
           "ranked": [
-            3,
             5,
-            2,
-            6,
+            9,
+            11,
+            10,
             1,
-            7,
-            0,
-            8
+            6,
+            13,
+            14
           ]
         },
         {
           "step": 2,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 2,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 2,
-          "event": "PLACE",
-          "block": 5,
-          "rank": 2
-        },
-        {
-          "step": 3,
           "event": "PLACE",
           "block": 6,
           "rank": 1,
           "ranked": [
             6,
-            3,
-            7,
-            2,
-            8,
+            12,
+            10,
+            11,
             1,
-            9,
-            0
+            13,
+            14,
+            172
           ]
         },
         {
-          "step": 4,
+          "step": 3,
           "event": "PLACE",
           "block": 7,
           "rank": 1,
           "ranked": [
             7,
-            8,
-            3,
-            9,
-            2,
-            10,
+            13,
+            12,
+            11,
             1,
-            11
+            14,
+            172,
+            19
+          ]
+        },
+        {
+          "step": 4,
+          "event": "PLACE",
+          "block": 8,
+          "rank": 1,
+          "ranked": [
+            8,
+            12,
+            14,
+            13,
+            1,
+            9,
+            25,
+            29
           ]
         },
         {
           "step": 5,
           "event": "PLACE",
-          "block": 8,
-          "rank": 1,
-          "ranked": [
-            8,
-            9,
-            10,
-            3,
-            11,
-            2,
-            12,
-            1
-          ]
-        },
-        {
-          "step": 6,
-          "event": "PLACE",
           "block": 9,
           "rank": 1,
           "ranked": [
             9,
-            10,
-            11,
-            12,
-            3,
             13,
-            2,
-            14
+            14,
+            15,
+            1,
+            12,
+            18,
+            78
           ]
         },
         {
-          "step": 7,
+          "step": 6,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 7,
+          "step": 6,
           "event": "BACKTRACK",
           "block": 9
         },
         {
-          "step": 7,
+          "step": 6,
           "event": "PLACE",
-          "block": 10,
+          "block": 13,
           "rank": 2
         },
         {
-          "step": 8,
+          "step": 7,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 8,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 8,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 3
-        },
-        {
-          "step": 9,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 9,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 9,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 4
-        },
-        {
-          "step": 10,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 10,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 10,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 5
-        },
-        {
-          "step": 11,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 11,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 11,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 6
-        },
-        {
-          "step": 12,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 12,
+          "step": 7,
           "event": "BACKTRACK",
           "block": 13
         },
         {
-          "step": 12,
-          "event": "PLACE",
-          "block": 2,
-          "rank": 7
-        },
-        {
-          "step": 13,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 13,
-          "event": "BACKTRACK",
-          "block": 2
-        },
-        {
-          "step": 13,
+          "step": 7,
           "event": "PLACE",
           "block": 14,
-          "rank": 8
+          "rank": 3
         },
         {
-          "step": 14,
+          "step": 8,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_size_mismatch"
         },
         {
-          "step": 14,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 14,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 2
-        },
-        {
-          "step": 15,
-          "event": "PLACE",
-          "block": 8,
-          "rank": 1,
-          "ranked": [
-            8,
-            10,
-            11,
-            12,
-            13,
-            14,
-            3,
-            15
-          ]
-        },
-        {
-          "step": 16,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 16,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 16,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 2
-        },
-        {
-          "step": 17,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 17,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 17,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 3
-        },
-        {
-          "step": 18,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 18,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 18,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 4
-        },
-        {
-          "step": 19,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 19,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 19,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 5
-        },
-        {
-          "step": 20,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 20,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 20,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 6
-        },
-        {
-          "step": 21,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 21,
+          "step": 8,
           "event": "BACKTRACK",
           "block": 14
         },
         {
-          "step": 21,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 7
-        },
-        {
-          "step": 22,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 22,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 22,
+          "step": 8,
           "event": "PLACE",
           "block": 15,
-          "rank": 8
-        },
-        {
-          "step": 23,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 23,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 23,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 3
-        },
-        {
-          "step": 24,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 1,
-          "ranked": [
-            9,
-            11,
-            8,
-            12,
-            13,
-            14,
-            15,
-            16
-          ]
-        },
-        {
-          "step": 25,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 25,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 25,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 2
-        },
-        {
-          "step": 26,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 26,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 26,
-          "event": "PLACE",
-          "block": 8,
-          "rank": 3
-        },
-        {
-          "step": 27,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 27,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 27,
-          "event": "PLACE",
-          "block": 12,
           "rank": 4
         },
         {
-          "step": 28,
+          "step": 9,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 28,
-          "event": "BACKTRACK",
-          "block": 12
-        },
-        {
-          "step": 28,
-          "event": "PLACE",
-          "block": 13,
-          "rank": 5
-        },
-        {
-          "step": 29,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 29,
-          "event": "BACKTRACK",
-          "block": 13
-        },
-        {
-          "step": 29,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 6
-        },
-        {
-          "step": 30,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 30,
-          "event": "BACKTRACK",
-          "block": 14
-        },
-        {
-          "step": 30,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 7
-        },
-        {
-          "step": 31,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 31,
+          "step": 9,
           "event": "BACKTRACK",
           "block": 15
         },
         {
-          "step": 31,
+          "step": 9,
           "event": "PLACE",
-          "block": 16,
-          "rank": 8
+          "block": 1,
+          "rank": 5
         },
         {
-          "step": 32,
+          "step": 10,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 32,
+          "step": 10,
           "event": "BACKTRACK",
-          "block": 10
+          "block": 1
+        },
+        {
+          "step": 10,
+          "event": "PLACE",
+          "block": 12,
+          "rank": 6
+        },
+        {
+          "step": 11,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 11,
+          "event": "BACKTRACK",
+          "block": 12
+        },
+        {
+          "step": 11,
+          "event": "PLACE",
+          "block": 18,
+          "rank": 7
+        },
+        {
+          "step": 12,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 12,
+          "event": "BACKTRACK",
+          "block": 18
+        },
+        {
+          "step": 12,
+          "event": "PLACE",
+          "block": 78,
+          "rank": 8
+        },
+        {
+          "step": 13,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 13,
+          "event": "BACKTRACK",
+          "block": 8
+        },
+        {
+          "step": 13,
+          "event": "PLACE",
+          "block": 12,
+          "rank": 2
+        },
+        {
+          "step": 14,
+          "event": "PLACE",
+          "block": 13,
+          "rank": 1,
+          "ranked": [
+            13,
+            19,
+            17,
+            14,
+            18,
+            15,
+            172,
+            42
+          ]
+        },
+        {
+          "step": 15,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 15,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 15,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 2
+        },
+        {
+          "step": 16,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 16,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 16,
+          "event": "PLACE",
+          "block": 17,
+          "rank": 3
+        },
+        {
+          "step": 17,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 17,
+          "event": "BACKTRACK",
+          "block": 17
+        },
+        {
+          "step": 17,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 4
+        },
+        {
+          "step": 18,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 18,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 18,
+          "event": "PLACE",
+          "block": 18,
+          "rank": 5
+        },
+        {
+          "step": 19,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 19,
+          "event": "BACKTRACK",
+          "block": 18
+        },
+        {
+          "step": 19,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 6
+        },
+        {
+          "step": 20,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 20,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 20,
+          "event": "PLACE",
+          "block": 172,
+          "rank": 7
+        },
+        {
+          "step": 21,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 21,
+          "event": "BACKTRACK",
+          "block": 172
+        },
+        {
+          "step": 21,
+          "event": "PLACE",
+          "block": 42,
+          "rank": 8
+        },
+        {
+          "step": 22,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 22,
+          "event": "BACKTRACK",
+          "block": 12
+        },
+        {
+          "step": 22,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 3
+        },
+        {
+          "step": 23,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 1,
+          "ranked": [
+            15,
+            19,
+            21,
+            13,
+            20,
+            12,
+            172,
+            42
+          ]
+        },
+        {
+          "step": 24,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 24,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 24,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 2
+        },
+        {
+          "step": 25,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 25,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 25,
+          "event": "PLACE",
+          "block": 21,
+          "rank": 3
+        },
+        {
+          "step": 26,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 26,
+          "event": "BACKTRACK",
+          "block": 21
+        },
+        {
+          "step": 26,
+          "event": "PLACE",
+          "block": 13,
+          "rank": 4
+        },
+        {
+          "step": 27,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 27,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 27,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 5
+        },
+        {
+          "step": 28,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 28,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 28,
+          "event": "PLACE",
+          "block": 12,
+          "rank": 6
+        },
+        {
+          "step": 29,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 29,
+          "event": "BACKTRACK",
+          "block": 12
+        },
+        {
+          "step": 29,
+          "event": "PLACE",
+          "block": 172,
+          "rank": 7
+        },
+        {
+          "step": 30,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 30,
+          "event": "BACKTRACK",
+          "block": 172
+        },
+        {
+          "step": 30,
+          "event": "PLACE",
+          "block": 42,
+          "rank": 8
+        },
+        {
+          "step": 31,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 31,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 31,
+          "event": "PLACE",
+          "block": 13,
+          "rank": 4
         },
         {
           "step": 32,
           "event": "PLACE",
-          "block": 3,
-          "rank": 4
+          "block": 14,
+          "rank": 1,
+          "ranked": [
+            14,
+            18,
+            19,
+            20,
+            15,
+            12,
+            102,
+            172
+          ]
         },
         {
           "step": 33,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 33,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 33,
+          "event": "PLACE",
+          "block": 18,
+          "rank": 2
+        },
+        {
+          "step": 34,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 34,
+          "event": "BACKTRACK",
+          "block": 18
+        },
+        {
+          "step": 34,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 3
+        },
+        {
+          "step": 35,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 35,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 35,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 4
+        },
+        {
+          "step": 36,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 36,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 36,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 5
+        },
+        {
+          "step": 37,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 37,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 37,
+          "event": "PLACE",
+          "block": 12,
+          "rank": 6
+        },
+        {
+          "step": 38,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 38,
+          "event": "BACKTRACK",
+          "block": 12
+        },
+        {
+          "step": 38,
+          "event": "PLACE",
+          "block": 102,
+          "rank": 7
+        },
+        {
+          "step": 39,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 39,
+          "event": "BACKTRACK",
+          "block": 102
+        },
+        {
+          "step": 39,
+          "event": "PLACE",
+          "block": 172,
+          "rank": 8
+        },
+        {
+          "step": 40,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 40,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 40,
+          "event": "PLACE",
+          "block": 1,
+          "rank": 5
+        },
+        {
+          "step": 41,
           "event": "PLACE",
           "block": 2,
           "rank": 1,
           "ranked": [
             2,
-            1,
-            0,
             8,
-            9,
-            10,
-            11,
-            12
+            13,
+            14,
+            12,
+            172,
+            42,
+            19
           ]
         },
         {
-          "step": 34,
+          "step": 42,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 34,
+          "step": 42,
           "event": "BACKTRACK",
           "block": 2
         },
         {
-          "step": 34,
+          "step": 42,
           "event": "PLACE",
-          "block": 1,
+          "block": 8,
           "rank": 2
         },
         {
-          "step": 35,
+          "step": 43,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 35,
-          "event": "BACKTRACK",
-          "block": 1
-        },
-        {
-          "step": 35,
-          "event": "PLACE",
-          "block": 0,
-          "rank": 3
-        },
-        {
-          "step": 36,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 36,
-          "event": "BACKTRACK",
-          "block": 0
-        },
-        {
-          "step": 36,
-          "event": "PLACE",
-          "block": 8,
-          "rank": 4
-        },
-        {
-          "step": 37,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 37,
+          "step": 43,
           "event": "BACKTRACK",
           "block": 8
         },
         {
-          "step": 37,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 5
-        },
-        {
-          "step": 38,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 38,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 38,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 6
-        },
-        {
-          "step": 39,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 39,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 39,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 7
-        },
-        {
-          "step": 40,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 40,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 40,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 8
-        },
-        {
-          "step": 41,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 41,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 41,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 5
-        },
-        {
-          "step": 42,
-          "event": "PLACE",
-          "block": 10,
-          "rank": 1,
-          "ranked": [
-            10,
-            12,
-            9,
-            13,
-            8,
-            14,
-            15,
-            16
-          ]
-        },
-        {
-          "step": 43,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 43,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
           "step": 43,
           "event": "PLACE",
-          "block": 12,
-          "rank": 2
+          "block": 13,
+          "rank": 3
         },
         {
           "step": 44,
@@ -1037,284 +1037,284 @@
         },
         {
           "step": 44,
+          "event": "BACKTRACK",
+          "block": 13
+        },
+        {
+          "step": 44,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 4
+        },
+        {
+          "step": 45,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 45,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 45,
+          "event": "PLACE",
+          "block": 12,
+          "rank": 5
+        },
+        {
+          "step": 46,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 46,
           "event": "BACKTRACK",
           "block": 12
         },
         {
-          "step": 44,
+          "step": 46,
           "event": "PLACE",
-          "block": 9,
-          "rank": 3
+          "block": 172,
+          "rank": 6
         },
         {
-          "step": 45,
+          "step": 47,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 45,
+          "step": 47,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 172
         },
         {
-          "step": 45,
+          "step": 47,
+          "event": "PLACE",
+          "block": 42,
+          "rank": 7
+        },
+        {
+          "step": 48,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 48,
+          "event": "BACKTRACK",
+          "block": 42
+        },
+        {
+          "step": 48,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 8
+        },
+        {
+          "step": 49,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 49,
+          "event": "BACKTRACK",
+          "block": 1
+        },
+        {
+          "step": 49,
+          "event": "PLACE",
+          "block": 9,
+          "rank": 6
+        },
+        {
+          "step": 50,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 1,
+          "ranked": [
+            14,
+            16,
+            15,
+            13,
+            254,
+            12,
+            30,
+            82
+          ]
+        },
+        {
+          "step": 51,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 51,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 51,
+          "event": "PLACE",
+          "block": 16,
+          "rank": 2
+        },
+        {
+          "step": 52,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 52,
+          "event": "BACKTRACK",
+          "block": 16
+        },
+        {
+          "step": 52,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 3
+        },
+        {
+          "step": 53,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 53,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 53,
           "event": "PLACE",
           "block": 13,
           "rank": 4
         },
         {
-          "step": 46,
+          "step": 54,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 46,
+          "step": 54,
           "event": "BACKTRACK",
           "block": 13
         },
         {
-          "step": 46,
+          "step": 54,
           "event": "PLACE",
-          "block": 8,
+          "block": 254,
           "rank": 5
         },
         {
-          "step": 47,
+          "step": 55,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 47,
+          "step": 55,
           "event": "BACKTRACK",
-          "block": 8
+          "block": 254
         },
         {
-          "step": 47,
+          "step": 55,
           "event": "PLACE",
-          "block": 14,
+          "block": 12,
           "rank": 6
         },
         {
-          "step": 48,
+          "step": 56,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 48,
+          "step": 56,
           "event": "BACKTRACK",
-          "block": 14
+          "block": 12
         },
         {
-          "step": 48,
+          "step": 56,
           "event": "PLACE",
-          "block": 15,
+          "block": 30,
           "rank": 7
         },
         {
-          "step": 49,
+          "step": 57,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 49,
+          "step": 57,
           "event": "BACKTRACK",
-          "block": 15
+          "block": 30
         },
         {
-          "step": 49,
+          "step": 57,
           "event": "PLACE",
-          "block": 16,
+          "block": 82,
           "rank": 8
         },
         {
-          "step": 50,
+          "step": 58,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 50,
-          "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 50,
-          "event": "PLACE",
-          "block": 2,
-          "rank": 6
-        },
-        {
-          "step": 51,
-          "event": "PLACE",
-          "block": 1,
-          "rank": 1,
-          "ranked": [
-            1,
-            3,
-            0,
-            8,
-            9,
-            10,
-            11,
-            12
-          ]
-        },
-        {
-          "step": 52,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 52,
-          "event": "BACKTRACK",
-          "block": 1
-        },
-        {
-          "step": 52,
-          "event": "PLACE",
-          "block": 3,
-          "rank": 2
-        },
-        {
-          "step": 53,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 53,
-          "event": "BACKTRACK",
-          "block": 3
-        },
-        {
-          "step": 53,
-          "event": "PLACE",
-          "block": 0,
-          "rank": 3
-        },
-        {
-          "step": 54,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 54,
-          "event": "BACKTRACK",
-          "block": 0
-        },
-        {
-          "step": 54,
-          "event": "PLACE",
-          "block": 8,
-          "rank": 4
-        },
-        {
-          "step": 55,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 55,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 55,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 5
-        },
-        {
-          "step": 56,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 56,
+          "step": 58,
           "event": "BACKTRACK",
           "block": 9
         },
         {
-          "step": 56,
+          "step": 58,
           "event": "PLACE",
-          "block": 10,
-          "rank": 6
-        },
-        {
-          "step": 57,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 57,
-          "event": "BACKTRACK",
-          "block": 10
-        },
-        {
-          "step": 57,
-          "event": "PLACE",
-          "block": 11,
+          "block": 25,
           "rank": 7
         },
         {
-          "step": 58,
+          "step": 59,
+          "event": "PLACE",
+          "block": 30,
+          "rank": 1,
+          "ranked": [
+            30,
+            32,
+            31,
+            19,
+            18,
+            29,
+            69,
+            77
+          ]
+        },
+        {
+          "step": 60,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 58,
+          "step": 60,
           "event": "BACKTRACK",
-          "block": 11
-        },
-        {
-          "step": 58,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 8
-        },
-        {
-          "step": 59,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 59,
-          "event": "BACKTRACK",
-          "block": 2
-        },
-        {
-          "step": 59,
-          "event": "PLACE",
-          "block": 12,
-          "rank": 7
+          "block": 30
         },
         {
           "step": 60,
           "event": "PLACE",
-          "block": 11,
-          "rank": 1,
-          "ranked": [
-            11,
-            13,
-            10,
-            14,
-            9,
-            15,
-            8,
-            16
-          ]
+          "block": 32,
+          "rank": 2
         },
         {
           "step": 61,
@@ -1354,7 +1354,7 @@
       "sha256": "fdc5de0ebbdb90a8e271c3c1e91bcd1f3db11f3387e2e54f2c17553560f089be",
       "attempts": 60,
       "search_status": "EXHAUSTED_BUDGET",
-      "ranker_used": "baseline",
+      "ranker_used": "ml",
       "explanation": "Verified up to byte 562: 2 complete entries ([Content_Types].xml, _rels/.rels). No complete continuation was found after block 10. The total size is unknown until the central directory is reached. The data needed after byte 562 is missing, corrupted, or not found by the search; the system cannot tell which.",
       "entries": [
         {
@@ -1426,48 +1426,47 @@
         {
           "step": 1,
           "event": "PLACE",
-          "block": 9,
+          "block": 11,
           "rank": 1,
           "ranked": [
-            9,
             11,
-            8,
-            12,
-            7,
+            15,
+            17,
             13,
-            6,
-            14
+            14,
+            16,
+            12,
+            5
           ]
         },
         {
           "step": 2,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 2,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 2,
-          "event": "PLACE",
-          "block": 11,
-          "rank": 2
-        },
-        {
-          "step": 3,
           "event": "PLACE",
           "block": 12,
           "rank": 1,
           "ranked": [
             12,
-            9,
-            13,
-            8,
+            16,
+            18,
             14,
-            7,
+            13,
+            17,
+            5,
+            6
+          ]
+        },
+        {
+          "step": 3,
+          "event": "PLACE",
+          "block": 13,
+          "rank": 1,
+          "ranked": [
+            13,
+            19,
+            17,
+            14,
+            5,
+            18,
             15,
             6
           ]
@@ -1475,354 +1474,355 @@
         {
           "step": 4,
           "event": "PLACE",
-          "block": 13,
+          "block": 14,
           "rank": 1,
           "ranked": [
-            13,
             14,
-            9,
+            18,
+            19,
+            20,
+            6,
             15,
-            8,
-            16,
-            7,
-            17
+            102,
+            172
           ]
         },
         {
           "step": 5,
           "event": "PLACE",
-          "block": 14,
+          "block": 15,
           "rank": 1,
           "ranked": [
-            14,
             15,
-            16,
-            9,
-            17,
-            8,
-            18,
-            7
+            19,
+            21,
+            20,
+            7,
+            172,
+            42,
+            73
           ]
         },
         {
           "step": 6,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 1,
-          "ranked": [
-            15,
-            16,
-            17,
-            18,
-            9,
-            19,
-            8,
-            20
-          ]
-        },
-        {
-          "step": 7,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_size_mismatch"
         },
         {
-          "step": 7,
+          "step": 6,
           "event": "BACKTRACK",
           "block": 15
         },
         {
-          "step": 7,
+          "step": 6,
           "event": "PLACE",
-          "block": 16,
+          "block": 19,
           "rank": 2
         },
         {
-          "step": 8,
+          "step": 7,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 8,
-          "event": "BACKTRACK",
-          "block": 16
-        },
-        {
-          "step": 8,
-          "event": "PLACE",
-          "block": 17,
-          "rank": 3
-        },
-        {
-          "step": 9,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 9,
-          "event": "BACKTRACK",
-          "block": 17
-        },
-        {
-          "step": 9,
-          "event": "PLACE",
-          "block": 18,
-          "rank": 4
-        },
-        {
-          "step": 10,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 10,
-          "event": "BACKTRACK",
-          "block": 18
-        },
-        {
-          "step": 10,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 5
-        },
-        {
-          "step": 11,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 11,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 11,
-          "event": "PLACE",
-          "block": 19,
-          "rank": 6
-        },
-        {
-          "step": 12,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 12,
+          "step": 7,
           "event": "BACKTRACK",
           "block": 19
         },
         {
-          "step": 12,
+          "step": 7,
           "event": "PLACE",
-          "block": 8,
-          "rank": 7
+          "block": 21,
+          "rank": 3
         },
         {
-          "step": 13,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 13,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 13,
-          "event": "PLACE",
-          "block": 20,
-          "rank": 8
-        },
-        {
-          "step": 14,
+          "step": 8,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 14,
+          "step": 8,
+          "event": "BACKTRACK",
+          "block": 21
+        },
+        {
+          "step": 8,
+          "event": "PLACE",
+          "block": 20,
+          "rank": 4
+        },
+        {
+          "step": 9,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 9,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 9,
+          "event": "PLACE",
+          "block": 7,
+          "rank": 5
+        },
+        {
+          "step": 10,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 10,
+          "event": "BACKTRACK",
+          "block": 7
+        },
+        {
+          "step": 10,
+          "event": "PLACE",
+          "block": 172,
+          "rank": 6
+        },
+        {
+          "step": 11,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 11,
+          "event": "BACKTRACK",
+          "block": 172
+        },
+        {
+          "step": 11,
+          "event": "PLACE",
+          "block": 42,
+          "rank": 7
+        },
+        {
+          "step": 12,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 12,
+          "event": "BACKTRACK",
+          "block": 42
+        },
+        {
+          "step": 12,
+          "event": "PLACE",
+          "block": 73,
+          "rank": 8
+        },
+        {
+          "step": 13,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 13,
           "event": "BACKTRACK",
           "block": 14
         },
         {
+          "step": 13,
+          "event": "PLACE",
+          "block": 18,
+          "rank": 2
+        },
+        {
           "step": 14,
           "event": "PLACE",
-          "block": 15,
-          "rank": 2
+          "block": 19,
+          "rank": 1,
+          "ranked": [
+            19,
+            23,
+            25,
+            24,
+            14,
+            47,
+            78,
+            148
+          ]
+        },
+        {
+          "step": 15,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 15,
+          "event": "BACKTRACK",
+          "block": 19
         },
         {
           "step": 15,
           "event": "PLACE",
-          "block": 14,
-          "rank": 1,
-          "ranked": [
-            14,
-            16,
-            17,
-            18,
-            19,
-            20,
-            9,
-            21
-          ]
+          "block": 23,
+          "rank": 2
         },
         {
           "step": 16,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
+          "reason": "entry_size_mismatch"
         },
         {
           "step": 16,
+          "event": "BACKTRACK",
+          "block": 23
+        },
+        {
+          "step": 16,
+          "event": "PLACE",
+          "block": 25,
+          "rank": 3
+        },
+        {
+          "step": 17,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 17,
+          "event": "BACKTRACK",
+          "block": 25
+        },
+        {
+          "step": 17,
+          "event": "PLACE",
+          "block": 24,
+          "rank": 4
+        },
+        {
+          "step": 18,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 18,
+          "event": "BACKTRACK",
+          "block": 24
+        },
+        {
+          "step": 18,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 5
+        },
+        {
+          "step": 19,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 19,
           "event": "BACKTRACK",
           "block": 14
         },
         {
-          "step": 16,
-          "event": "PLACE",
-          "block": 16,
-          "rank": 2
-        },
-        {
-          "step": 17,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 17,
-          "event": "BACKTRACK",
-          "block": 16
-        },
-        {
-          "step": 17,
-          "event": "PLACE",
-          "block": 17,
-          "rank": 3
-        },
-        {
-          "step": 18,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 18,
-          "event": "BACKTRACK",
-          "block": 17
-        },
-        {
-          "step": 18,
-          "event": "PLACE",
-          "block": 18,
-          "rank": 4
-        },
-        {
           "step": 19,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
+          "event": "PLACE",
+          "block": 47,
+          "rank": 6
         },
         {
-          "step": 19,
+          "step": 20,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 20,
+          "event": "BACKTRACK",
+          "block": 47
+        },
+        {
+          "step": 20,
+          "event": "PLACE",
+          "block": 78,
+          "rank": 7
+        },
+        {
+          "step": 21,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 21,
+          "event": "BACKTRACK",
+          "block": 78
+        },
+        {
+          "step": 21,
+          "event": "PLACE",
+          "block": 148,
+          "rank": 8
+        },
+        {
+          "step": 22,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_size_mismatch"
+        },
+        {
+          "step": 22,
           "event": "BACKTRACK",
           "block": 18
         },
         {
-          "step": 19,
+          "step": 22,
           "event": "PLACE",
           "block": 19,
-          "rank": 5
+          "rank": 3
         },
         {
-          "step": 20,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 20,
-          "event": "BACKTRACK",
-          "block": 19
-        },
-        {
-          "step": 20,
+          "step": 23,
           "event": "PLACE",
           "block": 20,
-          "rank": 6
+          "rank": 1,
+          "ranked": [
+            20,
+            24,
+            26,
+            14,
+            25,
+            15,
+            42,
+            102
+          ]
         },
         {
-          "step": 21,
+          "step": 24,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 21,
+          "step": 24,
           "event": "BACKTRACK",
           "block": 20
-        },
-        {
-          "step": 21,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 7
-        },
-        {
-          "step": 22,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 22,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 22,
-          "event": "PLACE",
-          "block": 21,
-          "rank": 8
-        },
-        {
-          "step": 23,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 23,
-          "event": "BACKTRACK",
-          "block": 15
-        },
-        {
-          "step": 23,
-          "event": "PLACE",
-          "block": 16,
-          "rank": 3
         },
         {
           "step": 24,
           "event": "PLACE",
-          "block": 15,
-          "rank": 1,
-          "ranked": [
-            15,
-            17,
-            14,
-            18,
-            19,
-            20,
-            21,
-            22
-          ]
+          "block": 24,
+          "rank": 2
         },
         {
           "step": 25,
@@ -1833,30 +1833,30 @@
         {
           "step": 25,
           "event": "BACKTRACK",
-          "block": 15
+          "block": 24
         },
         {
           "step": 25,
           "event": "PLACE",
-          "block": 17,
-          "rank": 2
+          "block": 26,
+          "rank": 3
         },
         {
           "step": 26,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
+          "reason": "entry_size_mismatch"
         },
         {
           "step": 26,
           "event": "BACKTRACK",
-          "block": 17
+          "block": 26
         },
         {
           "step": 26,
           "event": "PLACE",
           "block": 14,
-          "rank": 3
+          "rank": 4
         },
         {
           "step": 27,
@@ -1872,8 +1872,8 @@
         {
           "step": 27,
           "event": "PLACE",
-          "block": 18,
-          "rank": 4
+          "block": 25,
+          "rank": 5
         },
         {
           "step": 28,
@@ -1884,116 +1884,116 @@
         {
           "step": 28,
           "event": "BACKTRACK",
-          "block": 18
+          "block": 25
         },
         {
           "step": 28,
           "event": "PLACE",
-          "block": 19,
-          "rank": 5
+          "block": 15,
+          "rank": 6
         },
         {
           "step": 29,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
+          "reason": "entry_size_mismatch"
         },
         {
           "step": 29,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 29,
+          "event": "PLACE",
+          "block": 42,
+          "rank": 7
+        },
+        {
+          "step": 30,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 30,
+          "event": "BACKTRACK",
+          "block": 42
+        },
+        {
+          "step": 30,
+          "event": "PLACE",
+          "block": 102,
+          "rank": 8
+        },
+        {
+          "step": 31,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 31,
           "event": "BACKTRACK",
           "block": 19
         },
         {
-          "step": 29,
+          "step": 31,
           "event": "PLACE",
           "block": 20,
-          "rank": 6
+          "rank": 4
         },
         {
-          "step": 30,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 30,
-          "event": "BACKTRACK",
-          "block": 20
-        },
-        {
-          "step": 30,
+          "step": 32,
           "event": "PLACE",
           "block": 21,
-          "rank": 7
+          "rank": 1,
+          "ranked": [
+            21,
+            25,
+            27,
+            14,
+            26,
+            19,
+            15,
+            109
+          ]
         },
         {
-          "step": 31,
+          "step": 33,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 31,
+          "step": 33,
           "event": "BACKTRACK",
           "block": 21
         },
         {
-          "step": 31,
-          "event": "PLACE",
-          "block": 22,
-          "rank": 8
-        },
-        {
-          "step": 32,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 32,
-          "event": "BACKTRACK",
-          "block": 16
-        },
-        {
-          "step": 32,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 4
-        },
-        {
           "step": 33,
           "event": "PLACE",
-          "block": 8,
-          "rank": 1,
-          "ranked": [
-            8,
-            7,
-            6,
-            5,
-            4,
-            14,
-            3,
-            15
-          ]
-        },
-        {
-          "step": 34,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 34,
-          "event": "BACKTRACK",
-          "block": 8
-        },
-        {
-          "step": 34,
-          "event": "PLACE",
-          "block": 7,
+          "block": 25,
           "rank": 2
         },
         {
+          "step": 34,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 34,
+          "event": "BACKTRACK",
+          "block": 25
+        },
+        {
+          "step": 34,
+          "event": "PLACE",
+          "block": 27,
+          "rank": 3
+        },
+        {
           "step": 35,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
@@ -2001,436 +2001,436 @@
         },
         {
           "step": 35,
+          "event": "BACKTRACK",
+          "block": 27
+        },
+        {
+          "step": 35,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 4
+        },
+        {
+          "step": 36,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 36,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 36,
+          "event": "PLACE",
+          "block": 26,
+          "rank": 5
+        },
+        {
+          "step": 37,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 37,
+          "event": "BACKTRACK",
+          "block": 26
+        },
+        {
+          "step": 37,
+          "event": "PLACE",
+          "block": 19,
+          "rank": 6
+        },
+        {
+          "step": 38,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 38,
+          "event": "BACKTRACK",
+          "block": 19
+        },
+        {
+          "step": 38,
+          "event": "PLACE",
+          "block": 15,
+          "rank": 7
+        },
+        {
+          "step": 39,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 39,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 39,
+          "event": "PLACE",
+          "block": 109,
+          "rank": 8
+        },
+        {
+          "step": 40,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 40,
+          "event": "BACKTRACK",
+          "block": 20
+        },
+        {
+          "step": 40,
+          "event": "PLACE",
+          "block": 6,
+          "rank": 5
+        },
+        {
+          "step": 41,
+          "event": "PLACE",
+          "block": 7,
+          "rank": 1,
+          "ranked": [
+            7,
+            1,
+            14,
+            5,
+            172,
+            19,
+            42,
+            73
+          ]
+        },
+        {
+          "step": 42,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 42,
           "event": "BACKTRACK",
           "block": 7
         },
         {
-          "step": 35,
+          "step": 42,
           "event": "PLACE",
-          "block": 6,
-          "rank": 3
+          "block": 1,
+          "rank": 2
         },
         {
-          "step": 36,
+          "step": 43,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 36,
+          "step": 43,
           "event": "BACKTRACK",
-          "block": 6
+          "block": 1
         },
         {
-          "step": 36,
+          "step": 43,
+          "event": "PLACE",
+          "block": 14,
+          "rank": 3
+        },
+        {
+          "step": 44,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 44,
+          "event": "BACKTRACK",
+          "block": 14
+        },
+        {
+          "step": 44,
           "event": "PLACE",
           "block": 5,
           "rank": 4
         },
         {
-          "step": 37,
+          "step": 45,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 37,
+          "step": 45,
           "event": "BACKTRACK",
           "block": 5
         },
         {
-          "step": 37,
+          "step": 45,
           "event": "PLACE",
-          "block": 4,
+          "block": 172,
           "rank": 5
         },
         {
-          "step": 38,
+          "step": 46,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 38,
+          "step": 46,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 172
         },
         {
-          "step": 38,
+          "step": 46,
           "event": "PLACE",
-          "block": 14,
+          "block": 19,
           "rank": 6
         },
         {
-          "step": 39,
+          "step": 47,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 39,
+          "step": 47,
           "event": "BACKTRACK",
-          "block": 14
+          "block": 19
         },
         {
-          "step": 39,
+          "step": 47,
           "event": "PLACE",
-          "block": 3,
+          "block": 42,
           "rank": 7
         },
         {
-          "step": 40,
+          "step": 48,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 40,
+          "step": 48,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 42
         },
         {
-          "step": 40,
+          "step": 48,
           "event": "PLACE",
-          "block": 15,
+          "block": 73,
           "rank": 8
         },
         {
-          "step": 41,
+          "step": 49,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
+          "reason": "entry_zlib_error"
         },
         {
-          "step": 41,
+          "step": 49,
           "event": "BACKTRACK",
-          "block": 9
+          "block": 6
         },
         {
-          "step": 41,
+          "step": 49,
           "event": "PLACE",
-          "block": 17,
-          "rank": 5
+          "block": 15,
+          "rank": 6
         },
         {
-          "step": 42,
+          "step": 50,
           "event": "PLACE",
           "block": 16,
           "rank": 1,
           "ranked": [
             16,
-            18,
-            15,
-            19,
-            14,
             20,
+            22,
             21,
-            22
+            14,
+            19,
+            8,
+            83
           ]
         },
         {
-          "step": 43,
+          "step": 51,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 43,
+          "step": 51,
           "event": "BACKTRACK",
           "block": 16
         },
         {
-          "step": 43,
+          "step": 51,
           "event": "PLACE",
-          "block": 18,
+          "block": 20,
           "rank": 2
         },
         {
-          "step": 44,
+          "step": 52,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 44,
-          "event": "BACKTRACK",
-          "block": 18
-        },
-        {
-          "step": 44,
-          "event": "PLACE",
-          "block": 15,
-          "rank": 3
-        },
-        {
-          "step": 45,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 45,
-          "event": "BACKTRACK",
-          "block": 15
-        },
-        {
-          "step": 45,
-          "event": "PLACE",
-          "block": 19,
-          "rank": 4
-        },
-        {
-          "step": 46,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 46,
-          "event": "BACKTRACK",
-          "block": 19
-        },
-        {
-          "step": 46,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 5
-        },
-        {
-          "step": 47,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 47,
-          "event": "BACKTRACK",
-          "block": 14
-        },
-        {
-          "step": 47,
-          "event": "PLACE",
-          "block": 20,
-          "rank": 6
-        },
-        {
-          "step": 48,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 48,
+          "step": 52,
           "event": "BACKTRACK",
           "block": 20
         },
         {
-          "step": 48,
+          "step": 52,
           "event": "PLACE",
-          "block": 21,
-          "rank": 7
+          "block": 22,
+          "rank": 3
         },
         {
-          "step": 49,
+          "step": 53,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 49,
+          "step": 53,
+          "event": "BACKTRACK",
+          "block": 22
+        },
+        {
+          "step": 53,
+          "event": "PLACE",
+          "block": 21,
+          "rank": 4
+        },
+        {
+          "step": 54,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 54,
           "event": "BACKTRACK",
           "block": 21
         },
         {
-          "step": 49,
-          "event": "PLACE",
-          "block": 22,
-          "rank": 8
-        },
-        {
-          "step": 50,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 50,
-          "event": "BACKTRACK",
-          "block": 17
-        },
-        {
-          "step": 50,
-          "event": "PLACE",
-          "block": 8,
-          "rank": 6
-        },
-        {
-          "step": 51,
-          "event": "PLACE",
-          "block": 7,
-          "rank": 1,
-          "ranked": [
-            7,
-            9,
-            6,
-            5,
-            4,
-            3,
-            2,
-            14
-          ]
-        },
-        {
-          "step": 52,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 52,
-          "event": "BACKTRACK",
-          "block": 7
-        },
-        {
-          "step": 52,
-          "event": "PLACE",
-          "block": 9,
-          "rank": 2
-        },
-        {
-          "step": 53,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 53,
-          "event": "BACKTRACK",
-          "block": 9
-        },
-        {
-          "step": 53,
-          "event": "PLACE",
-          "block": 6,
-          "rank": 3
-        },
-        {
-          "step": 54,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 54,
-          "event": "BACKTRACK",
-          "block": 6
-        },
-        {
           "step": 54,
           "event": "PLACE",
-          "block": 5,
-          "rank": 4
-        },
-        {
-          "step": 55,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_zlib_error"
-        },
-        {
-          "step": 55,
-          "event": "BACKTRACK",
-          "block": 5
-        },
-        {
-          "step": 55,
-          "event": "PLACE",
-          "block": 4,
+          "block": 14,
           "rank": 5
         },
         {
-          "step": 56,
+          "step": 55,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 56,
+          "step": 55,
           "event": "BACKTRACK",
-          "block": 4
+          "block": 14
         },
         {
-          "step": 56,
+          "step": 55,
           "event": "PLACE",
-          "block": 3,
+          "block": 19,
           "rank": 6
         },
         {
-          "step": 57,
+          "step": 56,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 57,
+          "step": 56,
           "event": "BACKTRACK",
-          "block": 3
+          "block": 19
         },
         {
-          "step": 57,
+          "step": 56,
           "event": "PLACE",
-          "block": 2,
+          "block": 8,
           "rank": 7
         },
         {
-          "step": 58,
+          "step": 57,
           "event": "VERIFY_FAIL",
           "chunk": "entry:word/document.xml",
           "reason": "entry_zlib_error"
         },
         {
-          "step": 58,
-          "event": "BACKTRACK",
-          "block": 2
-        },
-        {
-          "step": 58,
-          "event": "PLACE",
-          "block": 14,
-          "rank": 8
-        },
-        {
-          "step": 59,
-          "event": "VERIFY_FAIL",
-          "chunk": "entry:word/document.xml",
-          "reason": "entry_size_mismatch"
-        },
-        {
-          "step": 59,
+          "step": 57,
           "event": "BACKTRACK",
           "block": 8
         },
         {
+          "step": 57,
+          "event": "PLACE",
+          "block": 83,
+          "rank": 8
+        },
+        {
+          "step": 58,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 58,
+          "event": "BACKTRACK",
+          "block": 15
+        },
+        {
+          "step": 58,
+          "event": "PLACE",
+          "block": 102,
+          "rank": 7
+        },
+        {
           "step": 59,
           "event": "PLACE",
-          "block": 18,
-          "rank": 7
+          "block": 103,
+          "rank": 1,
+          "ranked": [
+            103,
+            107,
+            109,
+            108,
+            14,
+            172,
+            307,
+            321
+          ]
+        },
+        {
+          "step": 60,
+          "event": "VERIFY_FAIL",
+          "chunk": "entry:word/document.xml",
+          "reason": "entry_zlib_error"
+        },
+        {
+          "step": 60,
+          "event": "BACKTRACK",
+          "block": 103
         },
         {
           "step": 60,
           "event": "PLACE",
-          "block": 17,
-          "rank": 1,
-          "ranked": [
-            17,
-            19,
-            16,
-            20,
-            15,
-            21,
-            14,
-            22
-          ]
+          "block": 107,
+          "rank": 2
         },
         {
           "step": 61,

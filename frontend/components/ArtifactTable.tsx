@@ -3,7 +3,7 @@
 // rankers end in different evidence states are marked, and flash briefly when
 // the ranker toggle flips. Rows can be shown in disk order or by triage score.
 import { useEffect, useRef, useState } from "react";
-import { isZipLike, previewUrl, typeLabel, type Artifact, type CaseReport, type RankerName } from "@/lib/api";
+import { isZipLike, previewUrl, typeLabel, zipRankerNote, type Artifact, type CaseReport, type RankerName } from "@/lib/api";
 import { Card, Empty, ErrorBox, Segmented, Skeleton, StateBadge, type Remote } from "./ui";
 
 export type RowOrder = "disk" | "priority";
@@ -171,7 +171,18 @@ export function ArtifactTable({ caseId, baseline, ml, active, order, onOrderChan
                   </td>
                   <td className={`${cell} whitespace-nowrap text-ink-2`}>{described ? typeLabel(described) : "—"}</td>
                   <td className={cell}><StateBadge state={b?.state} /></td>
-                  <td className={cell}><StateBadge state={m?.state} /></td>
+                  <td className={cell}>
+                    <StateBadge state={m?.state} />
+                    {zipRankerNote(m) && (
+                      <div
+                        className={`mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider ${
+                          m?.ranker_used === "ml" ? "text-muted" : "text-partial"
+                        }`}
+                      >
+                        {zipRankerNote(m)}
+                      </div>
+                    )}
+                  </td>
                   <td className={`${cell} font-mono text-ink-2`}>{b?.attempts ?? "—"} / {m?.attempts ?? "—"}</td>
                   <td className={`${cell} font-mono text-ink`}>{shown ? shown.triage.score.toFixed(2) : "—"}</td>
                 </tr>

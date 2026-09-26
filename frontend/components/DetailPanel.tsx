@@ -119,6 +119,11 @@ type Props = { caseId: string; ranker: RankerName; report: Remote<{ artifacts: A
 
 export function DetailPanel({ caseId, ranker, report, anchor }: Props) {
   const title = `Artifact detail · ${ranker === "ml" ? "ML" : "baseline"} ranker`;
+  const picked = report.status === "ok" && anchor !== null
+    ? report.data.artifacts.find((a) => a.anchor_block === anchor)
+    : undefined;
+  const fallback = ranker === "ml" && picked && isZipLike(picked) && picked.ranker_used === "baseline";
+  const docxModel = ranker === "ml" && picked && isZipLike(picked) && picked.ranker_used === "ml";
   if (report.status === "loading") return <Card title={title}><Loading what="artifact" lines={6} /></Card>;
   if (report.status === "error") return <Card title={title}><ErrorBox message={report.message} /></Card>;
   if (anchor === null) return <Card title={title}><Empty message="Select an artifact row to see its proof." /></Card>;
@@ -127,6 +132,16 @@ export function DetailPanel({ caseId, ranker, report, anchor }: Props) {
 
   return (
     <div className="space-y-5">
+      {fallback && (
+        <p className="rounded-lg border border-partial/40 bg-partial/10 px-3 py-2 text-xs font-medium text-partial">
+          This ML-column result used the baseline ranker: no DOCX ML model was available when it was analysed.
+        </p>
+      )}
+      {docxModel && (
+        <p className="rounded-lg border border-line bg-panel-2 px-3 py-2 text-xs text-ink-2">
+          Ordered by the separate DOCX model (ranker_docx.joblib), not the PNG model.
+        </p>
+      )}
       <Card title={title} right={<StateBadge state={artifact.state} />}>
         <div className="grid gap-5 2xl:grid-cols-[minmax(0,auto)_minmax(0,1fr)]">
           {isZipLike(artifact)

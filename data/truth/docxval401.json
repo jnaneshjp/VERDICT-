@@ -1,0 +1,64 @@
+{
+  "case_id": "docxval401",
+  "corpus": "docx_val",
+  "seed": 401,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "b1a8b1302fe7bbe301af167e4df60155795ab74c149779ec71b4981a3663370f",
+  "files": [
+    {
+      "name": "doc_01_menu_plan.docx",
+      "type": "docx",
+      "size": 22281,
+      "sha256": "6a3bcb3182dda6aa283faf114e42568cec05dcc401817fbeec7743714dc9daf7",
+      "blocks": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    },
+    {
+      "name": "doc_02_insurance_claim.docx",
+      "type": "docx",
+      "size": 15888,
+      "sha256": "fb1803d8673943bcb02b0ef52ce90acdc60dc96cd11c1fd2cb1e2c897087c01f",
+      "blocks": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        3
+      ]
+    },
+    {
+      "name": "doc_03_lease_agreement.docx",
+      "type": "docx",
+      "size": 14598,
+      "sha256": "b9a9aa9389bfd6c65522551154761d333b792ddf3c170262b3d216077c7e7287",
+      "blocks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        3
+      ]
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

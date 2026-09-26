@@ -1,0 +1,64 @@
+{
+  "case_id": "docxtrain304",
+  "corpus": "docx_train",
+  "seed": 304,
+  "block_size": 4096,
+  "num_blocks": 2000,
+  "image_sha256": "a2d2d7b3a70f0bc76ef7fd18e8327734c4495d878e710f6cc2a9f7f1d5dafec0",
+  "files": [
+    {
+      "name": "doc_01_meeting_agenda.docx",
+      "type": "docx",
+      "size": 13328,
+      "sha256": "71a2d67b05fa78d8bc6ab27dfcd4599b6c42508d5f52aa0f4260eee280a7aa75",
+      "blocks": [
+        0,
+        1,
+        2,
+        9
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "doc_02_project_charter.docx",
+      "type": "docx",
+      "size": 13875,
+      "sha256": "26c56ab35b6cfbe934971050fd4a97913cf46569b7adf378299124b209765156",
+      "blocks": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "partially_overwritten",
+      "corrupted_blocks": [],
+      "overwritten_blocks": [
+        9
+      ]
+    },
+    {
+      "name": "doc_03_safety_briefing.docx",
+      "type": "docx",
+      "size": 22811,
+      "sha256": "9875f3364e5919c9c7dac288f5e64bed187667d3eed3ef00d22ccde6853bdc62",
+      "blocks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "status": "deleted",
+      "corrupted_blocks": [],
+      "overwritten_blocks": []
+    }
+  ],
+  "corrupted_blocks": [],
+  "duplicated_blocks": []
+}

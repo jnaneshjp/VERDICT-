@@ -31,7 +31,7 @@ from core.config import BLOCK_SIZE, IDAT_CHUNK_SIZE, WINDOW  # noqa: E402
 
 NUM_BLOCKS = 2000
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
-CORPUS_IDS = {"train": 1, "val": 2, "demo": 3, "docx": 4}  # keeps each corpus in its own seed space
+CORPUS_IDS = {"train": 1, "val": 2, "demo": 3, "docx": 4, "docx_train": 5, "docx_val": 6}  # keeps each corpus in its own seed space
 
 
 # ---------------------------------------------------------------- PNG writer
@@ -143,6 +143,8 @@ IMAGE_FAMILIES = {
     "val": [field_waves, field_blobs, field_diamonds],
     "demo": [field_plasma, field_terrain, field_spiral],
     "docx": [field_rings, field_blobs, field_plasma],     # residue only; docx disks hold no PNGs
+    "docx_train": [field_stripes, field_checker, field_waves],
+    "docx_val": [field_diamonds, field_terrain, field_spiral],
 }
 
 
@@ -200,6 +202,8 @@ CSV_HEADERS = {
     "val": "txn_id,account,amount,currency",
     "demo": "sku,item,warehouse,qty,unit_price",
     "docx": "sku,item,warehouse,qty,unit_price",   # residue only (rows use the demo format)
+    "docx_train": "sku,item,warehouse,qty,unit_price",
+    "docx_val": "sku,item,warehouse,qty,unit_price",
 }
 
 
@@ -233,6 +237,25 @@ DOCX_WORDS = ("account amount approved archive asset audit balance batch branch 
               "signature statement storage summary supplier tally ticket transfer vault voucher "
               "warehouse witness").split()
 
+# docx_train / docx_val use their own topics and vocabulary, so they share no text with docx.
+DOCX_VOCAB = {
+    "docx": (DOCX_TOPICS, DOCX_WORDS),
+    "docx_train": (["lab protocol", "grant proposal", "course syllabus", "trial summary",
+                    "equipment log", "safety briefing", "project charter", "meeting agenda"],
+                   ("abstract analysis apparatus assay baseline beaker calibration cohort control "
+                    "dataset dosage enzyme experiment faculty funding hypothesis incubator instrument "
+                    "journal lecture method microscope milestone module objective outcome participant "
+                    "pipette placebo poster protocol reagent replicate rubric sample semester seminar "
+                    "specimen statistic student syllabus technician thesis trial tutor variable").split()),
+    "docx_val": (["travel itinerary", "menu plan", "event program", "lease agreement",
+                  "insurance claim", "repair estimate", "tenancy notice", "garden plan"],
+                 ("airport apartment balcony booking bridge cabin carpet ceiling cottage courtyard "
+                  "cushion deposit dinner driveway fence festival garden gate guest harbour heater "
+                  "hostel kitchen ladder landlord lantern luggage market orchard parking patio "
+                  "picnic plumbing porch recipe roof season shelf station terrace ticket timber "
+                  "tram valley veranda village window").split()),
+}
+
 DOCX_PARTS = {
     "[Content_Types].xml": (
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
@@ -251,14 +274,14 @@ DOCX_PARTS = {
 }
 
 
-def docx_paragraph(rng):
-    words = [str(rng.choice(DOCX_WORDS)) for _ in range(int(rng.integers(12, 40)))]
+def docx_paragraph(rng, vocab=DOCX_WORDS):
+    words = [str(rng.choice(vocab)) for _ in range(int(rng.integers(12, 40)))]
     words.insert(int(rng.integers(len(words))), f"#{int(rng.integers(10000, 99999))}")
     words.insert(int(rng.integers(len(words))), f"{rng.uniform(10, 99999):.2f}")
     return " ".join(words).capitalize() + "."
 
 
-def write_docx(rng, title, min_size):
+def write_docx(rng, title, min_size, vocab=DOCX_WORDS):
     """A minimal DOCX (zipfile, ZIP_DEFLATED) at least `min_size` bytes long.
 
     Written to a seekable buffer so zipfile never uses data descriptors (flag bit 3 = 0).
@@ -266,7 +289,7 @@ def write_docx(rng, title, min_size):
     """
     paragraphs = [title.title()]
     while True:
-        paragraphs += [docx_paragraph(rng) for _ in range(20)]
+        paragraphs += [docx_paragraph(rng, vocab) for _ in range(20)]
         body = "".join(f"<w:p><w:r><w:t>{p}</w:t></w:r></w:p>" for p in paragraphs)
         parts = dict(DOCX_PARTS)
         parts["word/document.xml"] = (
@@ -300,12 +323,13 @@ def check_docx(data):
             raise RuntimeError("DOCX is missing a required part")
 
 
-def build_docx_corpus(rng):
+def build_docx_corpus(rng, corpus="docx"):
     """3-4 DOCX files, each >= 12 KB so it spans at least 3 blocks."""
+    topics, vocab = DOCX_VOCAB[corpus]
     files = []
     for number in range(1, int(rng.integers(3, 5)) + 1):
-        topic = str(rng.choice(DOCX_TOPICS))
-        data = write_docx(rng, topic, int(rng.integers(12 * 1024, 24 * 1024)))
+        topic = str(rng.choice(topics))
+        data = write_docx(rng, topic, int(rng.integers(12 * 1024, 24 * 1024)), vocab)
         check_docx(data)
         files.append({"name": f"doc_{number:02d}_{topic.replace(' ', '_')}.docx", "type": "docx", "data": data})
     return files
@@ -313,8 +337,8 @@ def build_docx_corpus(rng):
 
 def build_corpus(rng, corpus):
     """6 procedural PNGs, 2 text logs and 1 CSV (docx corpus: 3-4 DOCX files only)."""
-    if corpus == "docx":
-        return build_docx_corpus(rng)
+    if corpus.startswith("docx"):
+        return build_docx_corpus(rng, corpus)
     files = []
     for number in range(1, 7):
         family, pixels = make_image(rng, corpus)
